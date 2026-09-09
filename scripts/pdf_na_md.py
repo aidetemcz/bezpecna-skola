@@ -15,6 +15,7 @@ from pdf_struktura import parse, to_markdown
 import pdf_obecny
 
 DOC = "Minimální standard bezpečnosti v regionálním školství"
+DOC_KRATCE = "Minimální standard MŠMT"
 CJ = "MSMT-19322/2024-4"
 VYDAL = "MŠMT ve spolupráci s MV, Policejním prezidiem ČR a MV – GŘ HZS ČR"
 DATUM = "2024-11"
@@ -100,6 +101,48 @@ MAP2 = [
   "doc. PhDr. Barbora Vegrichtová, Ph.D., MBA a kol.", "", "Další metodiky"),
 ]
 
+# tematicke podslozky podle faze, kterou dokument resi
+FAZE = {
+    "01-ramec-a-legislativa": (
+        "Rámec a legislativa",
+        "Co škola musí, co má zpracované a jakým jazykem se o bezpečnosti mluví.",
+        ["00-minimalni-standard-bezpecnosti.md", "priloha-01-terminologie.md",
+         "priloha-02-legislativa.md", "priloha-03-metodicke-materialy.md",
+         "priloha-04-dokumentace.md", "amok-11-nejcastejsi-dotazy.md",
+         "amok-12-koordinace-postupu-skoly.md"]),
+    "02-prevence-a-priprava": (
+        "Prevence a příprava",
+        "Co dělat, dokud se nic neděje: analýza rizik, opatření, výcvik, čtení varovných signálů.",
+        ["priloha-06-bezpecnostni-analyza.md", "priloha-07-bezpecnostni-plan.md",
+         "priloha-09-vzdelavani.md", "priloha-10-priklady-bezpecnostnich-opatreni.md",
+         "amok-01-prevence-a-pripravenost.md",
+         "amok-02-skoly-signaly-detekce-hodnoceni-reakce.md",
+         "amok-03-instituce-indikatory-hrozby.md", "amok-08-dny-otevrenych-dveri.md",
+         "vegrichtova-indikatory-radikalizace.md"]),
+    "03-krizova-reakce": (
+        "Krizová reakce",
+        "Co dělat v prvních minutách a hodinách incidentu.",
+        ["priloha-11-karta-skoly-izs.md", "amok-04-okamzita-reakce-na-utok.md",
+         "amok-07-podezreni-na-zbran-ve-skole.md", "amok-09-obecna-doporuceni.md",
+         "amok-10-zasady-krizove-komunikace.md",
+         "krit-akutni-komunikace-ve-skolnim-prostredi.md"]),
+    "04-po-krizi-a-navrat": (
+        "Po krizi a návrat",
+        "Stabilizace, evidence, předání případu dál a návrat do běžného provozu.",
+        ["priloha-05-evidence-bezpecnostnich-incidentu.md",
+         "priloha-05-formular-zaznam-o-incidentu.md", "priloha-08-koordinacni-plan.md",
+         "amok-05-bezprostredne-po-utoku.md", "amok-06-zpet-do-bezneho-rezimu.md",
+         "mpsv-metodicka-prirucka-pro-kuratory.md"]),
+}
+SUBDIR = {f: d for d, (_, _, files) in FAZE.items() for f in files}
+
+
+def out_path(outdir, name):
+    d = os.path.join(outdir, SUBDIR[name])
+    os.makedirs(d, exist_ok=True)
+    return os.path.join(d, name)
+
+
 CAT_ORDER = ["zavazne", "doporuceni", "informace"]
 
 
@@ -107,7 +150,7 @@ def yaml_str(s):
     return '"' + s.replace('"', '\\"') + '"'
 
 
-def meta_lines(title, cast, src, pages, cats):
+def meta_lines(title, cast, src, pages, cats, out):
     m = [
         f"title: {yaml_str(title)}",
         f"dokument: {yaml_str(DOC)}",
@@ -115,8 +158,9 @@ def meta_lines(title, cast, src, pages, cats):
         f"vydal: {yaml_str(VYDAL)}",
         f"cj: {yaml_str(CJ)}",
         f"datum: {yaml_str(DATUM)}",
-        f"zdroj: {yaml_str('zdrojova-data/' + src)}",
+        f"zdroj: {yaml_str('../../zdrojova-data/' + src)}",
         f"stran: {pages}",
+        f"faze: {yaml_str(SUBDIR[out])}",
     ]
     if cats:
         m.append("kategorie: [" + ", ".join(cats) + "]")
@@ -130,10 +174,10 @@ def build_pdf(src, out, cast, outdir):
         pages = len(pdf.pages)
     title = TITLES[out]
     cats = [c for c in CAT_ORDER if any(b["cat"] == c for b in blocks)]
-    md = to_markdown(blocks, notes, meta_lines(title, cast, src, pages, cats), title)
+    md = to_markdown(blocks, notes, meta_lines(title, cast, src, pages, cats, out), title)
     if out.startswith("00-"):
         md = fix_legend(md)
-    open(os.path.join(outdir, out), "w", encoding="utf-8").write(md)
+    open(out_path(outdir, out), "w", encoding="utf-8").write(md)
     return out, title, len(md)
 
 
@@ -179,10 +223,10 @@ def build_generic(entry, outdir):
             f"vydal: {yaml_str(vydal)}"]
     if datum:
         meta.append(f"datum: {yaml_str(datum)}")
-    meta += [f"zdroj: {yaml_str('zdrojova-data/' + src)}", f"stran: {pages}"]
+    meta += [f"zdroj: {yaml_str('../../zdrojova-data/' + src)}", f"stran: {pages}"]
     meta += EXTRA_META.get(out, [])
     md = pdf_obecny.to_markdown(blocks, body, meta, title)
-    open(os.path.join(outdir, out), "w", encoding="utf-8").write(md)
+    open(out_path(outdir, out), "w", encoding="utf-8").write(md)
     return out, title, len(md)
 
 
@@ -223,7 +267,7 @@ def build_docx(outdir):
             body.append("- " + it)
 
     md = ["---"] + meta_lines("Záznam o bezpečnostním incidentu (formulář)",
-                              cast, src, 1, []) + ["---", "",
+                              cast, src, 1, [], out) + ["---", "",
           "# Záznam o bezpečnostním incidentu", "",
           "Formulář z přílohy č. 5. Nadpisy jsou předtištěné oddíly formuláře,",
           "odrážky jednotlivá pole k vyplnění.", "",
@@ -232,7 +276,7 @@ def build_docx(outdir):
     md += ["- " + h.rstrip(":") + ":" for h in header]
     md += body
     text = re.sub(r"\n{3,}", "\n\n", "\n".join(md)).rstrip() + "\n"
-    open(os.path.join(outdir, out), "w", encoding="utf-8").write(text)
+    open(out_path(outdir, out), "w", encoding="utf-8").write(text)
     return out, "Záznam o bezpečnostním incidentu (formulář)", 0
 
 
@@ -244,11 +288,18 @@ obsah je převzatý ze zdroje, není přeformulovaný ani zkracovaný.
 
 Pro citaci a právní účely je závazné vždy původní PDF, ne tento přepis.
 
+## Členění složky
+
+Soubory jsou rozdělené podle **fáze, kterou řeší** — ne podle vydavatele.
+Jedna fáze = jedna podsložka. Dokumenty od různých vydavatelů se tak potkávají
+tam, kde se potkávají i v praxi: metodika MŠMT říká, co má škola mít
+zpracované, policejní doporučení AMOK, co má člověk v tu chvíli udělat.
+
 ## Hlavička souboru
 
 Každý soubor začíná YAML hlavičkou: `title`, `dokument` (celek, do kterého
-patří), `vydal`, `zdroj` (cesta k původnímu souboru) a `stran`. Dokumenty MŠMT
-navíc nesou `cast`, `cj`, `datum` a `kategorie`.
+patří), `vydal`, `zdroj` (cesta k původnímu souboru), `stran` a `faze`
+(podsložka). Dokumenty MŠMT navíc nesou `cast`, `cj`, `datum` a `kategorie`.
 
 ## Značky druhu obsahu (jen metodika MŠMT)
 
@@ -265,7 +316,7 @@ Značka platí až do další značky; úseky se dají číst například
 `grep -n '^\\*\\*\\[' soubor.md`. Ostatní dokumenty vlastní kategorizaci obsahu
 nemají, jejich struktura vychází z nadpisů.
 
-## Soubory
+## Korpus
 """
 
 README_TAIL = """
@@ -290,16 +341,13 @@ razítka a stránková výplň.
 """
 
 
-def write_readme(outdir, made):
+def write_readme(outdir, titles, sources):
     rows = []
-    for group, items in made:
-        rows.append("")
-        rows.append(f"### {group}")
-        rows.append("")
-        rows.append("| Soubor | Část | Název |")
-        rows.append("| --- | --- | --- |")
-        for out, title, label in items:
-            rows.append(f"| [`{out}`]({out}) | {label} | {title} |")
+    for folder, (nazev, popis, files) in FAZE.items():
+        rows += ["", f"### {folder}/ — {nazev}", "", popis, "",
+                 "| Soubor | Zdrojový dokument | Název |", "| --- | --- | --- |"]
+        for name in files:
+            rows.append(f"| [`{name}`]({folder}/{name}) | {sources[name]} | {titles[name]} |")
     open(os.path.join(outdir, "README.md"), "w", encoding="utf-8").write(
         README_HEAD + "\n".join(rows) + "\n" + README_TAIL)
 
@@ -307,24 +355,19 @@ def write_readme(outdir, made):
 if __name__ == "__main__":
     outdir = "data"
     os.makedirs(outdir, exist_ok=True)
+    titles, sources = {}, {}
 
-    msmt = []
     for src, out, cast in MAP:
-        o, title, _ = build_pdf(src, out, cast, outdir)
-        msmt.append((o, title, cast))
-        if out == "priloha-05-evidence-bezpecnostnich-incidentu.md":
-            o2, t2, _ = build_docx(outdir)
-            msmt.append((o2, t2, DOCX[2]))
-
-    groups = {}
+        _, title, _ = build_pdf(src, out, cast, outdir)
+        titles[out], sources[out] = title, f"{DOC_KRATCE}, {cast}"
+    o, t, _ = build_docx(outdir)
+    titles[o], sources[o] = t, f"{DOC_KRATCE}, {DOCX[2]}"
     for e in MAP2:
-        o, title, _ = build_generic(e, outdir)
-        groups.setdefault(e[5], []).append((o, title, e[0].replace(".pdf", "")))
+        o, t, _ = build_generic(e, outdir)
+        titles[o], sources[o] = t, e[5] if e[5] != "Doporučení AMOK" else "Doporučení AMOK (PČR)"
 
-    made = [("Minimální standard bezpečnosti v regionálním školství (MŠMT, 2024)", msmt)]
-    made += [(g, items) for g, items in groups.items()]
-    write_readme(outdir, made)
-    for group, items in made:
-        print(f"\n== {group}")
-        for o, title, label in items:
-            print(f"   {o:52} {title[:52]}")
+    write_readme(outdir, titles, sources)
+    for folder, (nazev, _, files) in FAZE.items():
+        print(f"\n== {folder}  ({nazev})")
+        for f in files:
+            print(f"   {f:52} {titles[f][:48]}")

@@ -6,11 +6,18 @@ obsah je převzatý ze zdroje, není přeformulovaný ani zkracovaný.
 
 Pro citaci a právní účely je závazné vždy původní PDF, ne tento přepis.
 
+## Členění složky
+
+Soubory jsou rozdělené podle **fáze, kterou řeší** — ne podle vydavatele.
+Jedna fáze = jedna podsložka. Dokumenty od různých vydavatelů se tak potkávají
+tam, kde se potkávají i v praxi: metodika MŠMT říká, co má škola mít
+zpracované, policejní doporučení AMOK, co má člověk v tu chvíli udělat.
+
 ## Hlavička souboru
 
 Každý soubor začíná YAML hlavičkou: `title`, `dokument` (celek, do kterého
-patří), `vydal`, `zdroj` (cesta k původnímu souboru) a `stran`. Dokumenty MŠMT
-navíc nesou `cast`, `cj`, `datum` a `kategorie`.
+patří), `vydal`, `zdroj` (cesta k původnímu souboru), `stran` a `faze`
+(podsložka). Dokumenty MŠMT navíc nesou `cast`, `cj`, `datum` a `kategorie`.
 
 ## Značky druhu obsahu (jen metodika MŠMT)
 
@@ -27,50 +34,63 @@ Značka platí až do další značky; úseky se dají číst například
 `grep -n '^\*\*\[' soubor.md`. Ostatní dokumenty vlastní kategorizaci obsahu
 nemají, jejich struktura vychází z nadpisů.
 
-## Soubory
+## Korpus
 
-### Minimální standard bezpečnosti v regionálním školství (MŠMT, 2024)
+### 01-ramec-a-legislativa/ — Rámec a legislativa
 
-| Soubor | Část | Název |
+Co škola musí, co má zpracované a jakým jazykem se o bezpečnosti mluví.
+
+| Soubor | Zdrojový dokument | Název |
 | --- | --- | --- |
-| [`00-minimalni-standard-bezpecnosti.md`](00-minimalni-standard-bezpecnosti.md) | hlavní dokument | Minimální standard bezpečnosti v regionálním školství (metodické doporučení) |
-| [`priloha-01-terminologie.md`](priloha-01-terminologie.md) | příloha č. 1 | Terminologie – výběr základních pojmů s přihlédnutím ke specifikům škol |
-| [`priloha-02-legislativa.md`](priloha-02-legislativa.md) | příloha č. 2 | Legislativa |
-| [`priloha-03-metodicke-materialy.md`](priloha-03-metodicke-materialy.md) | příloha č. 3 | Metodické materiály |
-| [`priloha-04-dokumentace.md`](priloha-04-dokumentace.md) | příloha č. 4 | Dokumentace |
-| [`priloha-05-evidence-bezpecnostnich-incidentu.md`](priloha-05-evidence-bezpecnostnich-incidentu.md) | příloha č. 5 | Evidence bezpečnostních incidentů |
-| [`priloha-05-formular-zaznam-o-incidentu.md`](priloha-05-formular-zaznam-o-incidentu.md) | příloha č. 5 – formulář | Záznam o bezpečnostním incidentu (formulář) |
-| [`priloha-06-bezpecnostni-analyza.md`](priloha-06-bezpecnostni-analyza.md) | příloha č. 6 | Bezpečnostní analýza včetně vyhodnocení ohroženosti |
-| [`priloha-07-bezpecnostni-plan.md`](priloha-07-bezpecnostni-plan.md) | příloha č. 7 | Bezpečnostní plán |
-| [`priloha-08-koordinacni-plan.md`](priloha-08-koordinacni-plan.md) | příloha č. 8 | Koordinační plán |
-| [`priloha-09-vzdelavani.md`](priloha-09-vzdelavani.md) | příloha č. 9 | Vzdělávání |
-| [`priloha-10-priklady-bezpecnostnich-opatreni.md`](priloha-10-priklady-bezpecnostnich-opatreni.md) | příloha č. 10 | Příklady bezpečnostních opatření ve školách |
-| [`priloha-11-karta-skoly-izs.md`](priloha-11-karta-skoly-izs.md) | příloha č. 11 | Karta školy pro součinnost se složkami IZS při mimořádné události či bezpečnostním incidentu |
+| [`00-minimalni-standard-bezpecnosti.md`](01-ramec-a-legislativa/00-minimalni-standard-bezpecnosti.md) | Minimální standard MŠMT, hlavní dokument | Minimální standard bezpečnosti v regionálním školství (metodické doporučení) |
+| [`priloha-01-terminologie.md`](01-ramec-a-legislativa/priloha-01-terminologie.md) | Minimální standard MŠMT, příloha č. 1 | Terminologie – výběr základních pojmů s přihlédnutím ke specifikům škol |
+| [`priloha-02-legislativa.md`](01-ramec-a-legislativa/priloha-02-legislativa.md) | Minimální standard MŠMT, příloha č. 2 | Legislativa |
+| [`priloha-03-metodicke-materialy.md`](01-ramec-a-legislativa/priloha-03-metodicke-materialy.md) | Minimální standard MŠMT, příloha č. 3 | Metodické materiály |
+| [`priloha-04-dokumentace.md`](01-ramec-a-legislativa/priloha-04-dokumentace.md) | Minimální standard MŠMT, příloha č. 4 | Dokumentace |
+| [`amok-11-nejcastejsi-dotazy.md`](01-ramec-a-legislativa/amok-11-nejcastejsi-dotazy.md) | Doporučení AMOK (PČR) | Časté dotazy v rámci bezpečnostních incidentů |
+| [`amok-12-koordinace-postupu-skoly.md`](01-ramec-a-legislativa/amok-12-koordinace-postupu-skoly.md) | Doporučení AMOK (PČR) | Návrh systému koordinace postupu školy |
 
-### Doporučení AMOK
+### 02-prevence-a-priprava/ — Prevence a příprava
 
-| Soubor | Část | Název |
+Co dělat, dokud se nic neděje: analýza rizik, opatření, výcvik, čtení varovných signálů.
+
+| Soubor | Zdrojový dokument | Název |
 | --- | --- | --- |
-| [`amok-01-prevence-a-pripravenost.md`](amok-01-prevence-a-pripravenost.md) | Doporučení AMOK - 1 - Prevence a připravenost | Prevence a připravenost měkkého cíle |
-| [`amok-02-skoly-signaly-detekce-hodnoceni-reakce.md`](amok-02-skoly-signaly-detekce-hodnoceni-reakce.md) | Doporučení AMOK - 2 - ŠKOLY - Signály, detekce, hodnocení, reakce | Školská zařízení – signály, detekce, hodnocení a okamžitá reakce |
-| [`amok-03-instituce-indikatory-hrozby.md`](amok-03-instituce-indikatory-hrozby.md) | Doporučení AMOK - 3 - INSTITUCE - Indikátory hrozby - OMC | Instituce – indikátory hrozby v rámci ochrany měkkých cílů |
-| [`amok-04-okamzita-reakce-na-utok.md`](amok-04-okamzita-reakce-na-utok.md) | Doporučení AMOK - 4 - Okamžitá reakce na útok | Okamžitá reakce na útok |
-| [`amok-05-bezprostredne-po-utoku.md`](amok-05-bezprostredne-po-utoku.md) | Doporučení AMOK - 5 - Bezprostředně po útoku | Bezprostředně po útoku |
-| [`amok-06-zpet-do-bezneho-rezimu.md`](amok-06-zpet-do-bezneho-rezimu.md) | Doporučení AMOK - 6 - Zpět do běžného režimu | Zpět do běžného režimu – obnova provozu a následná péče |
-| [`amok-07-podezreni-na-zbran-ve-skole.md`](amok-07-podezreni-na-zbran-ve-skole.md) | Doporučení AMOK - 7 - Podezření na zbraň ve škole | Podezření na zbraň ve škole |
-| [`amok-08-dny-otevrenych-dveri.md`](amok-08-dny-otevrenych-dveri.md) | Doporučení AMOK - 8 - Dny oteřených dvěří atd | Jednoduchá doporučení k organizaci dnů otevřených dveří |
-| [`amok-09-obecna-doporuceni.md`](amok-09-obecna-doporuceni.md) | Doporučení AMOK - 9 - Obecná doporučení OMC | Obecná doporučení postupu při bezpečnostních incidentech |
-| [`amok-10-zasady-krizove-komunikace.md`](amok-10-zasady-krizove-komunikace.md) | Doporučení AMOK - 10 - Základní pravidla krizové komunikace | Základní zásady deeskalace konfliktů a krizové komunikace |
-| [`amok-11-nejcastejsi-dotazy.md`](amok-11-nejcastejsi-dotazy.md) | Doporučení AMOK - 11 - Nejčastější dotazy | Časté dotazy v rámci bezpečnostních incidentů |
-| [`amok-12-koordinace-postupu-skoly.md`](amok-12-koordinace-postupu-skoly.md) | Doporučení AMOK - 12 - Koordinace postupu školy | Návrh systému koordinace postupu školy |
+| [`priloha-06-bezpecnostni-analyza.md`](02-prevence-a-priprava/priloha-06-bezpecnostni-analyza.md) | Minimální standard MŠMT, příloha č. 6 | Bezpečnostní analýza včetně vyhodnocení ohroženosti |
+| [`priloha-07-bezpecnostni-plan.md`](02-prevence-a-priprava/priloha-07-bezpecnostni-plan.md) | Minimální standard MŠMT, příloha č. 7 | Bezpečnostní plán |
+| [`priloha-09-vzdelavani.md`](02-prevence-a-priprava/priloha-09-vzdelavani.md) | Minimální standard MŠMT, příloha č. 9 | Vzdělávání |
+| [`priloha-10-priklady-bezpecnostnich-opatreni.md`](02-prevence-a-priprava/priloha-10-priklady-bezpecnostnich-opatreni.md) | Minimální standard MŠMT, příloha č. 10 | Příklady bezpečnostních opatření ve školách |
+| [`amok-01-prevence-a-pripravenost.md`](02-prevence-a-priprava/amok-01-prevence-a-pripravenost.md) | Doporučení AMOK (PČR) | Prevence a připravenost měkkého cíle |
+| [`amok-02-skoly-signaly-detekce-hodnoceni-reakce.md`](02-prevence-a-priprava/amok-02-skoly-signaly-detekce-hodnoceni-reakce.md) | Doporučení AMOK (PČR) | Školská zařízení – signály, detekce, hodnocení a okamžitá reakce |
+| [`amok-03-instituce-indikatory-hrozby.md`](02-prevence-a-priprava/amok-03-instituce-indikatory-hrozby.md) | Doporučení AMOK (PČR) | Instituce – indikátory hrozby v rámci ochrany měkkých cílů |
+| [`amok-08-dny-otevrenych-dveri.md`](02-prevence-a-priprava/amok-08-dny-otevrenych-dveri.md) | Doporučení AMOK (PČR) | Jednoduchá doporučení k organizaci dnů otevřených dveří |
+| [`vegrichtova-indikatory-radikalizace.md`](02-prevence-a-priprava/vegrichtova-indikatory-radikalizace.md) | Další metodiky | Indikátory radikalizace v kontextu ochrany obyvatelstva a měkkých cílů před násilnými incidenty |
 
-### Další metodiky
+### 03-krizova-reakce/ — Krizová reakce
 
-| Soubor | Část | Název |
+Co dělat v prvních minutách a hodinách incidentu.
+
+| Soubor | Zdrojový dokument | Název |
 | --- | --- | --- |
-| [`mpsv-metodicka-prirucka-pro-kuratory.md`](mpsv-metodicka-prirucka-pro-kuratory.md) | 3_TZ_RVPPK_09_2017 | Metodická příručka pro kurátory pro děti a mládež |
-| [`krit-akutni-komunikace-ve-skolnim-prostredi.md`](krit-akutni-komunikace-ve-skolnim-prostredi.md) | Příručka KK ve školách | Příručka Akutní komunikace ve školním prostředí |
-| [`vegrichtova-indikatory-radikalizace.md`](vegrichtova-indikatory-radikalizace.md) | Metodika - Vegrichtová a kol. | Indikátory radikalizace v kontextu ochrany obyvatelstva a měkkých cílů před násilnými incidenty |
+| [`priloha-11-karta-skoly-izs.md`](03-krizova-reakce/priloha-11-karta-skoly-izs.md) | Minimální standard MŠMT, příloha č. 11 | Karta školy pro součinnost se složkami IZS při mimořádné události či bezpečnostním incidentu |
+| [`amok-04-okamzita-reakce-na-utok.md`](03-krizova-reakce/amok-04-okamzita-reakce-na-utok.md) | Doporučení AMOK (PČR) | Okamžitá reakce na útok |
+| [`amok-07-podezreni-na-zbran-ve-skole.md`](03-krizova-reakce/amok-07-podezreni-na-zbran-ve-skole.md) | Doporučení AMOK (PČR) | Podezření na zbraň ve škole |
+| [`amok-09-obecna-doporuceni.md`](03-krizova-reakce/amok-09-obecna-doporuceni.md) | Doporučení AMOK (PČR) | Obecná doporučení postupu při bezpečnostních incidentech |
+| [`amok-10-zasady-krizove-komunikace.md`](03-krizova-reakce/amok-10-zasady-krizove-komunikace.md) | Doporučení AMOK (PČR) | Základní zásady deeskalace konfliktů a krizové komunikace |
+| [`krit-akutni-komunikace-ve-skolnim-prostredi.md`](03-krizova-reakce/krit-akutni-komunikace-ve-skolnim-prostredi.md) | Další metodiky | Příručka Akutní komunikace ve školním prostředí |
+
+### 04-po-krizi-a-navrat/ — Po krizi a návrat
+
+Stabilizace, evidence, předání případu dál a návrat do běžného provozu.
+
+| Soubor | Zdrojový dokument | Název |
+| --- | --- | --- |
+| [`priloha-05-evidence-bezpecnostnich-incidentu.md`](04-po-krizi-a-navrat/priloha-05-evidence-bezpecnostnich-incidentu.md) | Minimální standard MŠMT, příloha č. 5 | Evidence bezpečnostních incidentů |
+| [`priloha-05-formular-zaznam-o-incidentu.md`](04-po-krizi-a-navrat/priloha-05-formular-zaznam-o-incidentu.md) | Minimální standard MŠMT, příloha č. 5 – formulář | Záznam o bezpečnostním incidentu (formulář) |
+| [`priloha-08-koordinacni-plan.md`](04-po-krizi-a-navrat/priloha-08-koordinacni-plan.md) | Minimální standard MŠMT, příloha č. 8 | Koordinační plán |
+| [`amok-05-bezprostredne-po-utoku.md`](04-po-krizi-a-navrat/amok-05-bezprostredne-po-utoku.md) | Doporučení AMOK (PČR) | Bezprostředně po útoku |
+| [`amok-06-zpet-do-bezneho-rezimu.md`](04-po-krizi-a-navrat/amok-06-zpet-do-bezneho-rezimu.md) | Doporučení AMOK (PČR) | Zpět do běžného režimu – obnova provozu a následná péče |
+| [`mpsv-metodicka-prirucka-pro-kuratory.md`](04-po-krizi-a-navrat/mpsv-metodicka-prirucka-pro-kuratory.md) | Další metodiky | Metodická příručka pro kurátory pro děti a mládež |
 
 ## Co se při převodu změnilo
 
