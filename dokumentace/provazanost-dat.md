@@ -132,6 +132,9 @@ je slabě zastoupené (viz mezery níže).
 | Jak incident zaznamenat? | příloha 5 + formulář | **silné** |
 | Jak se vrátit do provozu? | příloha 8, AMOK 6 | střední |
 | Jak se postarat o zasažené? | AMOK 6, MPSV | **slabé** — viz mezery |
+| Co a kdy komunikovat ven? | KRIT — FOIPS, holding lines, RKI | **silné** — přibylo s metodikami KRIT |
+| Co dělá OSPOD a za jakých podmínek? | zákon 359/1999, ČÁST TŘETÍ | **silné** — plné znění zákona |
+| Co při jiné mimořádné události než útoku? | KRIT, karty pro starosty | **silné** — 20 typů událostí |
 | Jak školit personál? | příloha 9 | **silné** — včetně nároků na lektory |
 
 ---
@@ -139,7 +142,12 @@ je slabě zastoupené (viz mezery níže).
 ## 4. Mezery — na co korpus odkazuje, ale neobsahuje to
 
 Tohle nejsou domněnky. Jsou to dokumenty, které **naše vlastní data jmenují**
-jako zdroj, ale samy v korpusu nejsou:
+jako zdroj, ale samy v korpusu nejsou.
+
+> **Doplněno:** zákon č. 359/1999 Sb., o sociálně-právní ochraně dětí, na tomto
+> seznamu původně byl. Dnes je v korpusu celý
+> ([`zakon-359-1999/`](../data/01-ramec-a-legislativa/zakon-359-1999/)),
+> stejně jako metodiky KRIT ke krizové komunikaci.
 
 | Chybějící dokument | Odkud se na něj odkazuje | Co by doplnil |
 | --- | --- | --- |
@@ -149,22 +157,24 @@ jako zdroj, ale samy v korpusu nejsou:
 | **Bezpečnostní plán měkkého cíle** (MV) | příloha 7 | Totéž pro plán. |
 | **Metodika koordinace měkkého cíle pro fázi po bezpečnostním incidentu** (MV) | příloha 8 | Právě ta nejslabší fáze. |
 | **Metodický pokyn k zajištění BOZ** (MŠMT, č.j. 37014/2005) | příloha 3 | Průnik s BOZP. |
-| **Zákon č. 359/1999 Sb.**, o sociálně-právní ochraně dětí | napříč — všude, kde se mluví o OSPOD | Právní základ pro předání případu OSPOD. |
 
 ### Nejvýraznější nepoměr
 
 ```mermaid
-pie showData title Rozsah korpusu podle fáze (počet slov)
-    "02 Prevence a příprava" : 15452
-    "03 Krizová reakce" : 11263
-    "01 Rámec a legislativa" : 7575
-    "04 Po krizi a návrat" : 2555
+pie showData title Rozsah korpusu podle fáze (počet slov, bez textu zákona)
+    "03 Krizová reakce" : 41120
+    "02 Prevence a příprava" : 15861
+    "01 Rámec a legislativa" : 14491
+    "04 Po krizi a návrat" : 5345
 ```
 
-**Fáze „po krizi" má sedmkrát méně textu než prevence** — 2 600 slov na
-17 stranách. Přitom je to fáze, která trvá nejdéle (měsíce) a ve které škola
-potřebuje nejvíc podpory. Tři z chybějících dokumentů v tabulce výše míří přesně
-sem.
+**Fáze „po krizi" zůstává nejtenčí** — 5 300 slov proti 41 100 u krizové
+reakce. Přitom trvá nejdéle (měsíce) a škola v ní potřebuje nejvíc podpory.
+Dva z chybějících dokumentů v tabulce výše míří přesně sem.
+
+Doplnění metodik KRIT nepoměr zmenšilo, ale neodstranilo: KRIT přinesl hlavně
+*komunikaci*, ne *následnou péči*. Otázka „jak se postarat o zasažené dítě
+tři měsíce po incidentu" v korpusu odpověď pořád nemá.
 
 Pro návrh aplikace z toho plyne konkrétní důsledek: **režim „po krizi" bude mít
 nejslabší datovou oporu** a musí to přiznat — spíš navigovat k lidem (kurátor,

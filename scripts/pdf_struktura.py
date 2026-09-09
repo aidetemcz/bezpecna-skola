@@ -213,8 +213,12 @@ def to_markdown(blocks, notes, meta, title=None):
                 p["text"] += " " + b["text"]; continue
             if p["kind"] == "bullet" and b["kind"] == "para" and b["x0"] > 100:
                 p["text"] += " " + b["text"]; continue
-            if (p["kind"] == "para" and b["kind"] == "para"
-                    and not (b.get("starts_bold") and p["text"].rstrip().endswith((".", ":", "!", "?")))):
+            konec_vety = p["text"].rstrip().endswith((".", ":", "!", "?"))
+            # zmena barevneho pruhu na hranici vety je novy odstavec; uprostred
+            # vety je to jen zlom v sazbe a odstavec pokracuje
+            zmena_kategorie = b["cat"] != p["cats"][-1] and konec_vety
+            if (p["kind"] == "para" and b["kind"] == "para" and not zmena_kategorie
+                    and not (b.get("starts_bold") and konec_vety)):
                 p["text"] += " " + b["text"]
                 p["cats"].append(b["cat"]); continue
         b = dict(b); b["cats"] = [b["cat"]]
@@ -225,7 +229,10 @@ def to_markdown(blocks, notes, meta, title=None):
 
     for b in merged:  # kategorie odstavce = prevazujici pruh
         cats = [c for c in b["cats"] if c]
-        b["cat"] = max(set(cats), key=cats.count) if cats else None
+        # dict.fromkeys drzi poradi prvniho vyskytu, takze shodu poctu
+        # rozhodne kategorie, ktera na strance zacina driv - ne poradi
+        # iterace mnoziny, ktere Python mezi procesy randomizuje
+        b["cat"] = max(dict.fromkeys(cats), key=cats.count) if cats else None
 
     out, prev_cat, stack = [], None, []
     for b in merged:

@@ -15,9 +15,11 @@ kategorie: [zavazne, doporuceni, informace]
 
 **[I INFORMACE]**
 
-Vzdělávání a pravidelná edukace jsou **důležitým preventivním prvkem**. Je důležité tyto aktivity nepojímat formálně, ale pravidelně zvyšovat bezpečnostní povědomí zaměstnanců školy (pedagogických i nepedagogických pracovníků). Praktické vysvětlení jednotlivých směrnic, metodik, postupů (procedur) vede k výrazně většímu zapamatování nastavených postupů. Zároveň je také výrazným zdrojem odhalování slabých míst těchto dokumentů. Zpětná vazba umožňuje reagovat na podněty a ty následně zapracovat, resp. aktualizovat do příslušné bezpečnostní dokumentace. Tím je zvyšována připravenost školy na případný bezpečnostní incident včetně mimořádné události a mnohem rychlejší a účinnější reakci a protiopatření. Z praxe lze školení rozdělit na:
+Vzdělávání a pravidelná edukace jsou **důležitým preventivním prvkem**. Je důležité tyto aktivity nepojímat formálně, ale pravidelně zvyšovat bezpečnostní povědomí zaměstnanců školy (pedagogických i nepedagogických pracovníků). Praktické vysvětlení jednotlivých směrnic, metodik, postupů (procedur) vede k výrazně většímu zapamatování nastavených postupů. Zároveň je také výrazným zdrojem odhalování slabých míst těchto dokumentů. Zpětná vazba umožňuje reagovat na podněty a ty následně zapracovat, resp. aktualizovat do příslušné bezpečnostní dokumentace. Tím je zvyšována připravenost školy na případný bezpečnostní incident včetně mimořádné události a mnohem rychlejší a účinnější reakci a protiopatření.
 
 **[D DOPORUČENÍ]**
+
+Z praxe lze školení rozdělit na:
 
 - **Základní (úvodní) školení** – seznámení se se směrnicemi, plány, metodikami, řády apod., a to zejména s důrazem na praktickou aplikaci.
   - doporučená četnost: min. 1x ročně (nejlépe před zahájením školního roku a vždy po aktualizaci).

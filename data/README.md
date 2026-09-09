@@ -40,57 +40,121 @@ nemají, jejich struktura vychází z nadpisů.
 
 Co škola musí, co má zpracované a jakým jazykem se o bezpečnosti mluví.
 
-| Soubor | Zdrojový dokument | Název |
+| Soubor | Původ | Název |
 | --- | --- | --- |
 | [`00-minimalni-standard-bezpecnosti.md`](01-ramec-a-legislativa/00-minimalni-standard-bezpecnosti.md) | Minimální standard MŠMT, hlavní dokument | Minimální standard bezpečnosti v regionálním školství (metodické doporučení) |
+| [`Jak přemýšlíme o krizích.md`](01-ramec-a-legislativa/Jak%20p%C5%99em%C3%BD%C5%A1l%C3%ADme%20o%20kriz%C3%ADch.md) | KRIT (MV) | Jak přemýšlíme o krizích |
+| [`Metodiky a návody.md`](01-ramec-a-legislativa/Metodiky%20a%20n%C3%A1vody.md) | KRIT (MV) | Metodiky a návody |
+| [`O kartách pro starosty.md`](01-ramec-a-legislativa/O%20kart%C3%A1ch%20pro%20starosty.md) | KRIT (MV) | O kartách pro starosty |
+| [`Pojmy a zkratky.md`](01-ramec-a-legislativa/Pojmy%20a%20zkratky.md) | KRIT (MV) | Pojmy a zkratky |
+| [`Principy koordinace.md`](01-ramec-a-legislativa/Principy%20koordinace.md) | KRIT (MV) | Principy koordinace |
+| [`amok-11-nejcastejsi-dotazy.md`](01-ramec-a-legislativa/amok-11-nejcastejsi-dotazy.md) | Krajské ředitelství policie hl. m. Prahy | Časté dotazy v rámci bezpečnostních incidentů |
+| [`amok-12-koordinace-postupu-skoly.md`](01-ramec-a-legislativa/amok-12-koordinace-postupu-skoly.md) | Krajské ředitelství policie hl. m. Prahy | Návrh systému koordinace postupu školy |
 | [`priloha-01-terminologie.md`](01-ramec-a-legislativa/priloha-01-terminologie.md) | Minimální standard MŠMT, příloha č. 1 | Terminologie – výběr základních pojmů s přihlédnutím ke specifikům škol |
 | [`priloha-02-legislativa.md`](01-ramec-a-legislativa/priloha-02-legislativa.md) | Minimální standard MŠMT, příloha č. 2 | Legislativa |
 | [`priloha-03-metodicke-materialy.md`](01-ramec-a-legislativa/priloha-03-metodicke-materialy.md) | Minimální standard MŠMT, příloha č. 3 | Metodické materiály |
 | [`priloha-04-dokumentace.md`](01-ramec-a-legislativa/priloha-04-dokumentace.md) | Minimální standard MŠMT, příloha č. 4 | Dokumentace |
-| [`amok-11-nejcastejsi-dotazy.md`](01-ramec-a-legislativa/amok-11-nejcastejsi-dotazy.md) | Doporučení AMOK (PČR) | Časté dotazy v rámci bezpečnostních incidentů |
-| [`amok-12-koordinace-postupu-skoly.md`](01-ramec-a-legislativa/amok-12-koordinace-postupu-skoly.md) | Doporučení AMOK (PČR) | Návrh systému koordinace postupu školy |
+
+#### zakon-359-1999/
+
+| Soubor | Původ | Název |
+| --- | --- | --- |
+| [`00-README_zakon.md`](01-ramec-a-legislativa/zakon-359-1999/00-README_zakon.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`01-cast-prvni-uvodni-ustanoveni.md`](01-ramec-a-legislativa/zakon-359-1999/01-cast-prvni-uvodni-ustanoveni.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`02-cast-druha-zakladni-ustanoveni.md`](01-ramec-a-legislativa/zakon-359-1999/02-cast-druha-zakladni-ustanoveni.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`03-cast-treti-opatreni-socialne-pravni-ochrany.md`](01-ramec-a-legislativa/zakon-359-1999/03-cast-treti-opatreni-socialne-pravni-ochrany.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`04-cast-ctvrta-nektere-sluzby.md`](01-ramec-a-legislativa/zakon-359-1999/04-cast-ctvrta-nektere-sluzby.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`05-cast-pata-pestounska-pece.md`](01-ramec-a-legislativa/zakon-359-1999/05-cast-pata-pestounska-pece.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`06-cast-sesta-poverene-osoby.md`](01-ramec-a-legislativa/zakon-359-1999/06-cast-sesta-poverene-osoby.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`07-cast-sedma-inspekce.md`](01-ramec-a-legislativa/zakon-359-1999/07-cast-sedma-inspekce.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`08-cast-osma-zaopatrovaci-prispevek.md`](01-ramec-a-legislativa/zakon-359-1999/08-cast-osma-zaopatrovaci-prispevek.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`09-cast-devata-spolecna-ustanoveni.md`](01-ramec-a-legislativa/zakon-359-1999/09-cast-devata-spolecna-ustanoveni.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`10-cast-desata-prestupky.md`](01-ramec-a-legislativa/zakon-359-1999/10-cast-desata-prestupky.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`11-cast-jedenacta-rizeni-mistni-prislusnost.md`](01-ramec-a-legislativa/zakon-359-1999/11-cast-jedenacta-rizeni-mistni-prislusnost.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`12-cast-dvanacta-prechodna-zaverecna-ustanoveni.md`](01-ramec-a-legislativa/zakon-359-1999/12-cast-dvanacta-prechodna-zaverecna-ustanoveni.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+| [`13-poznamky-pod-carou.md`](01-ramec-a-legislativa/zakon-359-1999/13-poznamky-pod-carou.md) | Zákon č. 359/1999 Sb. | Zákon o sociálně-právní ochraně dětí |
+
 
 ### 02-prevence-a-priprava/ — Prevence a příprava
 
 Co dělat, dokud se nic neděje: analýza rizik, opatření, výcvik, čtení varovných signálů.
 
-| Soubor | Zdrojový dokument | Název |
+| Soubor | Původ | Název |
 | --- | --- | --- |
+| [`amok-01-prevence-a-pripravenost.md`](02-prevence-a-priprava/amok-01-prevence-a-pripravenost.md) | Krajské ředitelství policie hl. m. Prahy | Prevence a připravenost měkkého cíle |
+| [`amok-02-skoly-signaly-detekce-hodnoceni-reakce.md`](02-prevence-a-priprava/amok-02-skoly-signaly-detekce-hodnoceni-reakce.md) | Krajské ředitelství policie hl. m. Prahy | Školská zařízení – signály, detekce, hodnocení a okamžitá reakce |
+| [`amok-03-instituce-indikatory-hrozby.md`](02-prevence-a-priprava/amok-03-instituce-indikatory-hrozby.md) | Krajské ředitelství policie hl. m. Prahy | Instituce – indikátory hrozby v rámci ochrany měkkých cílů |
+| [`amok-08-dny-otevrenych-dveri.md`](02-prevence-a-priprava/amok-08-dny-otevrenych-dveri.md) | Krajské ředitelství policie hl. m. Prahy | Jednoduchá doporučení k organizaci dnů otevřených dveří |
 | [`priloha-06-bezpecnostni-analyza.md`](02-prevence-a-priprava/priloha-06-bezpecnostni-analyza.md) | Minimální standard MŠMT, příloha č. 6 | Bezpečnostní analýza včetně vyhodnocení ohroženosti |
 | [`priloha-07-bezpecnostni-plan.md`](02-prevence-a-priprava/priloha-07-bezpecnostni-plan.md) | Minimální standard MŠMT, příloha č. 7 | Bezpečnostní plán |
 | [`priloha-09-vzdelavani.md`](02-prevence-a-priprava/priloha-09-vzdelavani.md) | Minimální standard MŠMT, příloha č. 9 | Vzdělávání |
 | [`priloha-10-priklady-bezpecnostnich-opatreni.md`](02-prevence-a-priprava/priloha-10-priklady-bezpecnostnich-opatreni.md) | Minimální standard MŠMT, příloha č. 10 | Příklady bezpečnostních opatření ve školách |
-| [`amok-01-prevence-a-pripravenost.md`](02-prevence-a-priprava/amok-01-prevence-a-pripravenost.md) | Doporučení AMOK (PČR) | Prevence a připravenost měkkého cíle |
-| [`amok-02-skoly-signaly-detekce-hodnoceni-reakce.md`](02-prevence-a-priprava/amok-02-skoly-signaly-detekce-hodnoceni-reakce.md) | Doporučení AMOK (PČR) | Školská zařízení – signály, detekce, hodnocení a okamžitá reakce |
-| [`amok-03-instituce-indikatory-hrozby.md`](02-prevence-a-priprava/amok-03-instituce-indikatory-hrozby.md) | Doporučení AMOK (PČR) | Instituce – indikátory hrozby v rámci ochrany měkkých cílů |
-| [`amok-08-dny-otevrenych-dveri.md`](02-prevence-a-priprava/amok-08-dny-otevrenych-dveri.md) | Doporučení AMOK (PČR) | Jednoduchá doporučení k organizaci dnů otevřených dveří |
-| [`vegrichtova-indikatory-radikalizace.md`](02-prevence-a-priprava/vegrichtova-indikatory-radikalizace.md) | Další metodiky | Indikátory radikalizace v kontextu ochrany obyvatelstva a měkkých cílů před násilnými incidenty |
+| [`vegrichtova-indikatory-radikalizace.md`](02-prevence-a-priprava/vegrichtova-indikatory-radikalizace.md) | doc. PhDr. Barbora Vegrichtová | Indikátory radikalizace v kontextu ochrany obyvatelstva a měkkých cílů před násilnými incidenty |
+
 
 ### 03-krizova-reakce/ — Krizová reakce
 
 Co dělat v prvních minutách a hodinách incidentu.
 
-| Soubor | Zdrojový dokument | Název |
+| Soubor | Původ | Název |
 | --- | --- | --- |
+| [`Akutní komunikace.md`](03-krizova-reakce/Akutn%C3%AD%20komunikace.md) | KRIT (MV) | Akutní komunikace |
+| [`Holding lines.md`](03-krizova-reakce/Holding%20lines.md) | KRIT (MV) | Holding lines |
+| [`Komunikace s veřejností.md`](03-krizova-reakce/Komunikace%20s%20ve%C5%99ejnost%C3%AD.md) | KRIT (MV) | Komunikace s veřejností |
+| [`Rodná karta incidentu (RKI).md`](03-krizova-reakce/Rodn%C3%A1%20karta%20incidentu%20%28RKI%29.md) | KRIT (MV) | Rodná karta incidentu (RKI) |
+| [`Rámec pro krizová sdělení (FOIPS).md`](03-krizova-reakce/R%C3%A1mec%20pro%20krizov%C3%A1%20sd%C4%9Blen%C3%AD%20%28FOIPS%29.md) | KRIT (MV) | Rámec pro krizová sdělení (FOIPS) |
+| [`Sociálně citlivá témata.md`](03-krizova-reakce/Soci%C3%A1ln%C4%9B%20citliv%C3%A1%20t%C3%A9mata.md) | KRIT (MV) | Sociálně citlivá témata |
+| [`Systém včasného varování.md`](03-krizova-reakce/Syst%C3%A9m%20v%C4%8Dasn%C3%A9ho%20varov%C3%A1n%C3%AD.md) | KRIT (MV) | Systém včasného varování |
+| [`Varování před hrozícím nebezpečím.md`](03-krizova-reakce/Varov%C3%A1n%C3%AD%20p%C5%99ed%20hroz%C3%ADc%C3%ADm%20nebezpe%C4%8D%C3%ADm.md) | KRIT (MV) | Varování před hrozícím nebezpečím |
+| [`Zapojení NNO a dobrovolníků.md`](03-krizova-reakce/Zapojen%C3%AD%20NNO%20a%20dobrovoln%C3%ADk%C5%AF.md) | KRIT (MV) | Zapojení NNO a dobrovolníků |
+| [`amok-04-okamzita-reakce-na-utok.md`](03-krizova-reakce/amok-04-okamzita-reakce-na-utok.md) | Krajské ředitelství policie hl. m. Prahy | Okamžitá reakce na útok |
+| [`amok-07-podezreni-na-zbran-ve-skole.md`](03-krizova-reakce/amok-07-podezreni-na-zbran-ve-skole.md) | Krajské ředitelství policie hl. m. Prahy | Podezření na zbraň ve škole |
+| [`amok-09-obecna-doporuceni.md`](03-krizova-reakce/amok-09-obecna-doporuceni.md) | Krajské ředitelství policie hl. m. Prahy | Obecná doporučení postupu při bezpečnostních incidentech |
+| [`amok-10-zasady-krizove-komunikace.md`](03-krizova-reakce/amok-10-zasady-krizove-komunikace.md) | Krajské ředitelství policie hl. m. Prahy | Základní zásady deeskalace konfliktů a krizové komunikace |
+| [`krit-akutni-komunikace-ve-skolnim-prostredi.md`](03-krizova-reakce/krit-akutni-komunikace-ve-skolnim-prostredi.md) | KRIT – Krizový informační tým Ministerstva vnitra | Příručka Akutní komunikace ve školním prostředí |
 | [`priloha-11-karta-skoly-izs.md`](03-krizova-reakce/priloha-11-karta-skoly-izs.md) | Minimální standard MŠMT, příloha č. 11 | Karta školy pro součinnost se složkami IZS při mimořádné události či bezpečnostním incidentu |
-| [`amok-04-okamzita-reakce-na-utok.md`](03-krizova-reakce/amok-04-okamzita-reakce-na-utok.md) | Doporučení AMOK (PČR) | Okamžitá reakce na útok |
-| [`amok-07-podezreni-na-zbran-ve-skole.md`](03-krizova-reakce/amok-07-podezreni-na-zbran-ve-skole.md) | Doporučení AMOK (PČR) | Podezření na zbraň ve škole |
-| [`amok-09-obecna-doporuceni.md`](03-krizova-reakce/amok-09-obecna-doporuceni.md) | Doporučení AMOK (PČR) | Obecná doporučení postupu při bezpečnostních incidentech |
-| [`amok-10-zasady-krizove-komunikace.md`](03-krizova-reakce/amok-10-zasady-krizove-komunikace.md) | Doporučení AMOK (PČR) | Základní zásady deeskalace konfliktů a krizové komunikace |
-| [`krit-akutni-komunikace-ve-skolnim-prostredi.md`](03-krizova-reakce/krit-akutni-komunikace-ve-skolnim-prostredi.md) | Další metodiky | Příručka Akutní komunikace ve školním prostředí |
+
+#### krit-karty-pro-starosty/
+
+| Soubor | Původ | Název |
+| --- | --- | --- |
+| [`Bombová výhrůžka ve škole.md`](03-krizova-reakce/krit-karty-pro-starosty/Bombov%C3%A1%20v%C3%BDhr%C5%AF%C5%BEka%20ve%20%C5%A1kole.md) | KRIT (MV) | Bombová výhrůžka ve škole |
+| [`Dlouhodobé sucho.md`](03-krizova-reakce/krit-karty-pro-starosty/Dlouhodob%C3%A9%20sucho.md) | KRIT (MV) | Dlouhodobé sucho |
+| [`Eskalace projevů nenávisti a násilí.md`](03-krizova-reakce/krit-karty-pro-starosty/Eskalace%20projev%C5%AF%20nen%C3%A1visti%20a%20n%C3%A1sil%C3%AD.md) | KRIT (MV) | Eskalace projevů nenávisti a násilí |
+| [`Evakuace.md`](03-krizova-reakce/krit-karty-pro-starosty/Evakuace.md) | KRIT (MV) | Evakuace |
+| [`Extrémní teploty.md`](03-krizova-reakce/krit-karty-pro-starosty/Extr%C3%A9mn%C3%AD%20teploty.md) | KRIT (MV) | Extrémní teploty |
+| [`Hrozba povodně.md`](03-krizova-reakce/krit-karty-pro-starosty/Hrozba%20povodn%C4%9B.md) | KRIT (MV) | Hrozba povodně |
+| [`Jednání s obránci Ukrajiny.md`](03-krizova-reakce/krit-karty-pro-starosty/Jedn%C3%A1n%C3%AD%20s%20obr%C3%A1nci%20Ukrajiny.md) | KRIT (MV) | Jednání s obránci Ukrajiny |
+| [`Katastrofické mimořádné události.md`](03-krizova-reakce/krit-karty-pro-starosty/Katastrofick%C3%A9%20mimo%C5%99%C3%A1dn%C3%A9%20ud%C3%A1losti.md) | KRIT (MV) | Katastrofické mimořádné události |
+| [`Lesní požár.md`](03-krizova-reakce/krit-karty-pro-starosty/Lesn%C3%AD%20po%C5%BE%C3%A1r.md) | KRIT (MV) | Lesní požár |
+| [`Narušení dodávek elektřiny.md`](03-krizova-reakce/krit-karty-pro-starosty/Naru%C5%A1en%C3%AD%20dod%C3%A1vek%20elekt%C5%99iny.md) | KRIT (MV) | Narušení dodávek elektřiny |
+| [`Narušení dodávek plynu a tepla.md`](03-krizova-reakce/krit-karty-pro-starosty/Naru%C5%A1en%C3%AD%20dod%C3%A1vek%20plynu%20a%20tepla.md) | KRIT (MV) | Narušení dodávek plynu a tepla |
+| [`Narušení dodávek vody.md`](03-krizova-reakce/krit-karty-pro-starosty/Naru%C5%A1en%C3%AD%20dod%C3%A1vek%20vody.md) | KRIT (MV) | Narušení dodávek vody |
+| [`Nález nevybuchlé munice.md`](03-krizova-reakce/krit-karty-pro-starosty/N%C3%A1lez%20nevybuchl%C3%A9%20munice.md) | — | Nález nevybuchlé munice |
+| [`Ohrožení veřejných míst.md`](03-krizova-reakce/krit-karty-pro-starosty/Ohro%C5%BEen%C3%AD%20ve%C5%99ejn%C3%BDch%20m%C3%ADst.md) | KRIT (MV) | Ohrožení veřejných míst |
+| [`Požár v obci.md`](03-krizova-reakce/krit-karty-pro-starosty/Po%C5%BE%C3%A1r%20v%20obci.md) | KRIT (MV) | Požár v obci |
+| [`Přívalové srážky.md`](03-krizova-reakce/krit-karty-pro-starosty/P%C5%99%C3%ADvalov%C3%A9%20sr%C3%A1%C5%BEky.md) | KRIT (MV) | Přívalové srážky |
+| [`Vichřice nebo tornádo.md`](03-krizova-reakce/krit-karty-pro-starosty/Vich%C5%99ice%20nebo%20torn%C3%A1do.md) | KRIT (MV) | Vichřice nebo tornádo |
+| [`Vznik povodně.md`](03-krizova-reakce/krit-karty-pro-starosty/Vznik%20povodn%C4%9B.md) | KRIT (MV) | Vznik povodně |
+| [`Únik nebezpečných látek.md`](03-krizova-reakce/krit-karty-pro-starosty/%C3%9Anik%20nebezpe%C4%8Dn%C3%BDch%20l%C3%A1tek.md) | KRIT (MV) | Únik nebezpečných látek |
+| [`Útok ozbrojeného útočníka.md`](03-krizova-reakce/krit-karty-pro-starosty/%C3%9Atok%20ozbrojen%C3%A9ho%20%C3%BAto%C4%8Dn%C3%ADka.md) | KRIT (MV) | Útok ozbrojeného útočníka |
+
 
 ### 04-po-krizi-a-navrat/ — Po krizi a návrat
 
 Stabilizace, evidence, předání případu dál a návrat do běžného provozu.
 
-| Soubor | Zdrojový dokument | Název |
+| Soubor | Původ | Název |
 | --- | --- | --- |
+| [`Případová studie – Povodně 2024.md`](04-po-krizi-a-navrat/P%C5%99%C3%ADpadov%C3%A1%20studie%20%E2%80%93%20Povodn%C4%9B%202024.md) | KRIT (MV) | Případová studie – Povodně 2024 |
+| [`Vyhodnocení po incidentu.md`](04-po-krizi-a-navrat/Vyhodnocen%C3%AD%20po%20incidentu.md) | KRIT (MV) | Vyhodnocení po incidentu |
+| [`amok-05-bezprostredne-po-utoku.md`](04-po-krizi-a-navrat/amok-05-bezprostredne-po-utoku.md) | Krajské ředitelství policie hl. m. Prahy | Bezprostředně po útoku |
+| [`amok-06-zpet-do-bezneho-rezimu.md`](04-po-krizi-a-navrat/amok-06-zpet-do-bezneho-rezimu.md) | Krajské ředitelství policie hl. m. Prahy | Zpět do běžného režimu – obnova provozu a následná péče |
+| [`mpsv-metodicka-prirucka-pro-kuratory.md`](04-po-krizi-a-navrat/mpsv-metodicka-prirucka-pro-kuratory.md) | Ministerstvo práce a sociálních věcí | Metodická příručka pro kurátory pro děti a mládež |
 | [`priloha-05-evidence-bezpecnostnich-incidentu.md`](04-po-krizi-a-navrat/priloha-05-evidence-bezpecnostnich-incidentu.md) | Minimální standard MŠMT, příloha č. 5 | Evidence bezpečnostních incidentů |
 | [`priloha-05-formular-zaznam-o-incidentu.md`](04-po-krizi-a-navrat/priloha-05-formular-zaznam-o-incidentu.md) | Minimální standard MŠMT, příloha č. 5 – formulář | Záznam o bezpečnostním incidentu (formulář) |
 | [`priloha-08-koordinacni-plan.md`](04-po-krizi-a-navrat/priloha-08-koordinacni-plan.md) | Minimální standard MŠMT, příloha č. 8 | Koordinační plán |
-| [`amok-05-bezprostredne-po-utoku.md`](04-po-krizi-a-navrat/amok-05-bezprostredne-po-utoku.md) | Doporučení AMOK (PČR) | Bezprostředně po útoku |
-| [`amok-06-zpet-do-bezneho-rezimu.md`](04-po-krizi-a-navrat/amok-06-zpet-do-bezneho-rezimu.md) | Doporučení AMOK (PČR) | Zpět do běžného režimu – obnova provozu a následná péče |
-| [`mpsv-metodicka-prirucka-pro-kuratory.md`](04-po-krizi-a-navrat/mpsv-metodicka-prirucka-pro-kuratory.md) | Další metodiky | Metodická příručka pro kurátory pro děti a mládež |
+
 
 ## Co se při převodu změnilo
 

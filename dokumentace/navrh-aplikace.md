@@ -68,13 +68,21 @@ flowchart TB
 ```
 
 **Klíčové rozhodnutí: žádné RAG, žádné embeddingy.** Volba režimu = pevně daný
-obsah složky. Korpus je malý (~66 000 tokenů celý, 8–28 000 na fázi), takže se
-příslušná fáze vloží do promptu celá a označí se `cache_control`. Je to
-levnější, rychlejší a hlavně **předvídatelné** — u bezpečnostních postupů
-nechceme, aby vyhledávač někdy nenašel to podstatné.
+obsah. Je to levnější, rychlejší a hlavně **předvídatelné** — u bezpečnostních
+postupů nechceme, aby vyhledávač někdy nenašel to podstatné.
 
-Složka `01-ramec-a-legislativa/` se přikládá **vždy**, ke každému režimu:
-terminologie a legislativa jsou potřeba pořád.
+Korpus ale mezitím vyrostl na ~228 000 tokenů a **celý se do každého promptu
+vkládat nedá**. Návrh proto pracuje ve dvou vrstvách:
+
+| Vrstva | Co obsahuje | Jak se dostane k modelu |
+| --- | --- | --- |
+| **Vždy v promptu** | Jádro zvolené fáze + terminologie + přehled legislativy | Deterministicky vloženo, `cache_control` |
+| **Na vyžádání** | Plné znění zákona 359/1999, 20 karet pro starosty, dlouhé přílohy | Nástroj `precti_dokument(cesta)` — model si řekne |
+
+Do druhé vrstvy patří hlavně **text zákona (~90 000 tokenů)**: ředitel ho
+potřebuje jednou za čas, ne v každé odpovědi. Model dostane do promptu
+**rejstřík** (názvy částí, paragrafů, karet) a dočte si jen to, co je potřeba.
+Stejný princip jako „agentické dočítání" v Katalogu podpůrných opatření.
 
 ---
 
@@ -110,11 +118,14 @@ flowchart LR
     class N,N1,N2,N3,N4 po
 ```
 
-| Režim | Vložená data | Tokenů | Chování modelu |
-| --- | --- | ---: | --- |
-| **Prevence** | `01` + `02` | ~41 000 | Ptá se na kontext školy, navrhuje postup, umí vygenerovat osnovu dokumentu |
-| **Krize** | `01` + `03` | ~34 000 | Krátké odpovědi, odrážky, žádné úvody. Vždy začíná linkou 158 |
-| **Po krizi** | `01` + `04` + KRIT | ~28 000 | Klidný tón, navigace k lidem, příprava dokumentů |
+| Režim | Vždy v promptu | Tokenů | Dočítá si | Chování modelu |
+| --- | --- | ---: | --- | --- |
+| **Prevence** | jádro `01` + celé `02` | ~55 000 | zákon, dlouhé přílohy | Ptá se na kontext školy, navrhuje postup, umí vygenerovat osnovu dokumentu |
+| **Krize** | jádro `01` + `03` bez karet | ~50 000 | karty pro starosty podle typu události | Krátké odpovědi, odrážky, žádné úvody. Vždy začíná linkou 158 |
+| **Po krizi** | jádro `01` + celé `04` | ~35 000 | zákon 359/1999, MPSV | Klidný tón, navigace k lidem, příprava dokumentů |
+
+„Jádro `01`" je terminologie, přehled legislativy, dokumentace a pojmy KRIT —
+bez plného textu zákona, který má vlastní podsložku a čte se na vyžádání.
 
 ### Krizový režim se chová jinak než chat
 
@@ -275,9 +286,10 @@ Přebírá se stack ověřený na Katalogu podpůrných opatření:
 Skladba system promptu:
 
 ```
-[ blok 1 ]  role, tón, pravidla režimu, profil školy       ← malý, mění se
-[ blok 2 ]  01-ramec-a-legislativa/ (vždy)                 ← cache_control
+[ blok 1 ]  role, tón, pravidla režimu                     ← malý, stabilní
+[ blok 2 ]  jádro 01 + rejstřík dočítatelných dokumentů    ← cache_control
 [ blok 3 ]  data zvolené fáze                              ← cache_control
+[ blok 4 ]  profil školy, čas                              ← volatilní, až za breakpointem
 ```
 
 Bloky 2 a 3 jsou stabilní přes celou konverzaci, takže se čtou z cache.
@@ -287,6 +299,8 @@ jinak se cache při každém tahu zahodí.
 ### Instrukce, které musí být v promptu
 
 - Vycházej **jen z vložených dokumentů**. Když tam odpověď není, řekni to.
+- Když je potřeba přesné znění zákona nebo karta k typu události, **dočti si ji**
+  nástrojem — nevymýšlej ji z paměti.
 - U každého tvrzení uveď **zdroj** — název dokumentu a části.
 - Rozlišuj **`[§ ZÁVAZNÉ]` od `[D DOPORUČENÍ]`**. Nikdy z doporučení nedělej
   povinnost.
@@ -300,8 +314,9 @@ jinak se cache při každém tahu zahodí.
 
 | Mez | Důsledek pro aplikaci |
 | --- | --- |
-| **Fáze „po krizi" je datově nejslabší** — 2 600 slov proti 15 500 u prevence | Režim musí častěji odpovídat „na tohle data nestačí, obraťte se na…" |
-| **Zákon 359/1999 Sb. v korpusu není** | Aplikace nesmí tvrdit, kdy vzniká oznamovací povinnost |
+| **Fáze „po krizi" je datově nejslabší** — 5 300 slov proti 41 100 u krizové reakce | Režim musí častěji odpovídat „na tohle data nestačí, obraťte se na…" |
+| **Zákon 359/1999 Sb. je v korpusu, ale je to holý text** | Aplikace může citovat znění, ale nesmí ho vykládat jako právní poradna |
+| **Korpus je ~228 000 tokenů** | Nedá se vložit celý; potřeba dočítání na vyžádání (kapitola 2) |
 | **Chybí 5 dokumentů, na které korpus odkazuje** | Viz [`provazanost-dat.md`](provazanost-dat.md); doplnit je je nejlevnější způsob, jak aplikaci vylepšit |
 | **Korpus je celostátní** | Místní kontakty musí dodat profil školy |
 | **Metodiky nejsou právní výklad** | Viditelná doložka, ne v patičce |

@@ -31,9 +31,15 @@ Ke zpracování bezpečnostního plánu se přistupuje ve chvíli, kdy je zpraco
   - lockdown,
   - dále to jsou reakce na tyto typy bezpečnostních incidentů (minimální výčet): ▪ podezřelá zásilka, ▪ podezřelý předmět uložený v objektu či bezprostředním okolí, ▪ elektronické a telefonické výhružky, ▪ neoprávněný vstup cizí osoby (ozbrojená, neozbrojená, páchání majetkové trestné činnosti), ▪ aktivní útok (chladná, střelná zbraň), barikádová situace, ▪ žhářský útok, požár, ▪ rozprach nebezpečných látek, ▪ mimořádná událost či bezpečnostní incident v blízkém okolí objektu, a ▪ nález či záchyt zbraně u žáka.
 
-Při zpracování bezpečnostního plánu je vhodné, aby škola, případně externí dodavatel, vzhledem ke komplexnosti dané problematiky a možné provozní slepotě, konzultovala doporučení s osobou odborně způsobilou v požární ochraně, osobou odborně způsobilou v prevenci rizik a pověřencem pro ochranu osobních údajů. Pro poskytování nepřetržitého poradenství v oblasti prevence bezpečnostních rizik pro provozovatele (nejen) škol byla na Národním operačním centru Policejního prezidia ČR zřízena HOTLINE 800 255 255.
+Při zpracování bezpečnostního plánu je vhodné, aby škola, případně externí dodavatel, vzhledem ke komplexnosti dané problematiky a možné provozní slepotě, konzultovala doporučení s osobou odborně způsobilou v požární ochraně, osobou odborně způsobilou v prevenci rizik a pověřencem pro ochranu osobních údajů.
+
+**[I INFORMACE]**
+
+Pro poskytování nepřetržitého poradenství v oblasti prevence bezpečnostních rizik pro provozovatele (nejen) škol byla na Národním operačním centru Policejního prezidia ČR zřízena HOTLINE 800 255 255.
 
 ## Doporučený postup pro zadavatele (školy)
+
+**[D DOPORUČENÍ]**
 
 ### Kdo může vykonávat?
 

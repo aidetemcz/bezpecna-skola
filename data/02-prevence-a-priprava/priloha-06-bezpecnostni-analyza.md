@@ -13,9 +13,13 @@ kategorie: [doporuceni, informace]
 
 # Bezpečnostní analýza včetně vyhodnocení ohroženosti
 
+**[I INFORMACE]**
+
+Každá škola má svá specifika[^1], proto i bezpečnostní analýza včetně vyhodnocení ohroženosti bude pro každou školu specifická.
+
 **[D DOPORUČENÍ]**
 
-Každá škola má svá specifika[^1], proto i bezpečnostní analýza včetně vyhodnocení ohroženosti bude pro každou školu specifická. Tento dokument je **neveřejný**. Ředitel školy seznámí pouze s výstupy a doporučeními jím vybraný okruh zaměstnanců školy, školskou radu a zřizovatele. Minimální výčet oblastí, které by měly být zahrnuty ve zpracované analýze včetně vyhodnocení ohroženosti (přizpůsobené charakteru školy):
+Tento dokument je **neveřejný**. Ředitel školy seznámí pouze s výstupy a doporučeními jím vybraný okruh zaměstnanců školy, školskou radu a zřizovatele. Minimální výčet oblastí, které by měly být zahrnuty ve zpracované analýze včetně vyhodnocení ohroženosti (přizpůsobené charakteru školy):
 
 - Zpracovávaný dokument musí vždy reflektovat stav stavebně technického řešení a na něj navazující režimová a organizační opatření.
 - **Technická část:**

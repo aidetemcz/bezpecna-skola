@@ -118,11 +118,12 @@ z aktérů nemá případ řešit sám.
 
 Poctivě: tahle mapa má díry, protože je mají zdrojová data.
 
-- **Přesné právní podmínky, kdy vzniká oznamovací povinnost.** Korpus na ně
-  odkazuje (§ 31 školského zákona, trestní zákoník), ale
-  **zákon č. 359/1999 Sb., o sociálně-právní ochraně dětí, v korpusu není.**
-  Aplikace proto nesmí tvrdit „musíte oznámit" — může říct „tohle je situace,
-  kde se oznámení zvažuje, ověřte si to".
+- **Výklad oznamovací povinnosti.** Zákon č. 359/1999 Sb. je v korpusu celý
+  ([`zakon-359-1999/`](../data/01-ramec-a-legislativa/zakon-359-1999/)),
+  takže lze citovat přesné znění. **Výklad to ale nenahrazuje** — aplikace může
+  ukázat, co zákon říká, ne rozhodnout, zda povinnost v konkrétním případě
+  vznikla. Školský zákon a trestní zákoník jsou v korpusu jen ve výtahu
+  v [příloze 2](../data/01-ramec-a-legislativa/priloha-02-legislativa.md).
 - **Krizová intervence a následná péče.** Kdo poskytuje, jak se objednává,
   kdo platí — nikde. Chybějící dokument *Škola a neštěstí: Jsme připraveni!*
   míří přesně sem.

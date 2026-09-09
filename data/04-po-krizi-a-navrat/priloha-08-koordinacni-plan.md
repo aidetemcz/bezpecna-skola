@@ -15,9 +15,11 @@ kategorie: [doporuceni, informace]
 
 **[I INFORMACE]**
 
-Cílem je zajistit a připravit koordinační plán pro situace zpravidla po bezpečnostním incidentu nebo mimořádné události tak, aby návrat do rutinního provozu byl koordinovaný, efektivní a co možná nejrychlejší. Jeho funkce může být i preventivní, např. ho lze využít při přípravě na hrozící mimořádnou událost (povodně apod.) nebo v případě, kdy událost lze predikovat (hromadné výhružky uložením nástražného výbušného systému apod.). Jedná se o dokument definující postupy zejména pro vedení školy v případě nastalého bezpečnostního incidentu či mimořádné události. Tento dokument je **neveřejný**. S jeho obsahem je seznámen ředitel školy a okruh zaměstnanců školy určený ředitelem školy. Dokument by měl primárně obsahovat:
+Cílem je zajistit a připravit koordinační plán pro situace zpravidla po bezpečnostním incidentu nebo mimořádné události tak, aby návrat do rutinního provozu byl koordinovaný, efektivní a co možná nejrychlejší. Jeho funkce může být i preventivní, např. ho lze využít při přípravě na hrozící mimořádnou událost (povodně apod.) nebo v případě, kdy událost lze predikovat (hromadné výhružky uložením nástražného výbušného systému apod.). Jedná se o dokument definující postupy zejména pro vedení školy v případě nastalého bezpečnostního incidentu či mimořádné události.
 
 **[D DOPORUČENÍ]**
+
+Tento dokument je **neveřejný**. S jeho obsahem je seznámen ředitel školy a okruh zaměstnanců školy určený ředitelem školy. Dokument by měl primárně obsahovat:
 
 - **Základní postupy při řešení jednotlivých incidentů a jejich dopadů včetně mimořádných událostí**
 - **Zřízení, resp. umístění, koordinační centra**

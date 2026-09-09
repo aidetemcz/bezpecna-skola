@@ -9,6 +9,7 @@ Strukturu stranky (nadpisy, odrazky, barevne pruhy kategorii, poznamky pod
 carou) rozpoznava modul pdf_struktura.py.
 """
 import sys, os, re, glob, json
+from urllib.parse import quote
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pdfplumber, docx
 from pdf_struktura import parse, to_markdown
@@ -341,13 +342,52 @@ razítka a stránková výplň.
 """
 
 
-def write_readme(outdir, titles, sources):
+def _meta(path):
+    """Nazev a puvod souboru z YAML hlavicky, at uz ho vyrobil skript, nebo clovek."""
+    t = open(path, encoding="utf-8").read()
+    fm = t.split("---", 2)[1] if t.startswith("---") else ""
+
+    def get(key):
+        m = re.search(rf"^{key}:\s*\"?([^\"\n]+)\"?\s*$", fm, re.M)
+        return m.group(1).strip().rstrip('"') if m else ""
+
+    title = get("title") or get("nazev") or get("cast")
+    if not title:
+        m = re.search(r"^# (.+)$", t, re.M)
+        title = m.group(1).strip() if m else os.path.basename(path)[:-3]
+    zakon = get("zakon")
+    if zakon:
+        puvod = f"Zákon č. {zakon}"
+    elif get("cj"):
+        puvod = f"{DOC_KRATCE}, {get('cast')}"
+    elif "krit" in get("tags"):
+        puvod = "KRIT (MV)"
+    else:
+        puvod = get("vydal").split(",")[0] or "—"
+    return title, puvod
+
+
+def write_readme(outdir):
+    """Rejstrik se sklada prochazenim stromu, ne ze seznamu ve skriptu -
+    zachyti tak i soubory, ktere do data/ pribyly rucne."""
     rows = []
-    for folder, (nazev, popis, files) in FAZE.items():
-        rows += ["", f"### {folder}/ — {nazev}", "", popis, "",
-                 "| Soubor | Zdrojový dokument | Název |", "| --- | --- | --- |"]
-        for name in files:
-            rows.append(f"| [`{name}`]({folder}/{name}) | {sources[name]} | {titles[name]} |")
+    for folder, (nazev, popis, _) in FAZE.items():
+        rows += ["", f"### {folder}/ — {nazev}", "", popis, ""]
+        base = os.path.join(outdir, folder)
+        for sub in [""] + sorted(d for d in os.listdir(base)
+                                 if os.path.isdir(os.path.join(base, d))):
+            files = sorted(glob.glob(os.path.join(base, sub, "*.md")))
+            if not files:
+                continue
+            if sub:
+                rows += [f"#### {sub}/", ""]
+            rows += ["| Soubor | Původ | Název |", "| --- | --- | --- |"]
+            for path in files:
+                name = os.path.basename(path)
+                title, puvod = _meta(path)
+                href = quote(os.path.relpath(path, outdir))
+                rows.append(f"| [`{name}`]({href}) | {puvod} | {title} |")
+            rows.append("")
     open(os.path.join(outdir, "README.md"), "w", encoding="utf-8").write(
         README_HEAD + "\n".join(rows) + "\n" + README_TAIL)
 
@@ -366,7 +406,7 @@ if __name__ == "__main__":
         o, t, _ = build_generic(e, outdir)
         titles[o], sources[o] = t, e[5] if e[5] != "Doporučení AMOK" else "Doporučení AMOK (PČR)"
 
-    write_readme(outdir, titles, sources)
+    write_readme(outdir)
     for folder, (nazev, _, files) in FAZE.items():
         print(f"\n== {folder}  ({nazev})")
         for f in files:
