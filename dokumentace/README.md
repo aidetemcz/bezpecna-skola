@@ -45,6 +45,12 @@ cena: **MŠMT** říká, co má škola mít zpracované a co je závazné. **Pol
 a přináší i karty pro starosty k desítkám typů mimořádných událostí. **MPSV
 a zákon 359/1999** pokrývají, komu se případ předává a za jakých podmínek.
 
+> **Pozor na adresáta.** Ne všechno je psané pro školu. Z metodik KRIT je
+> škole adresovaná **jediná** — příručka pro školní prostředí; zbytek míří na
+> starosty nebo na instituce veřejné správy a je pro školu použitelný, ale ne
+> adresovaný. Rozpis je v [`provazanost-dat.md`](provazanost-dat.md),
+> kapitola 3, a má přímý dopad na to, co smí aplikace řediteli radit.
+
 ---
 
 ## 2. Jak jsou uspořádaná

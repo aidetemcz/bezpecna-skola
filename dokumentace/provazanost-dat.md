@@ -84,7 +84,7 @@ flowchart LR
         A10["AMOK 10<br/>deeskalace a vyjednávání"]
         A9["AMOK 9<br/>obecný postup"]
         KR["KRIT<br/>akutní komunikace"]
-        RKI["KRIT<br/><b>Rodná karta incidentu</b><br/>záznam rozhodnutí"]
+        RKI["<b>záznam rozhodnutí</b><br/><i>školní nástroj chybí</i>"]
         A7 --> A4
         A10 --> A4
         A9 --> A4
@@ -125,8 +125,13 @@ z druhé strany.
 
 Silné šipky vyznačují **komunikační páteř**, kterou přinesly metodiky KRIT
 a která prochází všemi třemi fázemi: plán krizové komunikace se sestaví předem,
-v krizi se podle něj jede a rozhodnutí se chronologicky zapisují do Rodné karty
-incidentu, po odeznění je karta podkladem pro vyhodnocení a to zpětně mění plán.
+v krizi se podle něj jede a rozhodnutí se chronologicky zapisují, po odeznění je
+záznam podkladem pro vyhodnocení a to zpětně mění plán.
+
+**Prostřední článek ale pro školu zatím nemá nástroj.** KRIT má
+[Rodnou kartu incidentu](../data/03-krizova-reakce/Rodn%C3%A1%20karta%20incidentu%20%28RKI%29.md),
+jenže ta je jejich interní koordinační nástroj napříč IZS, policií, samosprávou
+a ministerstvy — ne dokument ředitele. Školní obdoba se připravuje.
 
 > **Poznámka k zařazení.** Příručka KRIT *Akutní komunikace ve školním prostředí*
 > leží v `03-krizova-reakce/`, ale celá jedna její třetina je prevence — právě
@@ -136,7 +141,25 @@ incidentu, po odeznění je karta podkladem pro vyhodnocení a to zpětně měn�
 
 ---
 
-## 3. Co korpus pokrývá
+## 3. Pro koho je co psané
+
+Než se podíváme na pokrytí, jedna věc, která se snadno přehlédne: **korpus není
+celý psaný pro školu.**
+
+| Adresát | Dokumenty |
+| --- | --- |
+| **Škola** | Celá metodika MŠMT, doporučení AMOK, MPSV, Vegrichtová — a z KRIT **jediný** dokument: [příručka pro školní prostředí](../data/03-krizova-reakce/krit-akutni-komunikace-ve-skolnim-prostredi.md) *(„Jste ve vedoucí pozici ve školním prostředí…")* |
+| **Starostové a obce** | 20 karet pro starosty, Varování před hrozícím nebezpečím, Zapojení NNO a dobrovolníků |
+| **Instituce veřejné správy / KRIT** | Rodná karta incidentu, FOIPS, Principy koordinace, Systém včasného varování, Akutní komunikace, Holding lines, Sociálně citlivá témata, Vyhodnocení po incidentu |
+
+Materiály z druhé a třetí skupiny jsou pro školu **použitelné, ale ne adresované**.
+Přenáší se z nich *postup*, ne *pokyn*. Pro aplikaci z toho plyne konkrétní
+pravidlo: model nesmí ředitele posílat k nástroji, který není jeho — viz
+[`navrh-aplikace.md`](navrh-aplikace.md), kapitola 8.
+
+---
+
+## 4. Co korpus pokrývá
 
 | Otázka, kterou si ředitel klade | Kde je odpověď | Síla pokrytí |
 | --- | --- | --- |
@@ -154,13 +177,13 @@ incidentu, po odeznění je karta podkladem pro vyhodnocení a to zpětně měn�
 | Co dělá OSPOD a za jakých podmínek? | zákon 359/1999, ČÁST TŘETÍ | **silné** — plné znění zákona |
 | Co při jiné mimořádné události než útoku? | KRIT, karty pro starosty | **silné** — 20 typů událostí |
 | Jak sestavit plán krizové komunikace? | KRIT — příručka pro školy | **silné** |
-| Jak zaznamenat rozhodnutí v průběhu krize? | KRIT — Rodná karta incidentu | **silné** — struktura i pravidla zápisu |
+| Jak zaznamenat rozhodnutí v průběhu krize? | KRIT — RKI (jen jako předloha) | **slabé pro školu** — struktura ano, školní nástroj ne |
 | Co si z incidentu odnést? | KRIT — vyhodnocení po incidentu | **silné** — osnova i kontrolní otázky |
 | Jak školit personál? | příloha 9 | **silné** — včetně nároků na lektory |
 
 ---
 
-## 4. Mezery — na co korpus odkazuje, ale neobsahuje to
+## 5. Mezery — na co korpus odkazuje, ale neobsahuje to
 
 Tohle nejsou domněnky. Jsou to dokumenty, které **naše vlastní data jmenují**
 jako zdroj, ale samy v korpusu nejsou.
@@ -178,6 +201,7 @@ jako zdroj, ale samy v korpusu nejsou.
 | **Bezpečnostní plán měkkého cíle** (MV) | příloha 7 | Totéž pro plán. |
 | **Metodika koordinace měkkého cíle pro fázi po bezpečnostním incidentu** (MV) | příloha 8 | Právě ta nejslabší fáze. |
 | **Metodický pokyn k zajištění BOZ** (MŠMT, č.j. 37014/2005) | příloha 3 | Průnik s BOZP. |
+| **Školní obdoba Rodné karty incidentu** | — chybí i ve zdrojích | Nástroj, kterým by ředitel vedl chronologický záznam rozhodnutí. KRIT ji připravuje. |
 
 ### Nejvýraznější nepoměr
 

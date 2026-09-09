@@ -111,7 +111,7 @@ flowchart LR
     K --> K2["Co teď udělat"]
     K --> K3["Koho volat, v jakém pořadí"]
     K --> K4["Co říct — vzorové formulace"]
-    K --> K5["<b>Rodná karta incidentu</b><br/>záznam rozhodnutí v čase"]
+    K --> K5["<b>Záznam rozhodnutí</b><br/><i>školní nástroj se připravuje</i>"]
 
     N --> N1["Záznam o incidentu"]
     N --> N2["Komu případ předat"]
@@ -132,9 +132,17 @@ flowchart LR
 ```
 
 Tři zvýrazněné uzly a přerušované šipky tvoří **komunikační páteř aplikace**:
-plán se sestaví v klidu, v krizi se podle něj jede a průběžně se zapisuje do
-Rodné karty incidentu, po krizi se z karty udělá vyhodnocení a to zpětně změní
-plán. Všechny tři kroky mají oporu v metodikách KRIT.
+plán se sestaví v klidu, v krizi se podle něj jede a průběžně se zapisují
+rozhodnutí, po krizi se ze záznamu udělá vyhodnocení a to zpětně změní plán.
+
+> **Prostřední článek zatím nemáme.** Metodika KRIT má pro tuhle roli
+> [Rodnou kartu incidentu](../data/03-krizova-reakce/Rodn%C3%A1%20karta%20incidentu%20%28RKI%29.md),
+> jenže to je **interní koordinační nástroj KRIT** pro souhru IZS, policie,
+> samosprávy a ministerstev — ne dokument, který vede ředitel školy. Školní
+> obdoba se teprve připravuje a doplní se sem, až bude. Do té doby RKI slouží
+> jako **předloha struktury** (chronologický log, časové razítko a autor
+> u každého zápisu, nic se nemaže, opravy jako nový záznam), ne jako nástroj,
+> ke kterému by aplikace ředitele posílala.
 
 | Režim | Vždy v promptu | Tokenů | Dočítá si | Chování modelu |
 | --- | --- | ---: | --- | --- |
@@ -197,7 +205,7 @@ Model smí předepsat návrh, nikdy ne potvrdit za uživatele.
 | --- | --- | --- |
 | **Krizový checklist** | interaktivní, bez modelu | Musí naskočit okamžitě a fungovat i bez sítě. Odškrtnutí je rozhodnutí člověka. |
 | **Mapa aktérů** | statická data + filtr | Referenční tabulka. Telefonní číslo se nemá generovat. |
-| **Rodná karta incidentu** | formulář s časovými razítky | Chronologický záznam. Model do něj nesmí psát sám. |
+| **Záznam rozhodnutí v krizi** *(připravuje se)* | formulář s časovými razítky | Chronologický záznam. Model do něj nesmí psát sám. Školní nástroj zatím neexistuje — viz kapitola 3. |
 | **Profil školy** | formulář | Vyplní se jednou, drží se v prohlížeči. |
 | **Tisk do PDF** | prohlížeč | Žádný model, žádný server. |
 | **Chat — prevence** | model | Otevřené otázky, návrhy postupu, osnovy dokumentů. |
@@ -205,7 +213,7 @@ Model smí předepsat návrh, nikdy ne potvrdit za uživatele.
 | **Chat — po krizi** | model | Klidný průvodce, navigace k lidem. |
 | **Průvodce dopisem** | formulář → model → editace | Model píše návrh, člověk ho upravuje a tiskne. |
 | **Osnova plánu krizové komunikace** | formulář → model | Model složí osnovu z metodik, škola ji vyplní. |
-| **Vyhodnocení (lessons learned)** | model nad RKI | Model čte záznam a navrhne strukturu vyhodnocení. |
+| **Vyhodnocení (lessons learned)** | model nad záznamem | Model čte záznam a navrhne strukturu vyhodnocení. |
 
 ### Jak interaktivní plochy ovlivňují chat
 
@@ -218,7 +226,7 @@ flowchart TB
     subgraph DET["DETERMINISTICKÁ VRSTVA — člověk klikne, model do ní nepíše"]
         direction LR
         CL["Krizový checklist<br/><i>co už je hotové</i>"]
-        RKI["Rodná karta incidentu<br/><i>co se kdy stalo</i>"]
+        RKI["Záznam rozhodnutí<br/><i>co se kdy stalo</i><br/><b>připravuje se</b>"]
         PROF["Profil školy<br/><i>kdo jsme, koho voláme</i>"]
     end
 
@@ -255,15 +263,14 @@ STAV ŠKOLY: ZŠ Příkladná, Praha 6 · zřizovatel MČ Praha 6 · 412 žáků
 REŽIM: krize · začátek 10:42
 HOTOVO: 158 volána (10:44) · lockdown vyhlášen (10:45) · zřizovatel informován (10:52)
 NEHOTOVO: rodiče informováni · média · sečtení osob
-POSLEDNÍ ZÁPIS RKI: 10:58 — „Policie na místě, velitel zásahu převzal řízení"
+POSLEDNÍ ZÁPIS: 10:58 — „Policie na místě, velitel zásahu převzal řízení"
 ```
 
 Protože se mění po každém kliknutí, patří **až za poslední `cache_control`
 breakpoint** — jinak by každé odškrtnutí zahodilo cache celého korpusu.
 
 Model z toho má dvě instrukce: **neraď to, co už je odškrtnuté**, a **když
-uživatel popíše rozhodnutí, nabídni zápis do RKI** (formulaci navrhne, zapíše
-člověk).
+uživatel popíše rozhodnutí, nabídni formulaci zápisu** (zapsat ho musí člověk).
 
 ## 5. Průvodce dopisem → PDF
 
@@ -413,8 +420,12 @@ jinak se cache při každém tahu zahodí.
 
 - Vycházej **jen z vložených dokumentů**. Když tam odpověď není, řekni to.
 - **Neraď to, co už je ve stavu sezení odškrtnuté jako hotové.**
-- Když uživatel popíše rozhodnutí, **nabídni formulaci zápisu do Rodné karty
-  incidentu** — zapsat ji musí člověk, ty ji nepotvrzuješ za něj.
+- Když uživatel popíše rozhodnutí, **nabídni formulaci zápisu** — zapsat ho musí
+  člověk, ty ho nepotvrzuješ za něj.
+- **Neposílej ředitele k nástrojům, které nejsou jeho.** Většina metodik KRIT
+  je psaná pro starosty nebo pro instituce veřejné správy; z nich se přebírá
+  postup, ne pokyn. „Založte Rodnou kartu incidentu" je špatná rada, „veďte si
+  chronologický záznam rozhodnutí s časem a jménem" je dobrá.
 - Když je potřeba přesné znění zákona nebo karta k typu události, **dočti si ji**
   nástrojem — nevymýšlej ji z paměti.
 - U každého tvrzení uveď **zdroj** — název dokumentu a části.
@@ -450,10 +461,10 @@ jinak se cache při každém tahu zahodí.
    checklist ano; chat ne.
 4. **Kdo připomínky vyhodnocuje** a jak rychle se opravy promítnou do dat.
 5. **Doplnit chybějící dokumenty** do korpusu před testováním, nebo až po něm?
-6. **Kde žije Rodná karta incidentu** — jen v prohlížeči (soukromé, ale
-   nesdílené a ztratitelné), nebo na serveru (sdílené v týmu, ale jsou v ní
-   osobní údaje)? Metodika KRIT ji popisuje jako **sdílený** dokument napříč
-   složkami, což míří na server. Souvisí to s rozhodnutím č. 1 i č. 2.
+6. **Kde žije záznam rozhodnutí** — jen v prohlížeči (soukromé, ale nesdílené
+   a ztratitelné), nebo na serveru (sdílené v týmu, ale jsou v něm osobní
+   údaje)? Souvisí to s rozhodnutím č. 1 i č. 2 a odpověď nejspíš přijde
+   s tím, jak bude školní nástroj od KRIT vypadat.
 
 ---
 
@@ -463,7 +474,7 @@ jinak se cache při každém tahu zahodí.
 | --- | --- |
 | **1. Kostra** | Next.js, tři režimy, chat nad daty, krizový checklist, připomínky. Cíl: dát to řediteli do ruky. |
 | **2. Testování** | 5–10 ředitelů, sběr připomínek, oprava dat a promptu. |
-| **3. Záznam a vyhodnocení** | Rodná karta incidentu jako formulář, z ní vyhodnocení (lessons learned). Potřebuje to i plán krizové komunikace v režimu prevence. |
+| **3. Záznam a vyhodnocení** | Formulář pro záznam rozhodnutí a z něj vyhodnocení (lessons learned). **Čeká na školní obdobu RKI**, kterou dodá KRIT. Plán krizové komunikace v režimu prevence jde udělat hned. |
 | **4. Dopisy** | Průvodce dopisem a tisk do PDF, poté co je jasné, co ředitelé opravdu píšou. |
 | **5. Doplnění dat** | Chybějící dokumenty, hlavně k fázi po krizi. |
 | **6. Profil školy** | Místní kontakty, hlavičky dopisů. |
