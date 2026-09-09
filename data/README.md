@@ -1,17 +1,21 @@
-# Metodika MŠMT – Minimální standard bezpečnosti (Markdown)
+# Metodiky k bezpečnosti ve školách (Markdown)
 
-Strojově čitelný přepis metodického doporučení
-**Minimální standard bezpečnosti v regionálním školství**
-(MŠMT, listopad 2024, č.j. MSMT-19322/2024-4) a všech jeho příloh.
+Strojově čitelné přepisy zdrojových dokumentů ze složky `../zdrojova-data/`.
+Soubory vznikly automatickým převodem skriptem `../scripts/pdf_na_md.py`;
+obsah je převzatý ze zdroje, není přeformulovaný ani zkracovaný.
 
-Zdrojová PDF a formulář jsou v `../zdrojova-data/`. Soubory v této složce
-vznikly automatickým převodem skriptem `../scripts/pdf_na_md.py`; obsah je
-převzatý ze zdroje, není přeformulovaný.
+Pro citaci a právní účely je závazné vždy původní PDF, ne tento přepis.
 
-## Značky druhu obsahu
+## Hlavička souboru
 
-Metodika rozlišuje tři druhy obsahu barevným pruhem v levém okraji stránky.
-Barva pruhu je v přepisu zachovaná jako značka na začátku každého úseku:
+Každý soubor začíná YAML hlavičkou: `title`, `dokument` (celek, do kterého
+patří), `vydal`, `zdroj` (cesta k původnímu souboru) a `stran`. Dokumenty MŠMT
+navíc nesou `cast`, `cj`, `datum` a `kategorie`.
+
+## Značky druhu obsahu (jen metodika MŠMT)
+
+Metodika MŠMT rozlišuje tři druhy obsahu barevným pruhem v levém okraji
+stránky. Barva pruhu je v přepisu zachovaná jako značka na začátku úseku:
 
 | Značka v Markdownu | Původní barva | Význam |
 | --- | --- | --- |
@@ -19,16 +23,13 @@ Barva pruhu je v přepisu zachovaná jako značka na začátku každého úseku:
 | `**[D DOPORUČENÍ]**` | zelená | Metodická podpora MŠMT školám. |
 | `**[I INFORMACE]**` | modrá | Informativní text a odkazy na další zdroje. |
 
-Značka platí až do další značky. Strojově se úseky dají číst například
-`grep -n '^\*\*\[' soubor.md`.
-
-## Hlavička souboru
-
-Každý soubor začíná YAML hlavičkou s poli `title`, `dokument`, `cast`, `vydal`,
-`cj`, `datum`, `zdroj` (cesta k původnímu PDF) a `stran`. Pole `kategorie`
-vyjmenovává druhy obsahu, které se v souboru vyskytují.
+Značka platí až do další značky; úseky se dají číst například
+`grep -n '^\*\*\[' soubor.md`. Ostatní dokumenty vlastní kategorizaci obsahu
+nemají, jejich struktura vychází z nadpisů.
 
 ## Soubory
+
+### Minimální standard bezpečnosti v regionálním školství (MŠMT, 2024)
 
 | Soubor | Část | Název |
 | --- | --- | --- |
@@ -46,16 +47,47 @@ vyjmenovává druhy obsahu, které se v souboru vyskytují.
 | [`priloha-10-priklady-bezpecnostnich-opatreni.md`](priloha-10-priklady-bezpecnostnich-opatreni.md) | příloha č. 10 | Příklady bezpečnostních opatření ve školách |
 | [`priloha-11-karta-skoly-izs.md`](priloha-11-karta-skoly-izs.md) | příloha č. 11 | Karta školy pro součinnost se složkami IZS při mimořádné události či bezpečnostním incidentu |
 
+### Doporučení AMOK
+
+| Soubor | Část | Název |
+| --- | --- | --- |
+| [`amok-01-prevence-a-pripravenost.md`](amok-01-prevence-a-pripravenost.md) | Doporučení AMOK - 1 - Prevence a připravenost | Prevence a připravenost měkkého cíle |
+| [`amok-02-skoly-signaly-detekce-hodnoceni-reakce.md`](amok-02-skoly-signaly-detekce-hodnoceni-reakce.md) | Doporučení AMOK - 2 - ŠKOLY - Signály, detekce, hodnocení, reakce | Školská zařízení – signály, detekce, hodnocení a okamžitá reakce |
+| [`amok-03-instituce-indikatory-hrozby.md`](amok-03-instituce-indikatory-hrozby.md) | Doporučení AMOK - 3 - INSTITUCE - Indikátory hrozby - OMC | Instituce – indikátory hrozby v rámci ochrany měkkých cílů |
+| [`amok-04-okamzita-reakce-na-utok.md`](amok-04-okamzita-reakce-na-utok.md) | Doporučení AMOK - 4 - Okamžitá reakce na útok | Okamžitá reakce na útok |
+| [`amok-05-bezprostredne-po-utoku.md`](amok-05-bezprostredne-po-utoku.md) | Doporučení AMOK - 5 - Bezprostředně po útoku | Bezprostředně po útoku |
+| [`amok-06-zpet-do-bezneho-rezimu.md`](amok-06-zpet-do-bezneho-rezimu.md) | Doporučení AMOK - 6 - Zpět do běžného režimu | Zpět do běžného režimu – obnova provozu a následná péče |
+| [`amok-07-podezreni-na-zbran-ve-skole.md`](amok-07-podezreni-na-zbran-ve-skole.md) | Doporučení AMOK - 7 - Podezření na zbraň ve škole | Podezření na zbraň ve škole |
+| [`amok-08-dny-otevrenych-dveri.md`](amok-08-dny-otevrenych-dveri.md) | Doporučení AMOK - 8 - Dny oteřených dvěří atd | Jednoduchá doporučení k organizaci dnů otevřených dveří |
+| [`amok-09-obecna-doporuceni.md`](amok-09-obecna-doporuceni.md) | Doporučení AMOK - 9 - Obecná doporučení OMC | Obecná doporučení postupu při bezpečnostních incidentech |
+| [`amok-10-zasady-krizove-komunikace.md`](amok-10-zasady-krizove-komunikace.md) | Doporučení AMOK - 10 - Základní pravidla krizové komunikace | Základní zásady deeskalace konfliktů a krizové komunikace |
+| [`amok-11-nejcastejsi-dotazy.md`](amok-11-nejcastejsi-dotazy.md) | Doporučení AMOK - 11 - Nejčastější dotazy | Časté dotazy v rámci bezpečnostních incidentů |
+| [`amok-12-koordinace-postupu-skoly.md`](amok-12-koordinace-postupu-skoly.md) | Doporučení AMOK - 12 - Koordinace postupu školy | Návrh systému koordinace postupu školy |
+
+### Další metodiky
+
+| Soubor | Část | Název |
+| --- | --- | --- |
+| [`mpsv-metodicka-prirucka-pro-kuratory.md`](mpsv-metodicka-prirucka-pro-kuratory.md) | 3_TZ_RVPPK_09_2017 | Metodická příručka pro kurátory pro děti a mládež |
+| [`vegrichtova-indikatory-radikalizace.md`](vegrichtova-indikatory-radikalizace.md) | Metodika - Vegrichtová a kol. | Indikátory radikalizace v kontextu ochrany obyvatelstva a měkkých cílů před násilnými incidenty |
+
 ## Co se při převodu změnilo
 
-- Nadpisy jsou v přepisu psané normálně, ve zdroji jsou verzálkami.
-- Legenda barev na titulní straně hlavního dokumentu je v PDF grafická tabulka;
+- Nadpisy metodiky MŠMT jsou psané normálně, ve zdroji jsou verzálkami.
+- Legenda barev na titulní straně metodiky MŠMT je v PDF grafická tabulka;
   v přepisu je z ní tabulka Markdownu se stejným zněním textu.
 - Poznámky pod čarou jsou převedené na odkazy `[^n]` a shromážděné na konci
-  souboru v oddílu „Poznámky pod čarou“.
+  souboru v oddílu „Poznámky pod čarou".
 - Formulář z přílohy č. 5 je ve zdroji `.docx` s tabulkou se sloučenými
-  buňkami; v přepisu je z něj dvousloupcová tabulka.
-- Grafika, loga a barevné pruhy se nepřenášejí, jejich význam nesou značky výše.
+  buňkami; v přepisu je z něj osnova oddílů a polí.
+- Opakující se záhlaví a zápatí stránek a čísla stran se nepřenášejí.
+- Grafika, loga a barevné pruhy se nepřenášejí; význam pruhů nesou značky výše.
 
-Kontrolní porovnání slovní zásoby zdroje a přepisu neukázalo žádný vypuštěný
-text. Pro citaci a právní účely je závazné původní PDF ve `../zdrojova-data/`.
+Kontrolní porovnání slovní zásoby zdroje a přepisu neukázalo u žádného
+dokumentu vypuštěný text.
+
+## Co ve složce záměrně není
+
+`Příručka KK ve školách.pdf` (KRIT, Ministerstvo vnitra) nese na titulní straně
+doložku **„DOKUMENT NENÍ URČEN K VEŘEJNÉ DISTRIBUCI NEBO ZVEŘEJNĚNÍ"**, proto
+z ní přepis nevznikl.
