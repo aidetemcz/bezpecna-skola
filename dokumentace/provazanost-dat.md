@@ -70,6 +70,7 @@ flowchart LR
         A2["AMOK 2<br/>signály u žáka"]
         A3["AMOK 3<br/>indikátory u instituce"]
         A1["AMOK 1<br/>prevence a připravenost"]
+        KP["KRIT<br/><b>plán krizové komunikace</b>"]
         V1 --> A2
         V1 --> A3
         A2 --> A1
@@ -83,10 +84,12 @@ flowchart LR
         A10["AMOK 10<br/>deeskalace a vyjednávání"]
         A9["AMOK 9<br/>obecný postup"]
         KR["KRIT<br/>akutní komunikace"]
+        RKI["KRIT<br/><b>Rodná karta incidentu</b><br/>záznam rozhodnutí"]
         A7 --> A4
         A10 --> A4
         A9 --> A4
         A4 --> KR
+        KR --> RKI
     end
 
     subgraph PO["PO KRIZI — dny a měsíce"]
@@ -95,26 +98,41 @@ flowchart LR
         A6["AMOK 6<br/>návrat do běžného režimu"]
         E5["příloha 5<br/>záznam o incidentu"]
         MP["MPSV<br/>kurátor koordinuje případ"]
+        VY["KRIT<br/><b>vyhodnocení po incidentu</b><br/>lessons learned"]
         A5 --> A6
         A5 --> E5
         E5 --> MP
+        A5 --> VY
     end
 
     PREV -->|"signál eskaluje"| KRIZE
     KRIZE -->|"situace stabilizována"| PO
     PO -.->|"poučení mění opatření"| PREV
+    KP ==>|"podle něj se jede"| RKI
+    RKI ==>|"podklad vyhodnocení"| VY
+    VY ==>|"aktualizuje plán"| KP
 
     classDef prev fill:#e8f0fa,stroke:#3c6fa8,color:#000
     classDef kriz fill:#fde8e4,stroke:#b5442c,color:#000
     classDef po fill:#e9e6f5,stroke:#5b4c9c,color:#000
-    class V1,A2,A3,A1 prev
-    class A7,A4,A10,A9,KR kriz
-    class A5,A6,E5,MP po
+    class V1,A2,A3,A1,KP prev
+    class A7,A4,A10,A9,KR,RKI kriz
+    class A5,A6,E5,MP,VY po
 ```
 
 Přerušovaná šipka zpět do prevence je stejná smyčka jako v kaskádě — jen viděná
-z druhé strany. **Je to jediné místo, kde se obě struktury potkávají**, a v datech
-je slabě zastoupené (viz mezery níže).
+z druhé strany.
+
+Silné šipky vyznačují **komunikační páteř**, kterou přinesly metodiky KRIT
+a která prochází všemi třemi fázemi: plán krizové komunikace se sestaví předem,
+v krizi se podle něj jede a rozhodnutí se chronologicky zapisují do Rodné karty
+incidentu, po odeznění je karta podkladem pro vyhodnocení a to zpětně mění plán.
+
+> **Poznámka k zařazení.** Příručka KRIT *Akutní komunikace ve školním prostředí*
+> leží v `03-krizova-reakce/`, ale celá jedna její třetina je prevence — právě
+> tvorba komunikačního plánu, cvičení a příprava zaměstnanců. Zařadili jsme ji
+> podle názvu, ne podle obsahu. Aplikace ji proto načítá i v režimu prevence,
+> viz [`navrh-aplikace.md`](navrh-aplikace.md), kapitola 3.
 
 ---
 
@@ -135,6 +153,9 @@ je slabě zastoupené (viz mezery níže).
 | Co a kdy komunikovat ven? | KRIT — FOIPS, holding lines, RKI | **silné** — přibylo s metodikami KRIT |
 | Co dělá OSPOD a za jakých podmínek? | zákon 359/1999, ČÁST TŘETÍ | **silné** — plné znění zákona |
 | Co při jiné mimořádné události než útoku? | KRIT, karty pro starosty | **silné** — 20 typů událostí |
+| Jak sestavit plán krizové komunikace? | KRIT — příručka pro školy | **silné** |
+| Jak zaznamenat rozhodnutí v průběhu krize? | KRIT — Rodná karta incidentu | **silné** — struktura i pravidla zápisu |
+| Co si z incidentu odnést? | KRIT — vyhodnocení po incidentu | **silné** — osnova i kontrolní otázky |
 | Jak školit personál? | příloha 9 | **silné** — včetně nároků na lektory |
 
 ---

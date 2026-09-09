@@ -26,6 +26,8 @@ v UI vidět, ne schované v patičce.
 flowchart TB
     subgraph UI["PROHLÍŽEČ"]
         REZ["Volba režimu<br/>prevence / krize / po krizi"]
+        CL["Checklist<br/>interaktivní, bez modelu"]
+        RKI["Rodná karta incidentu<br/>záznam rozhodnutí"]
         CHAT["Chat<br/>streamovaná odpověď"]
         AKT["Mapa aktérů<br/>koho volat a s čím"]
         DOP["Průvodce dopisem<br/>→ tisk do PDF"]
@@ -50,8 +52,12 @@ flowchart TB
     CLAUDE["Claude API<br/>claude-opus-5"]
     SHEET["Google Sheet<br/>přes Apps Script"]
 
+    REZ --> CL
     REZ --> CHAT
+    CL -.->|"co už je hotové"| CHAT
+    RKI -.->|"co se kdy stalo"| CHAT
     PROF -.->|"kontext školy"| CHAT
+    CHAT -.->|"návrh zápisu,<br/>potvrdí člověk"| RKI
     CHAT --> RCHAT
     RCHAT --> PROMPT
     PROMPT --> LOAD
@@ -64,7 +70,7 @@ flowchart TB
     AKT -.->|"bez modelu,<br/>statické"| D3
 
     classDef stat fill:#e2f0e0,stroke:#4a8b3f,color:#000
-    class AKT,PROF stat
+    class AKT,PROF,CL,RKI stat
 ```
 
 **Klíčové rozhodnutí: žádné RAG, žádné embeddingy.** Volba režimu = pevně daný
@@ -99,24 +105,36 @@ flowchart LR
     P --> P2["Jak číst varovné signály"]
     P --> P3["Jaká opatření zavést"]
     P --> P4["Jak školit personál"]
+    P --> P5["<b>Plán krizové komunikace</b><br/>sestavit a udržovat"]
 
     K --> K1["OKAMŽITÝ CHECKLIST<br/>bez čekání na model"]
     K --> K2["Co teď udělat"]
     K --> K3["Koho volat, v jakém pořadí"]
     K --> K4["Co říct — vzorové formulace"]
+    K --> K5["<b>Rodná karta incidentu</b><br/>záznam rozhodnutí v čase"]
 
     N --> N1["Záznam o incidentu"]
     N --> N2["Komu případ předat"]
     N --> N3["Návrat do provozu"]
     N --> N4["Dopis na OSPOD a spol."]
+    N --> N5["<b>Vyhodnocení</b><br/>lessons learned"]
+
+    P5 -.->|"v krizi se podle něj jede"| K5
+    K5 -.->|"podklad pro vyhodnocení"| N5
+    N5 -.->|"poznatky aktualizují plán"| P5
 
     classDef prev fill:#e8f0fa,stroke:#3c6fa8,color:#000
     classDef kriz fill:#fde8e4,stroke:#b5442c,color:#000
     classDef po fill:#e9e6f5,stroke:#5b4c9c,color:#000
-    class P,P1,P2,P3,P4 prev
-    class K,K1,K2,K3,K4 kriz
-    class N,N1,N2,N3,N4 po
+    class P,P1,P2,P3,P4,P5 prev
+    class K,K1,K2,K3,K4,K5 kriz
+    class N,N1,N2,N3,N4,N5 po
 ```
+
+Tři zvýrazněné uzly a přerušované šipky tvoří **komunikační páteř aplikace**:
+plán se sestaví v klidu, v krizi se podle něj jede a průběžně se zapisuje do
+Rodné karty incidentu, po krizi se z karty udělá vyhodnocení a to zpětně změní
+plán. Všechny tři kroky mají oporu v metodikách KRIT.
 
 | Režim | Vždy v promptu | Tokenů | Dočítá si | Chování modelu |
 | --- | --- | ---: | --- | --- |
@@ -126,6 +144,15 @@ flowchart LR
 
 „Jádro `01`" je terminologie, přehled legislativy, dokumentace a pojmy KRIT —
 bez plného textu zákona, který má vlastní podsložku a čte se na vyžádání.
+
+> **Jedna výjimka z pravidla „složka = režim".** Příručka
+> [`krit-akutni-komunikace-ve-skolnim-prostredi.md`](../data/03-krizova-reakce/krit-akutni-komunikace-ve-skolnim-prostredi.md)
+> leží v krizové složce podle svého názvu, ale celá jedna její třetina je
+> prevence — *„Tvorba krizového komunikačního plánu, pravidelná cvičení
+> a simulace, budování vztahů s klíčovými partnery, příprava zaměstnanců"*.
+> Režim **prevence si ji proto načítá také.** Je to zatím jediný soubor, který
+> patří do dvou režimů; kdyby takových přibylo, bude lepší zavést v hlavičce
+> pole `faze: [...]` se seznamem než soubory rozřezávat.
 
 ### Krizový režim se chová jinak než chat
 
@@ -155,7 +182,90 @@ Chat je v krizovém režimu **doplněk**, ne hlavní věc.
 
 ---
 
-## 4. Průvodce dopisem → PDF
+## 4. Kde je chatbot a kde ne
+
+Ne všechno v aplikaci má být rozhovor. Některé plochy musí být **deterministické**
+— okamžité, stejné pokaždé, funkční i bez sítě. Jazykový model je od toho, aby
+radil a psal návrhy, ne aby vedl záznam.
+
+**Pravidlo, které to celé drží:** *model radí, člověk rozhoduje a zapisuje.*
+Cokoliv, z čeho vzniká záznam s důkazní nebo úřední hodnotou — Rodná karta
+incidentu, dopis na OSPOD, odškrtnutá položka checklistu — vyplňuje člověk.
+Model smí předepsat návrh, nikdy ne potvrdit za uživatele.
+
+| Plocha | Typ | Proč tak |
+| --- | --- | --- |
+| **Krizový checklist** | interaktivní, bez modelu | Musí naskočit okamžitě a fungovat i bez sítě. Odškrtnutí je rozhodnutí člověka. |
+| **Mapa aktérů** | statická data + filtr | Referenční tabulka. Telefonní číslo se nemá generovat. |
+| **Rodná karta incidentu** | formulář s časovými razítky | Chronologický záznam. Model do něj nesmí psát sám. |
+| **Profil školy** | formulář | Vyplní se jednou, drží se v prohlížeči. |
+| **Tisk do PDF** | prohlížeč | Žádný model, žádný server. |
+| **Chat — prevence** | model | Otevřené otázky, návrhy postupu, osnovy dokumentů. |
+| **Chat — krize** | model, **druhotný** | Až pod checklistem. Doplňuje ho, nenahrazuje. |
+| **Chat — po krizi** | model | Klidný průvodce, navigace k lidem. |
+| **Průvodce dopisem** | formulář → model → editace | Model píše návrh, člověk ho upravuje a tiskne. |
+| **Osnova plánu krizové komunikace** | formulář → model | Model složí osnovu z metodik, škola ji vyplní. |
+| **Vyhodnocení (lessons learned)** | model nad RKI | Model čte záznam a navrhne strukturu vyhodnocení. |
+
+### Jak interaktivní plochy ovlivňují chat
+
+Checklist a Rodná karta nejsou jen zobrazení — jsou to **zdroje kontextu**.
+Když ředitel odškrtne „Policie ČR informována", chat to musí vědět a přestat mu
+to radit.
+
+```mermaid
+flowchart TB
+    subgraph DET["DETERMINISTICKÁ VRSTVA — člověk klikne, model do ní nepíše"]
+        direction LR
+        CL["Krizový checklist<br/><i>co už je hotové</i>"]
+        RKI["Rodná karta incidentu<br/><i>co se kdy stalo</i>"]
+        PROF["Profil školy<br/><i>kdo jsme, koho voláme</i>"]
+    end
+
+    STAV["STAV SEZENÍ<br/>kompaktní strukturovaný blok"]
+
+    subgraph MODEL["VRSTVA MODELU — radí, nerozhoduje"]
+        direction LR
+        CHAT["Chat"]
+        NAVRH["Návrhy<br/>další krok, formulace, dopis"]
+        CHAT --> NAVRH
+    end
+
+    CL --> STAV
+    RKI --> STAV
+    PROF --> STAV
+    STAV ==>|"vloženo za cache breakpoint"| CHAT
+    NAVRH -.->|"člověk odškrtne"| CL
+    NAVRH -.->|"člověk zapíše"| RKI
+
+    classDef det fill:#e2f0e0,stroke:#4a8b3f,color:#000
+    classDef most fill:#f2f2f2,stroke:#777,color:#000
+    classDef llm fill:#e8f0fa,stroke:#3c6fa8,color:#000
+    class CL,RKI,PROF det
+    class STAV most
+    class CHAT,NAVRH llm
+    style DET fill:#f4faf3,stroke:#4a8b3f,color:#000
+    style MODEL fill:#f2f7fd,stroke:#3c6fa8,color:#000
+```
+
+Stav sezení jde do promptu jako krátký blok — desítky tokenů, ne tisíce:
+
+```
+STAV ŠKOLY: ZŠ Příkladná, Praha 6 · zřizovatel MČ Praha 6 · 412 žáků
+REŽIM: krize · začátek 10:42
+HOTOVO: 158 volána (10:44) · lockdown vyhlášen (10:45) · zřizovatel informován (10:52)
+NEHOTOVO: rodiče informováni · média · sečtení osob
+POSLEDNÍ ZÁPIS RKI: 10:58 — „Policie na místě, velitel zásahu převzal řízení"
+```
+
+Protože se mění po každém kliknutí, patří **až za poslední `cache_control`
+breakpoint** — jinak by každé odškrtnutí zahodilo cache celého korpusu.
+
+Model z toho má dvě instrukce: **neraď to, co už je odškrtnuté**, a **když
+uživatel popíše rozhodnutí, nabídni zápis do RKI** (formulaci navrhne, zapíše
+člověk).
+
+## 5. Průvodce dopisem → PDF
 
 Ředitel potřebuje napsat na OSPOD a neví jak. Aplikace ho provede a vytiskne.
 
@@ -208,7 +318,7 @@ dokud nebude důvod pro opak.
 
 ---
 
-## 5. Mapa aktérů v aplikaci
+## 6. Mapa aktérů v aplikaci
 
 Obsah je v [`mapa-akteru.md`](mapa-akteru.md). V aplikaci vystupuje dvakrát:
 
@@ -230,7 +340,7 @@ OSPOD Praha 6" místo „zavolejte na OSPOD").
 
 ---
 
-## 6. Připomínkování pro testovací fázi
+## 7. Připomínkování pro testovací fázi
 
 Aplikace se bude testovat s řediteli, takže sbírání zpětné vazby není doplněk,
 je to hlavní funkce téhle fáze.
@@ -268,7 +378,7 @@ připomínka platí pro současný korpus, nebo pro ten před opravou.
 
 ---
 
-## 7. Technické řešení
+## 8. Technické řešení
 
 Přebírá se stack ověřený na Katalogu podpůrných opatření:
 
@@ -289,8 +399,11 @@ Skladba system promptu:
 [ blok 1 ]  role, tón, pravidla režimu                     ← malý, stabilní
 [ blok 2 ]  jádro 01 + rejstřík dočítatelných dokumentů    ← cache_control
 [ blok 3 ]  data zvolené fáze                              ← cache_control
-[ blok 4 ]  profil školy, čas                              ← volatilní, až za breakpointem
+[ blok 4 ]  stav sezení: profil školy, checklist, RKI, čas  ← volatilní, až za breakpointem
 ```
+
+Blok 4 se mění po každém odškrtnutí, proto stojí až za posledním
+`cache_control` breakpointem — viz kapitola 4.
 
 Bloky 2 a 3 jsou stabilní přes celou konverzaci, takže se čtou z cache.
 Volatilní věci (profil školy, čas) patří **až za** poslední cache breakpoint,
@@ -299,6 +412,9 @@ jinak se cache při každém tahu zahodí.
 ### Instrukce, které musí být v promptu
 
 - Vycházej **jen z vložených dokumentů**. Když tam odpověď není, řekni to.
+- **Neraď to, co už je ve stavu sezení odškrtnuté jako hotové.**
+- Když uživatel popíše rozhodnutí, **nabídni formulaci zápisu do Rodné karty
+  incidentu** — zapsat ji musí člověk, ty ji nepotvrzuješ za něj.
 - Když je potřeba přesné znění zákona nebo karta k typu události, **dočti si ji**
   nástrojem — nevymýšlej ji z paměti.
 - U každého tvrzení uveď **zdroj** — název dokumentu a části.
@@ -310,7 +426,7 @@ jinak se cache při každém tahu zahodí.
 
 ---
 
-## 8. Meze, které je potřeba přiznat
+## 9. Meze, které je potřeba přiznat
 
 | Mez | Důsledek pro aplikaci |
 | --- | --- |
@@ -324,29 +440,34 @@ jinak se cache při každém tahu zahodí.
 
 ---
 
-## 9. Co je potřeba rozhodnout před implementací
+## 10. Co je potřeba rozhodnout před implementací
 
 1. **Osobní údaje v promptu** — posílat jména dětí do API, nebo generovat
-   šablonu s prázdnými místy? (kapitola 4)
+   šablonu s prázdnými místy? (kapitola 5)
 2. **Přihlašování** — veřejné, nebo za přihlášením? Ovlivňuje to, jak citlivé
    věci si uživatelé dovolí napsat.
 3. **Krizový režim v terénu** — má fungovat offline na mobilu? Statický
    checklist ano; chat ne.
 4. **Kdo připomínky vyhodnocuje** a jak rychle se opravy promítnou do dat.
 5. **Doplnit chybějící dokumenty** do korpusu před testováním, nebo až po něm?
+6. **Kde žije Rodná karta incidentu** — jen v prohlížeči (soukromé, ale
+   nesdílené a ztratitelné), nebo na serveru (sdílené v týmu, ale jsou v ní
+   osobní údaje)? Metodika KRIT ji popisuje jako **sdílený** dokument napříč
+   složkami, což míří na server. Souvisí to s rozhodnutím č. 1 i č. 2.
 
 ---
 
-## 10. Návrh postupu
+## 11. Návrh postupu
 
 | Fáze | Obsah |
 | --- | --- |
-| **1. Kostra** | Next.js, tři režimy, chat nad daty, připomínky. Cíl: dát to řediteli do ruky. |
+| **1. Kostra** | Next.js, tři režimy, chat nad daty, krizový checklist, připomínky. Cíl: dát to řediteli do ruky. |
 | **2. Testování** | 5–10 ředitelů, sběr připomínek, oprava dat a promptu. |
-| **3. Dopisy** | Průvodce dopisem a tisk do PDF, poté co je jasné, co ředitelé opravdu píšou. |
-| **4. Doplnění dat** | Chybějící dokumenty, hlavně k fázi po krizi. |
-| **5. Profil školy** | Místní kontakty, hlavičky dopisů. |
+| **3. Záznam a vyhodnocení** | Rodná karta incidentu jako formulář, z ní vyhodnocení (lessons learned). Potřebuje to i plán krizové komunikace v režimu prevence. |
+| **4. Dopisy** | Průvodce dopisem a tisk do PDF, poté co je jasné, co ředitelé opravdu píšou. |
+| **5. Doplnění dat** | Chybějící dokumenty, hlavně k fázi po krizi. |
+| **6. Profil školy** | Místní kontakty, hlavičky dopisů. |
 
-Průvodce dopisem je záměrně až ve fázi 3 — teprve testování ukáže, které
-šablony ředitelé potřebují. Šest šablon z kapitoly 4 je odhad z dat, ne
+Průvodce dopisem je záměrně až ve fázi 4 — teprve testování ukáže, které
+šablony ředitelé potřebují. Šest šablon z kapitoly 5 je odhad z dat, ne
 zjištěná potřeba.
