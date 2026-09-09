@@ -8,13 +8,13 @@ stran: 3
 
 # Školská zařízení – signály, detekce, hodnocení a okamžitá reakce
 
-### CÍL: Rychle rozpoznat reálnou hrozbu a správně zareagovat. Ochrana života má prioritu!
+## CÍL: Rychle rozpoznat reálnou hrozbu a správně zareagovat. Ochrana života má prioritu!
 
-### Zásady:
+## Zásady:
 
 Nesčítat. Nejde o počet znaků. Důležitá je i intenzita, míra. Rozlišovat: hrozba × varovné chování × rizikové faktory x kontext. Rozhodovat podle konkrétního chování “tady a teď”, se zasazením do celkové dynamiky a pozadí.
 
-### 1) OKAMŽITÁ HROZBA (VOLEJ 158!!!) Stačí jeden jasný znak:
+## 1) OKAMŽITÁ HROZBA (VOLEJ 158!!!) Stačí jeden jasný znak:
 
 - Fyzické násilí probíhá, bezprostředně hrozí, nebo jím vyhrožuje.
 - Konkrétní výhrůžka (komu, kde, kdy, jak).
@@ -25,16 +25,16 @@ Nesčítat. Nejde o počet znaků. Důležitá je i intenzita, míra. Rozlišova
 
 glorifikace konkrétního činu s náznakem následování, etc.
 
-### Postup: - Ihned 158!!!
+## Postup: - Ihned 158!!!
 
 - Upozorni vedení, kolegy.
 - Minimalizuj paniku, drž lidi v bezpečí, neřeš fyzicky osobu. V extrémní situaci přechod do
 
 „USB“ – standardní metodika „UTEČ-SCHOVEJ SE-BOJUJ“.
 
-### 2) ZVÝŠENÉ RIZIKO (ŘEŠIT HNED, NE AUTOMATICKY POLICIE, ale vhodná konzultace s ní –
+## 2) ZVÝŠENÉ RIZIKO (ŘEŠIT HNED, NE AUTOMATICKY POLICIE, ale vhodná konzultace s ní –
 
-### příprava násilí může být latentní!) Typické projevy:
+## příprava násilí může být latentní!) Typické projevy:
 
 - Obecné řeči o násilí bez konkrétního cíle, plánu.
 - Změna postoje k násilí (ospravedlňování, obdiv k útočníkům) spojená se změnou chování.
@@ -44,11 +44,11 @@ rušení účtů, “loučení”.
 
 - Online projevy bez konkrétnosti: sdílení násilí, symbolika, obecné výhrůžné narážky.
 
-### Upřesnění pro praxi:
+## Upřesnění pro praxi:
 
 Pokud se u čehokoliv objeví konkrétnost (kdo, kde, kdy, jak) nebo příprava, přesun do části 1 a volej 158!
 
-### Postup:
+## Postup:
 
 - Sdílej v týmu (vedení, metodik, rodič, poradna, OSPOD).
 - Krátký, klidný rozhovor (2 dospělí): ptej se konkrétně, bez moralizování.
@@ -58,7 +58,7 @@ Pokud se u čehokoliv objeví konkrétnost (kdo, kde, kdy, jak) nebo příprava,
 
 zhoršuje.
 
-### 3) KONTEXT (SÁM O SOBĚ NENÍ HROZBA) Může zvyšovat citlivost, být urychlovačem:
+## 3) KONTEXT (SÁM O SOBĚ NENÍ HROZBA) Může zvyšovat citlivost, být urychlovačem:
 
 - Stresory (rozpad vztahů, šikana, ztráty).
 - Frustrace, pocit křivdy.
@@ -68,12 +68,12 @@ zhoršuje.
 
 Obecně: trauma, frustrace, křivda (byť i domnělá), izolace, psychické problémy.
 
-### Postup:
+## Postup:
 
 - Podpora a prevence, nabídka pomoci, sledování vývoje.
 - Nevolat policii jen kvůli tomuto.
 
-### 4) PROTEKTIVNÍ FAKTORY (SNIŽUJÍ RIZIKO)
+## 4) PROTEKTIVNÍ FAKTORY (SNIŽUJÍ RIZIKO)
 
 - Funkční vztahy, opora v rodině.
 - Stabilní role (škola, práce).
@@ -82,9 +82,9 @@ Obecně: trauma, frustrace, křivda (byť i domnělá), izolace, psychické prob
 - Silné normy a brzdy.
 - Smysluplné aktivity - pocit „mám co ztratit”.
 
-### JEDNODUCHÉ ROZHODOVACÍ PRAVIDLO
+## JEDNODUCHÉ ROZHODOVACÍ PRAVIDLO
 
-### - Je tam konkrétní hrozba, plán, příprava? ANO = 158!
+## - Je tam konkrétní hrozba, plán, příprava? ANO = 158!
 
 - Není, ale chování eskaluje a budí obavy? Okamžitě řešit v týmu + odborník + policie ke konzultaci
 
@@ -92,7 +92,7 @@ Obecně: trauma, frustrace, křivda (byť i domnělá), izolace, psychické prob
 
 - Jsou jen problémy v životě bez varovného chování? Podpora, ne policie.
 
-### DŮLEŽITÉ
+## DŮLEŽITÉ
 
 - Nejde o diagnózu ani „profil pachatele“.
 - Výčet signálů je pouze demonstrativní.
@@ -103,7 +103,7 @@ Obecně: trauma, frustrace, křivda (byť i domnělá), izolace, psychické prob
 
 orientační, pravděpodobnostní charakter určený k bezodkladné, legální, reakci na důvodnou obavu z možné násilné eskalace.
 
-### ROZHODOVACÍ STROM - CO UDĚLAT TEĎ:
+## ROZHODOVACÍ STROM - CO UDĚLAT TEĎ:
 
 Nízké riziko: informovat koordinační tým, informovat kolegy, sledovat vývoj.
 
@@ -125,18 +125,18 @@ Vysoké riziko: okamžitá výstraha zaměstnancům (např. WhatsApp/Bakaláři/
 
 kontaktu.
 
-### Komunikace s rizikovou osobou (nízké, střední riziko):
+## Komunikace s rizikovou osobou (nízké, střední riziko):
 
 1. Bez moralizování. Ptát se konkrétně. Ukázat, že si všímáte změn.
 2. Vyhnout se hrozbám a bagatelizaci. Jasné hranice chování.
 3. Transparentně oznámit, že budou informovány odpovědné dospělé osoby.
 4. Domluvit další setkání a ověřovat změnu stavu.
 
-### Možnosti spolupráce:
+## Možnosti spolupráce:
 
 Při ohrožení života, zdraví nebo majetku, jedině linka tísňového volání „158“, žádná jiná alternativa k tomu neexistuje!!! krpa.radikalizace@pcr.cz - kontakt pro možnou konzultaci s policií i k jakémukoliv jinému znepokojivému jednání, projevům, kontextu (mimo hrozbu – v případě hrozby linka 158).
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy

@@ -9,11 +9,11 @@ stran: 9
 
 # Metodická příručka pro kurátory pro děti a mládež
 
-#### RVPPK
+## RVPPK
 
-#### Praha, 27. září 2017
+## Praha, 27. září 2017
 
-#### Hana Jamrichová Odbor ochrany práv dětí Ministerstvo práce a sociálních věcí Zaměření příručky
+## Hana Jamrichová Odbor ochrany práv dětí Ministerstvo práce a sociálních věcí Zaměření příručky
 
 - odpovědnost kurátora pro děti a mládež za proces
 - role kurátora pro děti a mládež jako koordinátora případu
@@ -30,7 +30,7 @@ včasnost a účelnost realizovaných opatření
 - kazuistiky
 - praktické příklady dobré i špatné praxe (včetně analýzy)
 
-#### Základní východiska pro práci s dítětem či mladistvým
+## Základní východiska pro práci s dítětem či mladistvým
 
 - i „ohrožující dítě“ je dítě ohrožené
 - OSPOD musí vycházet z potřeb dětí a mladistvých
@@ -49,9 +49,9 @@ procesu samotné dítě či mladistvého (participace) a také rodinu či širš
 
 - nástroje donucovací povahy jsou využívány až jako poslední možnost po prokazatelném
 
-### vyčerpání všech preventivních a sanačních nástrojů
+vyčerpání všech preventivních a sanačních nástrojů
 
-#### Kuratela pro děti a mládež
+## Kuratela pro děti a mládež
 
 - využívání multidisciplinární spolupráce
 - role kurátora jako „case managera“ případu
@@ -63,11 +63,11 @@ procesu samotné dítě či mladistvého (participace) a také rodinu či širš
 - služby zaměřené na rodinu jako celek (centra podpory dětí a rodin, poradenská centra, sociální centra v rámci komunity apod.)
 - seznámení s úlohou sociálního kurátora, včasnost a postupnost navázání spolupráce
 
-#### Typologie situací ohrožení dítěte, specifika práce
+## Typologie situací ohrožení dítěte, specifika práce
 
 - Specifické potřeby související s výchovou (v praxi označované jako
 
-### “ výchovné problémy“)
+“ výchovné problémy“)
 
 - zaměření na agresivní projevy u dětí (autoagresi i heteroagresi), nezájem
 
@@ -115,18 +115,18 @@ výchovy
 
 mladistvým
 
-#### Nově zpracovaná témata
+## Nově zpracovaná témata
 
-#### 1.Algoritmus pro přijímání veřejnoprávní intervence proti vůli dítěte,
+### 1.Algoritmus pro přijímání veřejnoprávní intervence proti vůli dítěte,
 
-#### včetně
+### včetně
 
-#### A.zákazu směšování rodinněprávních a trestněprávních opatření
+### A.zákazu směšování rodinněprávních a trestněprávních opatření
 
-#### B.otázky účelnosti a právní přípustnosti využívání ústavní péče k
+### B.otázky účelnosti a právní přípustnosti využívání ústavní péče k
 
-#### řešení specifických potřeb souvisejících s výchovou dítěte 2.Míra uplatňování restorativních principů a metod
+### řešení specifických potřeb souvisejících s výchovou dítěte 2.Míra uplatňování restorativních principů a metod
 
-#### 3.Role OSPOD
+### 3.Role OSPOD
 
 ## Děkuji za pozornost

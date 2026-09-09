@@ -16,19 +16,19 @@ stran: 1
 
 ### - CÍLEM NENÍ PŘESVĚDČIT, CÍLEM JE SPOLUPRÁCE
 
-### POSTOJ A ŘEČ TĚLA
+## POSTOJ A ŘEČ TĚLA
 
 - Bezpečná vzdálenost - držte si odstup = bezpečnost + snižuji pocit ohrožení
 - Otevřený postoj - viditelné ruce = nejsem ozbrojen, nejsem hrozba
 - Oční kontakt - klidný a přerušovaný / upřený pohled = vyzývám k boji
 
-### VERBÁLNÍ KOMUNIKACE
+## VERBÁLNÍ KOMUNIKACE
 
 - Mluvte – klidně – pomalu – srozumitelně
 - Jednoduché a krátké věty – složitá souvětí = riziko nedorozumění
 - Pauzy – používejte je často poté, co domluvíte, i poté, co domluví agresor – dávají prostor agresorovi informaci vstřebat
 
-### CO NEDĚLAT!!!
+## CO NEDĚLAT!!!
 
 - NELHAT
 - NEHÁDAT SE
@@ -41,7 +41,7 @@ stran: 1
 - NEPOUŽÍVAT FRÁZI „UKLIDNĚTE SE!“
 - NESNAŽIT SE O LOGICKOU ARGUMENTACI V NEJVYŠŠÍM AFEKTU
 
-### SYSTÉM „LEAPS“
+## SYSTÉM „LEAPS“
 
 - L – Listen / Naslouchejte – Nechte agresivní osobu mluvit, aniž byste ji přerušovali. Cílem je zachytit nejen
 

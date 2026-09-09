@@ -8,7 +8,7 @@ stran: 5
 
 # Instituce – indikátory hrozby v rámci ochrany měkkých cílů
 
-### CÍL: Rychle rozpoznat reálnou hrozbu a správně zareagovat. Ochrana života má prioritu!
+## CÍL: Rychle rozpoznat reálnou hrozbu a správně zareagovat. Ochrana života má prioritu!
 
 ## I. POZADÍ
 
@@ -246,7 +246,7 @@ POLICII ČR – “158” – VOLEJ IHNED PŘI OHROŽENÍ, I PŘI POUHÉM PODEZ�
 
 Při ohrožení života, zdraví nebo majetku, jedině linka tísňového volání „158“, žádná jiná alternativa k tomu neexistuje!!! krpa.radikalizace@pcr.cz - kontakt pro možnou konzultaci s policií i k jakémukoliv jinému znepokojivému jednání, projevům, kontextu (mimo hrozbu – v případě hrozby linka 158).
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy

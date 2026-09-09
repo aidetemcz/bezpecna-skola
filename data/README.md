@@ -69,6 +69,7 @@ nemají, jejich struktura vychází z nadpisů.
 | Soubor | Část | Název |
 | --- | --- | --- |
 | [`mpsv-metodicka-prirucka-pro-kuratory.md`](mpsv-metodicka-prirucka-pro-kuratory.md) | 3_TZ_RVPPK_09_2017 | Metodická příručka pro kurátory pro děti a mládež |
+| [`krit-akutni-komunikace-ve-skolnim-prostredi.md`](krit-akutni-komunikace-ve-skolnim-prostredi.md) | Příručka KK ve školách | Příručka Akutní komunikace ve školním prostředí |
 | [`vegrichtova-indikatory-radikalizace.md`](vegrichtova-indikatory-radikalizace.md) | Metodika - Vegrichtová a kol. | Indikátory radikalizace v kontextu ochrany obyvatelstva a měkkých cílů před násilnými incidenty |
 
 ## Co se při převodu změnilo
@@ -81,13 +82,11 @@ nemají, jejich struktura vychází z nadpisů.
 - Formulář z přílohy č. 5 je ve zdroji `.docx` s tabulkou se sloučenými
   buňkami; v přepisu je z něj osnova oddílů a polí.
 - Opakující se záhlaví a zápatí stránek a čísla stran se nepřenášejí.
+- Razítka opakovaná na více stranách (např. doložka o distribuci v příručce
+  KRIT) zůstávají jednou, na titulní straně; další výskyty se vypouštějí.
 - Grafika, loga a barevné pruhy se nepřenášejí; význam pruhů nesou značky výše.
 
 Kontrolní porovnání slovní zásoby zdroje a přepisu neukázalo u žádného
-dokumentu vypuštěný text.
+dokumentu vypuštěný text; jediným rozdílem jsou výše uvedená opakovaná
+razítka a stránková výplň.
 
-## Co ve složce záměrně není
-
-`Příručka KK ve školách.pdf` (KRIT, Ministerstvo vnitra) nese na titulní straně
-doložku **„DOKUMENT NENÍ URČEN K VEŘEJNÉ DISTRIBUCI NEBO ZVEŘEJNĚNÍ"**, proto
-z ní přepis nevznikl.

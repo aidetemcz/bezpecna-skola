@@ -8,21 +8,21 @@ stran: 1
 
 # Jednoduchá doporučení k organizaci dnů otevřených dveří
 
-### 1) Kontrola vstupu a pohybu osob
+## 1) Kontrola vstupu a pohybu osob
 
 - Zajistit evidenci příchodů a odchodů (alespoň orientačně – jméno / počet osob).
 - Návštěvníky viditelně označit (samolepka, visačka apod.).
 - Otevřený pouze jeden hlavní vstup, ostatní vstupy uzavřít nebo hlídat.
 - Oddělit veřejné a neveřejné části školy (sborovna, kabinety, sklady mimo trasu).
 
-### 2) Služba u vstupu minimálně 2 dospělí pracovníci u vchodu.
+## 2) Služba u vstupu minimálně 2 dospělí pracovníci u vchodu.
 
 - Měli by znát případné problémové ex-žáky nebo konfliktní rodiče.
 - Musí mít podporu vedení a jasnou pravomoc řešit nevhodné chování (přivolat pomoc, nevpustit
 
 osobu pod vlivem apod.).
 
-### 3) Organizace prostoru
+## 3) Organizace prostoru
 
 Stanovit jasnou trasu pro návštěvníky (cedule, šipky).
 
@@ -31,7 +31,7 @@ Stanovit jasnou trasu pro návštěvníky (cedule, šipky).
 - Jasně definovat NO GO zóny.
 - Průběžná kontrola toalet a méně frekventovaných míst.
 
-### 4) Komunikace personálu
+## 4) Komunikace personálu
 
 Pokud již není zaveden tak na vytvořit komunikační skupinu (např. WhatsApp) pro vedení, dozor, vstup, školníka a veškerý personál.
 
@@ -42,13 +42,13 @@ Pokud již není zaveden tak na vytvořit komunikační skupinu (např. WhatsApp
 
 poučit personál o místech uložení.
 
-### 5) Spolupráce s okolím
+## 5) Spolupráce s okolím
 
 - Předem informovat Městskou policii Praha o konání akce (termín, čas, místo) a požádat o zvýšenou
 
 přítomnost hlídky v okolí.
 
-### 6) Další praktické body
+## 6) Další praktické body
 
 - Mít přehled, s kým děti odcházejí (zejména u MŠ).
 - Omezit fotografování v místech s osobními údaji.
@@ -57,7 +57,7 @@ přítomnost hlídky v okolí.
 
 Hlavním cílem je přehled o tom, kdo je v budově, zamezení volnému pohybu po škole a rychlá interní komunikace při jakémkoli problému.
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy

@@ -92,6 +92,9 @@ MAP2 = [
  ("3_TZ_RVPPK_09_2017.pdf", "mpsv-metodicka-prirucka-pro-kuratory.md",
   "Metodická příručka pro kurátory pro děti a mládež",
   "Ministerstvo práce a sociálních věcí, Odbor ochrany práv dětí", "2017-09", "Další metodiky"),
+ ("Příručka KK ve školách.pdf", "krit-akutni-komunikace-ve-skolnim-prostredi.md",
+  "Příručka Akutní komunikace ve školním prostředí",
+  "KRIT – Krizový informační tým Ministerstva vnitra", "2025-06", "Další metodiky"),
  ("Metodika - Vegrichtová a kol..pdf", "vegrichtova-indikatory-radikalizace.md",
   "Indikátory radikalizace v kontextu ochrany obyvatelstva a měkkých cílů před násilnými incidenty",
   "doc. PhDr. Barbora Vegrichtová, Ph.D., MBA a kol.", "", "Další metodiky"),
@@ -158,6 +161,14 @@ def fix_legend(md):
     return md[:start] + LEGEND_TABLE + md[end:]
 
 
+# doplnkova pole hlavicky pro konkretni soubory
+EXTRA_META = {
+    "krit-akutni-komunikace-ve-skolnim-prostredi.md": [
+        'dolozka: "Zdrojové PDF nese na oddílových stranách text '
+        'DOKUMENT NENÍ URČEN K VEŘEJNÉ DISTRIBUCI NEBO ZVEŘEJNĚNÍ."'],
+}
+
+
 def build_generic(entry, outdir):
     src, out, title, vydal, datum, skupina = entry
     path = os.path.join("zdrojova-data", src)
@@ -169,6 +180,7 @@ def build_generic(entry, outdir):
     if datum:
         meta.append(f"datum: {yaml_str(datum)}")
     meta += [f"zdroj: {yaml_str('zdrojova-data/' + src)}", f"stran: {pages}"]
+    meta += EXTRA_META.get(out, [])
     md = pdf_obecny.to_markdown(blocks, body, meta, title)
     open(os.path.join(outdir, out), "w", encoding="utf-8").write(md)
     return out, title, len(md)
@@ -267,16 +279,14 @@ README_TAIL = """
 - Formulář z přílohy č. 5 je ve zdroji `.docx` s tabulkou se sloučenými
   buňkami; v přepisu je z něj osnova oddílů a polí.
 - Opakující se záhlaví a zápatí stránek a čísla stran se nepřenášejí.
+- Razítka opakovaná na více stranách (např. doložka o distribuci v příručce
+  KRIT) zůstávají jednou, na titulní straně; další výskyty se vypouštějí.
 - Grafika, loga a barevné pruhy se nepřenášejí; význam pruhů nesou značky výše.
 
 Kontrolní porovnání slovní zásoby zdroje a přepisu neukázalo u žádného
-dokumentu vypuštěný text.
+dokumentu vypuštěný text; jediným rozdílem jsou výše uvedená opakovaná
+razítka a stránková výplň.
 
-## Co ve složce záměrně není
-
-`Příručka KK ve školách.pdf` (KRIT, Ministerstvo vnitra) nese na titulní straně
-doložku **„DOKUMENT NENÍ URČEN K VEŘEJNÉ DISTRIBUCI NEBO ZVEŘEJNĚNÍ"**, proto
-z ní přepis nevznikl.
 """
 
 

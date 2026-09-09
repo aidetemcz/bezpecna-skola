@@ -40,8 +40,6 @@ Toto metodické doporučení:
 - nastavuje minimální standard pro edukaci v této oblasti, a
 - popisuje minimální požadavky na externí dodavatele (např. při zpracování dokumentace, vzdělávání apod.).
 
-**[D DOPORUČENÍ]**
-
 Dokument je komplexního charakteru. Vzhledem k provázanosti jednotlivých částí a příloh tohoto metodického doporučení není vhodné vynechávat některé přílohy a aplikovat pouze některé části. Tento materiál nahrazuje Metodické doporučení k bezpečnosti dětí, žáků a studentů ve školách a školských zařízeních – Minimální standard bezpečnosti, č.j.: MSMT-1981/2015-1.
 
 ## Poznámky pod čarou

@@ -7,7 +7,7 @@ a opakujici se zahlavi/zapati.
 import re
 from collections import Counter, defaultdict
 
-BULLET_CHARS = "•◦▪‣∙·–-—"
+BULLET_CHARS = "•●◦○▪▫‣∙·–-—"
 NUMBERED = re.compile(r"^(\d{1,2}[.)]|[a-z][.)])\s+")
 
 
@@ -40,16 +40,22 @@ def _lines(page):
     return res
 
 
-def _repeated(pages_lines, npages):
-    """Text zahlavi a zapati, ktery se opakuje na vetsine stran."""
+def _bare(t):
+    """Text bez cislic - zapati typu "... 12" se lisi jen cislem strany."""
+    return re.sub(r"\d+", "", t).strip()
+
+
+def _repeated(pages_lines, heights):
+    """Text zahlavi a zapati: opakuje se na vetsine stran pri jejim okraji."""
+    npages = len(pages_lines)
     seen = Counter()
-    for lines in pages_lines:
-        if not lines:
-            continue
-        edge = [ln["text"] for ln in lines[:3]] + [ln["text"] for ln in lines[-2:]]
-        for t in set(edge):
+    for lines, h in zip(pages_lines, heights):
+        edge = [ln["text"] for ln in lines
+                if ln["top"] < h * 0.09 or ln["top"] > h * 0.90]
+        for t in {_bare(x) for x in edge}:
             seen[t] += 1
-    return {t for t, n in seen.items() if n >= max(2, npages * 0.5) and len(t) < 120}
+    return {t for t, n in seen.items()
+            if t and n >= max(2, npages * 0.5) and len(t) < 120}
 
 
 def _bullet(ln):
@@ -66,7 +72,14 @@ def _bullet(ln):
 
 def parse(pdf, min_heading_len=3, skip_extra=()):
     pages_lines = [_lines(p) for p in pdf.pages]
-    skip = _repeated(pages_lines, len(pdf.pages)) | {t.strip() for t in skip_extra}
+    skip = _repeated(pages_lines, [p.height for p in pdf.pages]) \
+        | {_bare(t) for t in skip_extra}
+
+    # razitka a jina vypln stranky: kratky text mensim pismem na vice stranach
+    pages_with = Counter()
+    for lines in pages_lines:
+        for t in {_bare(ln["text"]) for ln in lines if len(ln["text"]) < 120}:
+            pages_with[t] += 1
 
     weight = Counter()
     for lines in pages_lines:
@@ -74,17 +87,32 @@ def parse(pdf, min_heading_len=3, skip_extra=()):
             if ln["text"] not in skip:
                 weight[ln["size"]] += ln["nvis"]
     body = weight.most_common(1)[0][0] if weight else 11.0
+    # razitka opakovana na vice stranach: prvni vyskyt (titulni strana) zustava
+    small = {t for t, n in pages_with.items()
+             if t and n >= 3 and all(ln["size"] < body
+                                     for lines in pages_lines for ln in lines
+                                     if _bare(ln["text"]) == t)}
+    # co je skoro na kazde strane, je prubezne zahlavi ci zapati - pryc uplne
+    skip |= {t for t in small if pages_with[t] >= len(pages_lines) * 0.8}
+    stamps = small - skip
+    seen_stamp = set()
 
     blocks, prev_bottom = [], None
     for pno, lines in enumerate(pages_lines):
         for ln in lines:
-            if ln["text"] in skip or not ln["text"]:
+            bare = _bare(ln["text"])
+            if bare in skip or not ln["text"]:
                 continue
+            if bare in stamps:
+                if bare in seen_stamp:
+                    continue
+                seen_stamp.add(bare)
             if re.fullmatch(r"[-–—\s]*\d{1,3}[-–—\s]*", ln["text"]):   # cislo strany
                 continue
             lvl = _bullet(ln)
             big = ln["size"] > body + 0.4
-            short_bold = (ln["bold"] and len(ln["text"]) < 90
+            short_bold = (ln["bold"] and ln["size"] >= body - 0.4
+                          and len(ln["text"]) < 90
                           and not ln["text"].rstrip().endswith((".", ",", ";")))
             heading = (big or short_bold) and len(ln["text"]) >= min_heading_len
             if heading and lvl and not (big or ln["bold"]):
@@ -104,10 +132,6 @@ def _norm(t):
 
 
 def to_markdown(blocks, body_size, meta, title):
-    sizes = sorted({round(b["size"]) for b in blocks
-                    if b["heading"] and b["size"] > body_size}, reverse=True)
-    level = {s: min(2 + i, 4) for i, s in enumerate(sizes)}
-
     # tucny radek, na ktery navazuje pokracovani vety, je odstavec, ne nadpis
     blocks = [dict(b) for b in blocks]
     for i in range(len(blocks) - 2, -1, -1):
@@ -132,13 +156,30 @@ def to_markdown(blocks, body_size, meta, title):
             continue
         merged.append(dict(b))
 
-    out, seen_title = [], False
+    # zebricek urovni az z hotovych bloku, bez nazvu dokumentu na titulni strane
+    heads = [b for b in merged if b["heading"] and _norm(b["text"]) != _norm(title)]
+    freq = Counter(round(b["size"]) for b in heads)
+    ladder = sorted([sz for sz, n in freq.items() if n >= 2], reverse=True) \
+        or sorted(freq, reverse=True)
+    level = {sz: min(2 + i, 5) for i, sz in enumerate(ladder)}
+    for sz in freq:                       # ojedinele velikosti k nejblizsi z zebricku
+        if sz not in level:
+            level[sz] = level[min(ladder, key=lambda l: abs(l - sz))]
+    order = {lv: 2 + i for i, lv in enumerate(sorted(set(level.values())))}
+    level = {sz: min(order[lv], 5) for sz, lv in level.items()}
+
+    out, seen_title, stack = [], False, []
     for b in merged:
         if not seen_title and b["heading"] and _norm(b["text"]) == _norm(title):
             seen_title = True       # nadpis shodny s nazvem dokumentu se neopakuje
             continue
         if b["heading"]:
-            depth = level.get(round(b["size"]), 2 if b["size"] > body_size else 3)
+            rank = level.get(round(b["size"]), 3)
+            while stack and stack[-1] > rank:     # mensi nadpis nemuze obsahovat vetsi
+                stack.pop()
+            if not stack or stack[-1] != rank:
+                stack.append(rank)
+            depth = min(1 + len(stack), 6)
             out.append("#" * depth + " " + b["text"])
         elif b["bullet"]:
             m = NUMBERED.match(b["text"])

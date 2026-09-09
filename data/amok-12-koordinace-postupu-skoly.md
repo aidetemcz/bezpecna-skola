@@ -329,7 +329,7 @@ Prevence:
 - Jasná nulová tolerance k předsudečnému násilí.
 - Edukace o právních důsledcích (§ 352–356 TZ).
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy.
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy.

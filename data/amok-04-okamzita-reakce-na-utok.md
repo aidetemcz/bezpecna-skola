@@ -42,7 +42,7 @@ stran: 1
 
 ### V OHROŽENÍ ŽIVOTA A ZDRAVÍ IHNED VOLEJ NEBO PIŠ NA TÍSŇOVOU LINKU POLICIE ČR – 158 !!!
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy

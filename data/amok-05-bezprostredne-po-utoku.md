@@ -8,7 +8,7 @@ stran: 1
 
 # Bezprostředně po útoku
 
-### BEPROSTŘEDNÉ PO ÚTOKU
+## BEPROSTŘEDNÉ PO ÚTOKU
 
 CÍL: stabilizace situace.
 
@@ -23,14 +23,14 @@ CÍL: stabilizace situace.
   - o Návštěvy.
   - o Identifikace chybějících.
 
-### Péče o zasažené
+## Péče o zasažené
 
 - Základní první pomoc podle možností.
 - Předání informací záchranným složkám IZS.
 - Zajistit klidný prostor.
 - Oddělení přímých svědků od ostatních.
 
-### Mějte nastaven
+## Mějte nastaven
 
 - Sytém krizové komunikace, buďte připraveni na sdělování nepříjemných zpráv.
 - Úklidový servis od spolehlivého dodavatele.
@@ -38,7 +38,7 @@ CÍL: stabilizace situace.
 
 Policie ČR Vám bude dlouhodobě nápomocná.
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy.
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy.

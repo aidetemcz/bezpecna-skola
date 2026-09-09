@@ -8,7 +8,7 @@ stran: 4
 
 # Obecná doporučení postupu při bezpečnostních incidentech
 
-### CÍL: poskytnutí obecného návodu k řešení incidentů
+CÍL: poskytnutí obecného návodu k řešení incidentů
 
 1. Přivolejte pomoc (na tel. 158 jde volat i psát SMS) - co nejdříve! Nezůstávejte v situaci sami.
 2. Pokud máte podezření, že jde o vážný útok či jiný incident, musíte jednat okamžitě a dlouze stav
@@ -137,13 +137,13 @@ předmětu je menší, než jistá škoda způsobená výbuchem v prostorách, k
 8. Nezavěšujte jako první.
 9. V případě, že vám v následujících okamžicích vola „SKRYTÉ ČÍSLO“ zvedněte telefon!
 
-### Možnosti spolupráce:
+Možnosti spolupráce:
 
 Při ohrožení života, zdraví nebo majetku, jedině linka tísňového volání „158“, žádná jiná alternativa k tomu neexistuje!!! krpa.mekkecile@pcr.cz - poradenství v oblasti ochrany měkkých cílů. krpa.radikalizace@pcr.cz - kontakt pro možnou konzultaci s policií i k jakémukoliv jinému znepokojivému jednání, projevům, kontextu (mimo hrozbu – v případě hrozby linka 158).
 
 ### V PŘÍPADĚ OHROŽENÍ ŽIVOTA A ZDRAVÍ IHNED VOLAT TÍSŇOVOU LINKU POLICIE ČR - 158!!!
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy.
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy.

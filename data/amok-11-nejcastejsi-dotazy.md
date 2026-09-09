@@ -465,7 +465,7 @@ krpa.radikalizace@pcr.cz, ale v případě ohrožení vždy ihned tísňová lin
 
 Ohrožení pro 158 je i verbální projev za hranou, excesivní vyhrožování ujmou na zdraví, či fyzickou likvidací sobě, či jinému – příprava může být latentní, fáze terminální, hrozba v čase bezprostřední. Prevence je proces, nikoliv jednorázové opatření.
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy.
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy.

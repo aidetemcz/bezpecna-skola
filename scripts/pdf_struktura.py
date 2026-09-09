@@ -227,14 +227,18 @@ def to_markdown(blocks, notes, meta, title=None):
         cats = [c for c in b["cats"] if c]
         b["cat"] = max(set(cats), key=cats.count) if cats else None
 
-    out, prev_cat = [], None
+    out, prev_cat, stack = [], None, []
     for b in merged:
         if b["cat"] and b["cat"] != prev_cat:
             out.append(CAT_LABEL[b["cat"]])
             prev_cat = b["cat"]
         if b["kind"] == "heading":
-            deep = b["accent"] and has_plain_heading and not b.get("big")
-            out.append(("### " if deep else "## ") + b["text"])
+            rank = 2 if (b["accent"] and has_plain_heading and not b.get("big")) else 1
+            while stack and stack[-1] > rank:
+                stack.pop()
+            if not stack or stack[-1] != rank:
+                stack.append(rank)
+            out.append("#" * (1 + len(stack)) + " " + b["text"])
         elif b["kind"] == "bullet":
             out.append(("  " * (b["level"] - 1)) + "- " + b["text"])
         else:

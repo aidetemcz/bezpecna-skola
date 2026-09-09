@@ -41,7 +41,7 @@ Na základě teoretické přípravy a praktického části by mělo proběhnout 
 - Funkce a činnost koordinačního týmu.
 - Krizová komunikace – možnosti dopadu, řešení traumat a posttraumat.
 
-### Doporučená kvalifikace dodavatele, resp. co by měl dodavatel zadavateli (škole) doložit:
+## Doporučená kvalifikace dodavatele, resp. co by měl dodavatel zadavateli (škole) doložit:
 
 - **Aktuální doklad o oprávnění k podnikání** podle zvláštních právních předpisů **v rozsahu** odpovídajícímu **předmětu vzdělávání**, tj. alespoň doklad prokazující příslušné živnostenské oprávnění Mimoškolní výchova a vzdělávání, pořádání kurzů, školení, včetně lektorské činnosti, a současně odbornou způsobilost v dané oblasti, tedy např. živnostenské oprávnění Ostraha majetku a osob. Odborná způsobilost lektora by měla být doplněna o pedagogické vzdělání (minimálně však profesní kvalifikace Lektor/lektorka dalšího vzdělávání 75-001-T).
 - Prokázání spolupráce s IZS.

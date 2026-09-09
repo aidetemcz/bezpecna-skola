@@ -12,11 +12,9 @@ kategorie: [zavazne, doporuceni, informace]
 
 # Evidence bezpečnostních incidentů
 
-**[D DOPORUČENÍ]**
+**[I INFORMACE]**
 
 Evidence bezpečnostních incidentů má významný dopad na prevenci rizik, zlepšení vnitřních procesů a celkové posílení bezpečnosti školy. Její analýza může poskytnout cenné informace o trendech a přizpůsobit bezpečnostní opatření. Bezpečnostní incident vzniká v důsledku selhání či nedodržení bezpečnostních opatření nebo vědomým či nedbalostním působením člověka. Z hlediska fyzické bezpečnosti nás budou zajímat tyto dva typy incidentů:
-
-**[I INFORMACE]**
 
 - **s přímým ohrožením života a zdraví** - situace, kdy dochází k ohrožení bezpečnosti, zdraví jednotlivce či skupiny osob (žáků i zaměstnanců), a
 - **bez přímého ohrožení života a zdraví** - narušení bezpečnosti objektu či poškození majetku[^1].

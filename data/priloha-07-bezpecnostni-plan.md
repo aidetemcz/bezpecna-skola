@@ -23,7 +23,7 @@ Ke zpracování bezpečnostního plánu se přistupuje ve chvíli, kdy je zpraco
   - organizace akcí s účastí veřejnosti.
 - **Mimořádné procedury – aktivace při bezpečnostním incidentu (praktická aplikace těchto**
 
-### bezpečnostních procedur) v prostředí školy:
+## bezpečnostních procedur) v prostředí školy:
 
   - evakuace (požární x bezpečnostní),
   - invakuace,

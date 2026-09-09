@@ -16,7 +16,7 @@ kategorie: [zavazne, doporuceni, informace]
 
 Tato příloha uvádí možná řešení v oblasti zajištění bezpečnostních opatření. Nejedná se o konečný výčet, ale příklady. Z důvodu provázanosti jsou zde uvedena režimová, technická a ostatní opatření. Pro úplnost je vhodné doplnit, že školy by měly přijímat opatření na základě bezpečnostní analýzy včetně vyhodnocení ohroženosti. Nemusí tedy nutně platit, že všechny níže uvedené způsoby opatření bude škola v rámci své organizace uplatňovat.
 
-### Režimová opatření
+## Režimová opatření
 
 ## Režimová opatření (pravidla, postupy) jsou jedním z nejefektivnějších nástrojů zajištění fyzické bezpečnosti. Správné nastavení a zavedení režimových opatření má okamžitý efekt, a přitom vyžaduje
 

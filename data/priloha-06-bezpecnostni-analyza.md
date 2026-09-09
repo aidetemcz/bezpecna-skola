@@ -36,7 +36,7 @@ Každá škola má svá specifika[^1], proto i bezpečnostní analýza včetně 
 - Odbornost – znalost školského prostředí, znalost školských, bezpečnostních a požárních předpisů, kvalifikace získaná v bezpečnostně-právních oborech, odborná způsobilost v činnosti Ostraha majetku a osob nebo Poskytování technických služeb k ochraně majetku a osob, spolupráce s IZS.
 - Zkušenosti – doporučujeme alespoň 5 let v oblasti regionálního školství.
 
-### Obecný postup
+## Obecný postup
 
 - Prvotní schůzka případného dodavatele s vedením školy – vysvětlení dalšího postupu, stanovení harmonogramu, zodpovídání dotazů a případné vysvětlení pojmů.
 - Vytvoření objednávky a uzavření smlouvy.[^2]
@@ -47,7 +47,7 @@ Každá škola má svá specifika[^1], proto i bezpečnostní analýza včetně 
   - implementace do další dokumentace školy,
   - stanovení doporučení a jejich uvedení do praxe.
 
-### Činnosti po zpracování a předložení bezpečnostní analýzy včetně vyhodnocení ohroženosti
+## Činnosti po zpracování a předložení bezpečnostní analýzy včetně vyhodnocení ohroženosti
 
 - Analýza doporučení a stanovení priorit k zavedení opatření.
 - Projednat se zřizovatelem a informovat ho o výsledcích.

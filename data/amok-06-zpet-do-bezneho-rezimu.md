@@ -10,7 +10,7 @@ stran: 1
 
 CÍL: stabilizace a návrat k “běžnému” režimu.
 
-### Stabilizace subjektu/školy
+## Stabilizace subjektu/školy
 
 - Uzavření přístupu do objektu cizím osobám.
 - Pozastavení provozu/výuku.
@@ -21,9 +21,9 @@ CÍL: stabilizace a návrat k “běžnému” režimu.
 - Informovat zaměstnance subjektu/školy, žáky i jejich zákonné zástupce.
 - V případě škol oslovit metodika prevence z Pedagogicko-psychologické poradny pro podporu a metodické vedení.
 
-### • Využijte Metodiku pro školy a školská zařízení „Škola a neštěstí: Jsme připraveni!“
+## • Využijte Metodiku pro školy a školská zařízení „Škola a neštěstí: Jsme připraveni!“
 
-### Krátká následná práce s pracovními skupinami/třídami a týmem
+## Krátká následná práce s pracovními skupinami/třídami a týmem
 
 - Umožnit řízenou reflexi události.
 - Minimalizace spekulací a fám.
@@ -37,14 +37,14 @@ CÍL: stabilizace a návrat k “běžnému” režimu.
 - Pečlivý zápis události a postupů.
 - Vyhodnocení – co dělat, aby se situace neopakovala.
 
-### Mějte nastaven
+## Mějte nastaven
 
 - Sytém krizové komunikace, buďte připraveni na sdělování nepříjemných zpráv.
 - Úklidový servis o oprava zničených věcí od spolehlivého dodavatele.
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy
 
-### • Oddělení psychologických služeb, PČR, KŘP hl. m. Prahy
+## • Oddělení psychologických služeb, PČR, KŘP hl. m. Prahy

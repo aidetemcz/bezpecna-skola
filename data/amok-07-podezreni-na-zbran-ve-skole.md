@@ -8,15 +8,15 @@ stran: 1
 
 # Podezření na zbraň ve škole
 
-### CÍL: Rychle a bezpečně vyřešit podezření na přítomnost nebezpečného předmětu ve škole.
+## CÍL: Rychle a bezpečně vyřešit podezření na přítomnost nebezpečného předmětu ve škole.
 
-### Prevence:
+## Prevence:
 
 - Školním řádem jasně a závazně vymezit pravidla pro nebezpečné předměty.
 
 (např. jejich definice, zákaz, možnosti kontroly, odebrání, odpovědnost).
 
-### Postup při porušení:
+## Postup při porušení:
 
 - Nezvyšuj tlak před třídou.
 - Vždy zvažte možnost informování POLICIE ČR.
@@ -26,9 +26,9 @@ stran: 1
 - Bez fyzického kontaktu.
 - Nepodceňujte situaci, dořeště ji do konce (rodiče, PPP, OSPOD, PČR, kázeňské řešení).
 
-### V PŘÍPADĚ OHROŽENÍ ŽIVOTA A ZDRAVÍ IHNED VOLAT NEBO NAPSAT SMS NA TÍSŇOVOU LINKU POLICIE ČR - 158!!!
+## V PŘÍPADĚ OHROŽENÍ ŽIVOTA A ZDRAVÍ IHNED VOLAT NEBO NAPSAT SMS NA TÍSŇOVOU LINKU POLICIE ČR - 158!!!
 
-### Vytvořeno ve spolupráci:
+Vytvořeno ve spolupráci:
 
 - Pracovní skupina Měkké cíle, PČR, KŘP hl. m. Prahy.
 - Odbor extremismu a terorismu, PČR, KŘP hl. m. Prahy. Oddělení psychologických služeb, PČR, KŘP hl. m. Prahy.
