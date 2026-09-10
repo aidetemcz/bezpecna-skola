@@ -47,6 +47,7 @@ flowchart TB
         D2["02-prevence-a-priprava/"]
         D3["03-krizova-reakce/"]
         D4["04-po-krizi-a-navrat/"]
+        D5["05-rizikove-chovani/<br/><i>jiná osa</i>"]
     end
 
     CLAUDE["Claude API<br/>claude-opus-5"]
@@ -61,7 +62,7 @@ flowchart TB
     CHAT --> RCHAT
     RCHAT --> PROMPT
     PROMPT --> LOAD
-    LOAD --> D1 & D2 & D3 & D4
+    LOAD --> D1 & D2 & D3 & D4 & D5
     PROMPT ==>|"system prompt<br/>+ prompt caching"| CLAUDE
     CLAUDE ==>|"stream"| CHAT
     CHAT --> DOP
@@ -77,18 +78,26 @@ flowchart TB
 obsah. Je to levnější, rychlejší a hlavně **předvídatelné** — u bezpečnostních
 postupů nechceme, aby vyhledávač někdy nenašel to podstatné.
 
-Korpus ale mezitím vyrostl na ~228 000 tokenů a **celý se do každého promptu
-vkládat nedá**. Návrh proto pracuje ve dvou vrstvách:
+Korpus ale vyrostl na **~616 000 tokenů** a celý se do promptu nevejde — po
+doplnění v září 2026 se tam **nevejde ani jedna celá fáze**. Návrh proto pracuje
+ve třech vrstvách:
 
-| Vrstva | Co obsahuje | Jak se dostane k modelu |
-| --- | --- | --- |
-| **Vždy v promptu** | Jádro zvolené fáze + terminologie + přehled legislativy | Deterministicky vloženo, `cache_control` |
-| **Na vyžádání** | Plné znění zákona 359/1999, 20 karet pro starosty, dlouhé přílohy | Nástroj `precti_dokument(cesta)` — model si řekne |
+| Vrstva | Co obsahuje | Velikost | Jak se dostane k modelu |
+| --- | --- | ---: | --- |
+| **Jádro** | Minimální standard, terminologie, legislativa, dokumentace, pojmy a principy KRIT — 6 souborů | ~10 000 | Vždy, `cache_control` |
+| **Zvolený kontext** | Obsah zvolené fáze, nebo jedna příloha z `05` | 16–69 000 | Deterministicky podle volby, `cache_control` |
+| **Na vyžádání** | Zákon 359/1999, 20 karet pro starosty, dlouhé brožury MV, ostatní přílohy | zbytek | Nástroj `precti_dokument(cesta)`, model dostane rejstřík |
 
-Do druhé vrstvy patří hlavně **text zákona (~90 000 tokenů)**: ředitel ho
-potřebuje jednou za čas, ne v každé odpovědi. Model dostane do promptu
-**rejstřík** (názvy částí, paragrafů, karet) a dočte si jen to, co je potřeba.
-Stejný princip jako „agentické dočítání" v Katalogu podpůrných opatření.
+Do třetí vrstvy patří hlavně **text zákona (~90 000 tokenů)** a **složka `05`
+(~260 000 tokenů)**: ředitel z nich potřebuje vždycky jen kousek. Model dostane
+rejstřík (názvy částí, paragrafů, karet, typů rizikového chování) a dočte si to,
+co je potřeba. Stejný princip jako „agentické dočítání" v Katalogu podpůrných
+opatření.
+
+> **Co se změnilo od minulé verze návrhu.** Původně stačily dvě vrstvy a celá
+> fáze se vkládala najednou. Korpus se od té doby ztrojnásobil, takže i uvnitř
+> fáze je potřeba vybírat. Princip zůstává — deterministický výběr, ne RAG —
+> jen se výběr zjemnil.
 
 ---
 
@@ -100,6 +109,11 @@ flowchart LR
     START -->|"nic, chci být<br/>připravená"| P["🛡️ PREVENCE"]
     START -->|"děje se to teď"| K["🚨 KRIZE"]
     START -->|"stalo se to,<br/>řešíme následky"| N["🌱 PO KRIZI"]
+    START -->|"máme konkrétní<br/>problém se žákem"| R["🧭 RIZIKOVÉ CHOVÁNÍ"]
+
+    R --> R1["Výběr typu:<br/>šikana · návykové látky ·<br/>sebepoškozování · záškoláctví…"]
+    R1 --> R2["Jedna příloha MD prevence<br/><i>prevence + intervence<br/>+ následná péče najednou</i>"]
+    R2 -.->|"šablona oznámení"| N4
 
     P --> P1["Máme, co máme mít?<br/>Analýza, plán, karta IZS"]
     P --> P2["Jak číst varovné signály"]
@@ -126,10 +140,34 @@ flowchart LR
     classDef prev fill:#e8f0fa,stroke:#3c6fa8,color:#000
     classDef kriz fill:#fde8e4,stroke:#b5442c,color:#000
     classDef po fill:#e9e6f5,stroke:#5b4c9c,color:#000
+    classDef osa fill:#eef3e6,stroke:#6b8f3a,color:#000
     class P,P1,P2,P3,P4,P5 prev
     class K,K1,K2,K3,K4,K5 kriz
     class N,N1,N2,N3,N4,N5 po
+    class R,R1,R2 osa
 ```
+
+### Rizikové chování je druhá osa, ne čtvrtá fáze
+
+První tři vstupy se ptají **„kdy"**. Čtvrtý se ptá **„co"** — a to je jiná
+otázka. Metodické doporučení k primární prevenci je tříděné podle typu
+rizikového chování a každá jeho příloha obsahuje prevenci, intervenci
+i následnou péči k jednomu typu najednou. Rozřezat ji na fáze by znamenalo
+rozbít dokument, který dává smysl jen vcelku.
+
+Proto má aplikace **dvě osy vstupu**: časovou (co se děje teď) a věcnou (jaký
+problém řešíme). Ředitel, který přijde s „máme ve třídě šikanu", nepotřebuje
+vybírat fázi — potřebuje přílohu č. 6 celou.
+
+Prakticky to znamená, že složka `05` **není dosažitelná volbou režimu** a musí
+mít vlastní rozcestník: seznam typů rizikového chování, kde jedna položka = jedna
+příloha. Jedna se do promptu pohodlně vejde (medián ~6 000 tokenů, největší
+~28 000), celá složka ne (~260 000).
+
+Přerušovaná šipka k dopisům je tam schválně: přílohy nesou i **šablony oznámení
+na OSPOD a na PČR**, což je přesně to, co má umět průvodce dopisem (kapitola 5).
+
+---
 
 Tři zvýrazněné uzly a přerušované šipky tvoří **komunikační páteř aplikace**:
 plán se sestaví v klidu, v krizi se podle něj jede a průběžně se zapisují
@@ -144,23 +182,27 @@ rozhodnutí, po krizi se ze záznamu udělá vyhodnocení a to zpětně změní 
 > u každého zápisu, nic se nemaže, opravy jako nový záznam), ne jako nástroj,
 > ke kterému by aplikace ředitele posílala.
 
-| Režim | Vždy v promptu | Tokenů | Dočítá si | Chování modelu |
+| Vstup | V promptu | Tokenů | Dočítá si | Chování modelu |
 | --- | --- | ---: | --- | --- |
-| **Prevence** | jádro `01` + celé `02` | ~55 000 | zákon, dlouhé přílohy | Ptá se na kontext školy, navrhuje postup, umí vygenerovat osnovu dokumentu |
-| **Krize** | jádro `01` + `03` bez karet | ~50 000 | karty pro starosty podle typu události | Krátké odpovědi, odrážky, žádné úvody. Vždy začíná linkou 158 |
-| **Po krizi** | jádro `01` + celé `04` | ~35 000 | zákon 359/1999, MPSV | Klidný tón, navigace k lidem, příprava dokumentů |
+| **Prevence** | jádro + celé `02` | ~69 000 | zákon, brožury MV v plném znění | Ptá se na kontext školy, navrhuje postup, umí vygenerovat osnovu dokumentu |
+| **Krize** | jádro + `03` bez karet | ~49 000 | karta pro starosty podle typu události | Krátké odpovědi, odrážky, žádné úvody. Vždy začíná linkou 158 |
+| **Po krizi** | jádro + `04` bez *Škola a neštěstí* | ~36 000 | *Škola a neštěstí* (~52 000), zákon, MPSV | Klidný tón, navigace k lidem, příprava dokumentů |
+| **Rizikové chování** | jádro + **jedna příloha** z `05` | 16–38 000 | ostatní přílohy, šablony, karty | Podle typu problému; provází intervencí i následnou péčí |
 
-„Jádro `01`" je terminologie, přehled legislativy, dokumentace a pojmy KRIT —
-bez plného textu zákona, který má vlastní podsložku a čte se na vyžádání.
+**Jádro** je šest souborů — minimální standard, terminologie, legislativa,
+dokumentace a pojmy a principy KRIT. Zákon i dlouhé brožury zůstávají mimo
+a čtou se na vyžádání.
 
-> **Jedna výjimka z pravidla „složka = režim".** Příručka
+> **Výjimky z pravidla „složka = režim".** Dva soubory patří do dvou míst.
+> [`skola-a-nestesti-jsme-pripraveni.md`](../data/04-po-krizi-a-navrat/skola-a-nestesti-jsme-pripraveni.md)
+> leží ve `04`, ale velká část je příprava — patří i do prevence. A příručka
 > [`krit-akutni-komunikace-ve-skolnim-prostredi.md`](../data/03-krizova-reakce/krit-akutni-komunikace-ve-skolnim-prostredi.md)
 > leží v krizové složce podle svého názvu, ale celá jedna její třetina je
 > prevence — *„Tvorba krizového komunikačního plánu, pravidelná cvičení
 > a simulace, budování vztahů s klíčovými partnery, příprava zaměstnanců"*.
-> Režim **prevence si ji proto načítá také.** Je to zatím jediný soubor, který
-> patří do dvou režimů; kdyby takových přibylo, bude lepší zavést v hlavičce
-> pole `faze: [...]` se seznamem než soubory rozřezávat.
+> Režim **prevence si obě načítá také.** Když jsou takové soubory dva, je čas
+> zavést v hlavičce pole `faze: [...]` se seznamem, místo aby se výjimky
+> udržovaly v kódu nebo se soubory řezaly.
 
 ### Krizový režim se chová jinak než chat
 
@@ -441,9 +483,11 @@ jinak se cache při každém tahu zahodí.
 
 | Mez | Důsledek pro aplikaci |
 | --- | --- |
-| **Fáze „po krizi" je datově nejslabší** — 5 300 slov proti 41 100 u krizové reakce | Režim musí častěji odpovídat „na tohle data nestačí, obraťte se na…" |
+| **Nejtenčí fází už není „po krizi"** — po doplnění má 42 900 slov a je se zbytkem časové osy srovnaná | Odpadl důvod, proč měl ten režim častěji odpovídat „na tohle data nestačí" |
+| **Složka `05` je sama větší než celá časová osa** — 144 400 slov proti 198 100 ve fázích 01–04 | Nedá se otevřít volbou režimu; potřebuje vlastní rozcestník podle typu problému (kapitola 3) |
 | **Zákon 359/1999 Sb. je v korpusu, ale je to holý text** | Aplikace může citovat znění, ale nesmí ho vykládat jako právní poradna |
-| **Korpus je ~228 000 tokenů** | Nedá se vložit celý; potřeba dočítání na vyžádání (kapitola 2) |
+| **Korpus je ~616 000 tokenů** | Nevejde se ani celá jedna fáze; tři vrstvy a dočítání na vyžádání (kapitola 2) |
+| **Brožury MV jsou vícesloupcové** | Přepis je opravený strojově; u sporných míst je potřeba sáhnout do PDF |
 | **Chybí 5 dokumentů, na které korpus odkazuje** | Viz [`provazanost-dat.md`](provazanost-dat.md); doplnit je je nejlevnější způsob, jak aplikaci vylepšit |
 | **Korpus je celostátní** | Místní kontakty musí dodat profil školy |
 | **Metodiky nejsou právní výklad** | Viditelná doložka, ne v patičce |
@@ -472,11 +516,11 @@ jinak se cache při každém tahu zahodí.
 
 | Fáze | Obsah |
 | --- | --- |
-| **1. Kostra** | Next.js, tři režimy, chat nad daty, krizový checklist, připomínky. Cíl: dát to řediteli do ruky. |
+| **1. Kostra** | Next.js, tři fázové režimy + rozcestník rizikového chování, chat nad daty, krizový checklist, připomínky. Cíl: dát to řediteli do ruky. |
 | **2. Testování** | 5–10 ředitelů, sběr připomínek, oprava dat a promptu. |
 | **3. Záznam a vyhodnocení** | Formulář pro záznam rozhodnutí a z něj vyhodnocení (lessons learned). **Čeká na školní obdobu RKI**, kterou dodá KRIT. Plán krizové komunikace v režimu prevence jde udělat hned. |
 | **4. Dopisy** | Průvodce dopisem a tisk do PDF, poté co je jasné, co ředitelé opravdu píšou. |
-| **5. Doplnění dat** | Chybějící dokumenty, hlavně k fázi po krizi. |
+| **5. Doplnění dat** | Zbylé mezery — školní obdoba záznamu, příloha 24-10 (potřebuje OCR), přílohy 11 a 20, pokyn k šikaně. |
 | **6. Profil školy** | Místní kontakty, hlavičky dopisů. |
 
 Průvodce dopisem je záměrně až ve fázi 4 — teprve testování ukáže, které
