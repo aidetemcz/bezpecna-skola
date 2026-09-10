@@ -14,12 +14,12 @@ a návrh konverzační aplikace, která nad ním má stát.
 
 ## 1. Co jsou ta data
 
-Ve složce [`data/`](../data/) je **78 souborů, zhruba 127 000 slov**
-(~228 000 tokenů) od šesti vydavatelů.
+Ve složce [`data/`](../data/) je **121 souborů, zhruba 342 000 slov**
+(~615 000 tokenů) od sedmi vydavatelů.
 
 Data mají dva původy:
 
-- **Přepsané z PDF** — 28 souborů, 150 stran. Originály jsou
+- **Přepsané z PDF a DOCX** — 71 souborů, 764 stran. Originály jsou
   v [`zdrojova-data/`](../zdrojova-data/), převod dělá
   [`scripts/pdf_na_md.py`](../scripts/pdf_na_md.py). Přepis je věrný, ne
   shrnutý; kontrola slovní zásoby neukázala u žádného souboru vypuštěný obsah.
@@ -32,18 +32,24 @@ Pro citaci a právní účely platí vždy původní zdroj, ne přepis.
 
 | Vydavatel | Souborů | Slov |
 | --- | ---: | ---: |
-| KRIT — Krizový informační tým Ministerstva vnitra | 37 | ~40 000 |
+| MŠMT — primární prevence, BOZ, záškoláctví, spolupráce s PČR | 36 | ~150 000 |
+| KRIT — Krizový informační tým Ministerstva vnitra | 37 | ~47 000 |
 | Zákon č. 359/1999 Sb., o sociálně-právní ochraně dětí | 14 | ~50 000 |
-| MŠMT (ve spolupráci s MV, Policejním prezidiem ČR a MV – GŘ HZS) | 13 | ~19 000 |
-| Krajské ředitelství policie hl. m. Prahy — Měkké cíle | 12 | ~15 000 |
-| MPSV — Odbor ochrany práv dětí | 1 | ~2 500 |
+| MV — Centrum proti terorismu a hybridním hrozbám (měkké cíle) | 6 | ~35 000 |
+| MŠMT + MV – GŘ HZS — Škola a neštěstí: Jsme připraveni! | 1 | ~29 000 |
+| MŠMT (ve spolupráci s MV, Policejním prezidiem ČR a MV – GŘ HZS) | 13 | ~12 500 |
+| Krajské ředitelství policie hl. m. Prahy — Měkké cíle | 12 | ~9 500 |
 | doc. PhDr. Barbora Vegrichtová, Ph.D., MBA a kol. | 1 | ~7 500 |
+| MPSV — Odbor ochrany práv dětí | 1 | ~700 |
 
 Data pokrývají několik odlišných pohledů na stejný problém, a v tom je jejich
-cena: **MŠMT** říká, co má škola mít zpracované a co je závazné. **Policie**
-říká, co má člověk v tu chvíli udělat. **KRIT** řeší, co a jak komunikovat —
-a přináší i karty pro starosty k desítkám typů mimořádných událostí. **MPSV
-a zákon 359/1999** pokrývají, komu se případ předává a za jakých podmínek.
+cena: **MŠMT** říká, co má škola mít zpracované a co je závazné — a v přílohách
+k primární prevenci i co dělat u jednotlivých typů rizikového chování žáka.
+**Policie** říká, co má člověk v tu chvíli udělat. **KRIT** řeší, co a jak
+komunikovat — a přináší i karty pro starosty k desítkám typů mimořádných
+událostí. **MV** dodává metodiky k ochraně měkkých cílů, na které se metodika
+MŠMT odkazuje. **MPSV a zákon 359/1999** pokrývají, komu se případ předává
+a za jakých podmínek.
 
 > **Pozor na adresáta.** Ne všechno je psané pro školu. Z metodik KRIT je
 > škole adresovaná **jediná** — příručka pro školní prostředí; zbytek míří na
@@ -60,19 +66,33 @@ nehledá „přílohu č. 7", hledá „co teď". Jedna fáze = jedna podsložka
 
 | Složka | Fáze | Souborů | Slov |
 | --- | --- | ---: | ---: |
-| [`01-ramec-a-legislativa/`](../data/01-ramec-a-legislativa/) | Co musíme mít a jak se to jmenuje | 26 | 64 600 |
-| [`02-prevence-a-priprava/`](../data/02-prevence-a-priprava/) | Dokud se nic neděje | 9 | 15 900 |
-| [`03-krizova-reakce/`](../data/03-krizova-reakce/) | První minuty a hodiny | 35 | 41 100 |
-| [`04-po-krizi-a-navrat/`](../data/04-po-krizi-a-navrat/) | Stabilizace, evidence, předání | 8 | 5 300 |
+| [`01-ramec-a-legislativa/`](../data/01-ramec-a-legislativa/) | Co musíme mít a jak se to jmenuje | 28 | 81 000 |
+| [`02-prevence-a-priprava/`](../data/02-prevence-a-priprava/) | Dokud se nic neděje | 14 | 33 600 |
+| [`03-krizova-reakce/`](../data/03-krizova-reakce/) | První minuty a hodiny | 35 | 41 700 |
+| [`04-po-krizi-a-navrat/`](../data/04-po-krizi-a-navrat/) | Stabilizace, evidence, předání | 10 | 43 200 |
+| [`05-rizikove-chovani/`](../data/05-rizikove-chovani/) | *(jiná osa — viz níže)* | 34 | 142 300 |
 
-Dvě složky mají vnořené podsložky, aby velké celky nepřeválcovaly zbytek:
+Podsložky drží velké celky pohromadě, aby nepřeválcovaly zbytek:
 [`zakon-359-1999/`](../data/01-ramec-a-legislativa/zakon-359-1999/) (14 souborů,
-50 000 slov) a
+50 000 slov),
 [`krit-karty-pro-starosty/`](../data/03-krizova-reakce/krit-karty-pro-starosty/)
-(20 karet k typům mimořádných událostí).
+(20 karet k typům mimořádných událostí) a v `05` přílohy Metodického doporučení
+k primární prevenci.
 
 Bez textu zákona, který je objemem výjimečný, vypadá rozložení takto:
-rámec ~14 500, prevence ~15 900, krize ~41 100, po krizi ~5 300 slov.
+rámec ~31 000, prevence ~33 600, krize ~41 700, po krizi ~43 200,
+rizikové chování ~142 300 slov.
+
+### Pátá složka není pátá fáze
+
+`05-rizikove-chovani/` stojí mimo časovou osu. Přílohy Metodického doporučení
+k primární prevenci jsou členěné podle **typu rizikového chování** — šikana,
+návykové látky, sebepoškozování, sebevražedné chování — a každá z nich obsahuje
+prevenci, intervenci i následnou péči najednou. Rozpustit je do fází by
+znamenalo je rozřezat; nechat je pohromadě znamená přiznat, že korpus má dvě
+osy třídění, ne jednu. Pro aplikaci z toho plyne, že volba režimu
+(prevence / krize / po krizi) tuhle složku sama nevybere — je potřeba druhá
+cesta, přes typ problému.
 
 Toto členění je zároveň **kostrou navrhované aplikace** — viz
 [`navrh-aplikace.md`](navrh-aplikace.md).
@@ -129,6 +149,8 @@ nesou. Policejní doporučení AMOK jsou celá v rovině doporučení.
 | `Principy koordinace.md` | KRIT | Kdo koordinuje koho a podle čeho |
 | `Metodiky a návody.md` | KRIT | Rozcestník po metodikách KRIT |
 | `O kartách pro starosty.md` | KRIT | K čemu karty slouží a jak je číst |
+| `msmt-pokyn-bozp-37014-2005.md` | MŠMT, čj. 37 014/2005-25 | Metodický pokyn k zajištění BOZ dětí, žáků a studentů |
+| `mv-zaklady-ochrany-mekkych-cilu.md` | MV, CTHH | Základy ochrany měkkých cílů — pojmy, systém, principy |
 
 #### `zakon-359-1999/` — zákon č. 359/1999 Sb., o sociálně-právní ochraně dětí
 
@@ -151,6 +173,11 @@ okrajově, ale je v korpusu pro úplnost.
 | `amok-03-instituce-indikatory-hrozby.md` | PČR, AMOK 3 | Indikátory hrozby na úrovni instituce |
 | `amok-08-dny-otevrenych-dveri.md` | PČR, AMOK 8 | Akce s veřejností v budově |
 | `vegrichtova-indikatory-radikalizace.md` | Vegrichtová a kol. | Indikátory radikalizace, praktické příklady |
+| `mv-vyhodnoceni-ohrozenosti-mekkeho-cile.md` | MV, CTHH, 2025 | Detailní metodika k tomu, co příloha 6 jen rámuje |
+| `mv-bezpecnostni-plan-mekkeho-cile.md` | MV, CTHH, 2025 | Totéž pro plán — 2. upravené vydání |
+| `mv-koordinacni-plany-pro-mekke-cile.md` | MV, CTHH, 2025 | Jak se připravit na závažnou situaci |
+| `mv-10-principu-zodolneni.md` | MV, CTHH | Deset principů na dvě strany |
+| `msmt-spoluprace-skol-s-pcr.md` | MŠMT, čj. MSMT-6167/2025-1 | Kdy a jak škola spolupracuje s policií |
 
 ### 03 — Krizová reakce
 
@@ -197,16 +224,67 @@ na co si dát pozor.
 | `mpsv-metodicka-prirucka-pro-kuratory.md` | MPSV | Kurátor pro děti a mládež jako koordinátor případu |
 | `Vyhodnocení po incidentu.md` | KRIT | Co si z incidentu odnést |
 | `Případová studie – Povodně 2024.md` | KRIT | Rozbor reálné krizové komunikace |
+| `skola-a-nestesti-jsme-pripraveni.md` | MŠMT + MV – GŘ HZS, 2023 | 84 stran: příprava, komunikace, právní minimum, psychosociální pomoc, návodné postupy |
+| `mv-metodika-koordinace-po-zavaznem-incidentu.md` | MV, CTHH, 2025 | Jak projít fází po incidentu s co nejmenšími ztrátami |
+
+> **Pozor na zařazení `skola-a-nestesti-jsme-pripraveni.md`.** Leží ve fázi
+> „po krizi", protože tam korpus nejvíc chybělo a protože tam míří jeho těžiště
+> — práce se zasaženými a následná péče. Velká část dokumentu je ale příprava:
+> komunikační a mediální strategie školy, role a odpovědnosti, nácvik. Je to
+> druhý soubor po příručce KRIT, který patří do dvou režimů; jestli takových
+> přibude třetí, bude lepší zavést v hlavičce pole `faze` jako seznam.
+
+### 05 — Rizikové chování
+
+Metodické doporučení k primární prevenci rizikového chování (MŠMT,
+čj. 21291/2010-28) — úvodní část a 22 tematických příloh. Členěné podle typu
+chování, ne podle fáze.
+
+| Soubor | Původ | O čem to je |
+| --- | --- | --- |
+| `00-md-primarni-prevence-uvodni-cast.md` | MŠMT, úvodní část | Rámec primární prevence: kdo co dělá, co je školní preventivní program |
+| `msmt-zaskolactvi.md` | MŠMT, 2026 | Prevence a postih záškoláctví, omlouvání žáků |
+
+#### `prilohy/` — 22 tematických příloh
+
+Návykové látky · Rizikové chování v dopravě · Poruchy příjmu potravy · Alkohol ·
+Týrané, zneužívané a zanedbávané dítě (CAN) · Školní šikana · Kybernetická
+agrese · Homofobie · Extremismus, rasismus, xenofobie, antisemitismus ·
+Vandalismus · Krádeže · Tabákové výrobky · **Krizové situace spojené s násilím** ·
+Netolismus · Sebepoškozování · Nová náboženská hnutí · Rizikové sexuální chování ·
+Příslušnost k subkulturám · Hazardní hraní · Žáci s PAS (+ formulář krizového
+plánu) · Psychická krize a duševní onemocnění · Sebevražedné chování
+
+Chybí přílohy č. 11 a 20 — v korpusu nejsou, protože nebyly mezi zdroji.
+
+#### `priloha-05-sablony/` — tři šablony dopisů
+
+Oznámení na OSPOD (žádost o prošetření podle § 10 zákona č. 359/1999 Sb.),
+oznámení na PČR nebo státní zastupitelství a seznam regionálních odborníků.
+Převedené z `.docx` i s tabulkami a prázdnými poli. **Pro průvodce dopisem
+v aplikaci je tohle nejcennější kus celého doplnění** — jsou to úřední
+struktury, ne náš odhad, jak má takový dopis vypadat.
+
+#### `priloha-24-karty/` — šest karet k sebevražednému chování
+
+Samostatné přílohy 8–14 přílohy č. 24, psané jako praktické návody: bezpečnostní
+plán pro žáka, varovné znaky, podpůrný rozhovor, krizový plán pro pozůstalou
+třídu a dvě karty pro zákonné zástupce. Příloha 10 („Co dělat kdy: míra rizika
+sebevraždy a vhodné reakce pedagoga") v korpusu chybí — zdrojové PDF je grafika
+bez textové vrstvy, viz Mezery v [`provazanost-dat.md`](provazanost-dat.md).
 
 ---
 
 ## 4. Co s tím dál
 
-Korpus má dnes zhruba **228 000 tokenů**. To je pořád hluboko pod kontextovým
-oknem, ale **už je to moc na to, aby se celý vkládal do každého promptu** —
-zvlášť text zákona (~90 000 tokenů) je potřeba jen občas. Návrh proto počítá
-s vložením zvolené fáze a **dočítáním velkých dokumentů na vyžádání**; podrobně
-v [`navrh-aplikace.md`](navrh-aplikace.md).
+Korpus má dnes zhruba **615 000 tokenů**, tedy skoro trojnásobek toho, s čím
+počítal původní návrh aplikace. Vkládat celý ho nešlo už předtím; teď se
+**nevejde do promptu ani celá jedna fáze** — složka `05` sama má ~256 000
+tokenů. Dvouvrstvý model z [`navrh-aplikace.md`](navrh-aplikace.md) (jádro
+v promptu, zbytek přes `precti_dokument`) tím neztrácí platnost, ale posouvá se
+hranice: do vždy-vloženého jádra patří míň, do dočítání víc, a složka `05`
+potřebuje vlastní rejstřík podle typu problému, protože ji volba režimu
+nevybere. Čísla v kapitole 2 a 3 návrhu je proto potřeba přepočítat.
 
 Návrh, jak z toho udělat použitelný nástroj pro ředitele, je
 v [`navrh-aplikace.md`](navrh-aplikace.md).

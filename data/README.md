@@ -13,6 +13,11 @@ Jedna fáze = jedna podsložka. Dokumenty od různých vydavatelů se tak potká
 tam, kde se potkávají i v praxi: metodika MŠMT říká, co má škola mít
 zpracované, policejní doporučení AMOK, co má člověk v tu chvíli udělat.
 
+Složka `05-rizikove-chovani/` je výjimka: Metodické doporučení k primární
+prevenci rizikového chování se do fází nevejde, protože každá jeho příloha
+obsahuje prevenci, intervenci i následnou péči k jednomu typu rizikového
+chování. Je to jiná osa třídění, ne pátá fáze.
+
 ## Hlavička souboru
 
 Každý soubor začíná YAML hlavičkou: `title`, `dokument` (celek, do kterého
@@ -50,6 +55,8 @@ Co škola musí, co má zpracované a jakým jazykem se o bezpečnosti mluví.
 | [`Principy koordinace.md`](01-ramec-a-legislativa/Principy%20koordinace.md) | KRIT (MV) | Principy koordinace |
 | [`amok-11-nejcastejsi-dotazy.md`](01-ramec-a-legislativa/amok-11-nejcastejsi-dotazy.md) | Krajské ředitelství policie hl. m. Prahy | Časté dotazy v rámci bezpečnostních incidentů |
 | [`amok-12-koordinace-postupu-skoly.md`](01-ramec-a-legislativa/amok-12-koordinace-postupu-skoly.md) | Krajské ředitelství policie hl. m. Prahy | Návrh systému koordinace postupu školy |
+| [`msmt-pokyn-bozp-37014-2005.md`](01-ramec-a-legislativa/msmt-pokyn-bozp-37014-2005.md) | Ministerstvo školství | Metodický pokyn k zajištění bezpečnosti a ochrany zdraví dětí, žáků a studentů ve školách a školských zařízeních zřizovaných MŠMT |
+| [`mv-zaklady-ochrany-mekkych-cilu.md`](01-ramec-a-legislativa/mv-zaklady-ochrany-mekkych-cilu.md) | Ochrana měkkých cílů (MV) | Základy ochrany měkkých cílů |
 | [`priloha-01-terminologie.md`](01-ramec-a-legislativa/priloha-01-terminologie.md) | Minimální standard MŠMT, příloha č. 1 | Terminologie – výběr základních pojmů s přihlédnutím ke specifikům škol |
 | [`priloha-02-legislativa.md`](01-ramec-a-legislativa/priloha-02-legislativa.md) | Minimální standard MŠMT, příloha č. 2 | Legislativa |
 | [`priloha-03-metodicke-materialy.md`](01-ramec-a-legislativa/priloha-03-metodicke-materialy.md) | Minimální standard MŠMT, příloha č. 3 | Metodické materiály |
@@ -85,6 +92,11 @@ Co dělat, dokud se nic neděje: analýza rizik, opatření, výcvik, čtení va
 | [`amok-02-skoly-signaly-detekce-hodnoceni-reakce.md`](02-prevence-a-priprava/amok-02-skoly-signaly-detekce-hodnoceni-reakce.md) | Krajské ředitelství policie hl. m. Prahy | Školská zařízení – signály, detekce, hodnocení a okamžitá reakce |
 | [`amok-03-instituce-indikatory-hrozby.md`](02-prevence-a-priprava/amok-03-instituce-indikatory-hrozby.md) | Krajské ředitelství policie hl. m. Prahy | Instituce – indikátory hrozby v rámci ochrany měkkých cílů |
 | [`amok-08-dny-otevrenych-dveri.md`](02-prevence-a-priprava/amok-08-dny-otevrenych-dveri.md) | Krajské ředitelství policie hl. m. Prahy | Jednoduchá doporučení k organizaci dnů otevřených dveří |
+| [`msmt-spoluprace-skol-s-pcr.md`](02-prevence-a-priprava/msmt-spoluprace-skol-s-pcr.md) | Ministerstvo školství | Spolupráce škol a školských zařízení s Policií ČR při prevenci a při vyšetřování kriminality dětí a mládeže |
+| [`mv-10-principu-zodolneni.md`](02-prevence-a-priprava/mv-10-principu-zodolneni.md) | Ochrana měkkých cílů (MV) | 10 principů zodolnění měkkého cíle |
+| [`mv-bezpecnostni-plan-mekkeho-cile.md`](02-prevence-a-priprava/mv-bezpecnostni-plan-mekkeho-cile.md) | Ochrana měkkých cílů (MV), 2. upravené vydání | Bezpečnostní plán měkkého cíle aneb co by nemělo být opomenuto při jeho zpracování |
+| [`mv-koordinacni-plany-pro-mekke-cile.md`](02-prevence-a-priprava/mv-koordinacni-plany-pro-mekke-cile.md) | Ochrana měkkých cílů (MV) | Jak se připravit na závažnou situaci? Koordinační plány pro měkké cíle |
+| [`mv-vyhodnoceni-ohrozenosti-mekkeho-cile.md`](02-prevence-a-priprava/mv-vyhodnoceni-ohrozenosti-mekkeho-cile.md) | Ochrana měkkých cílů (MV) | Vyhodnocení ohroženosti měkkého cíle aneb co, kdy, kde a od koho vám hrozí |
 | [`priloha-06-bezpecnostni-analyza.md`](02-prevence-a-priprava/priloha-06-bezpecnostni-analyza.md) | Minimální standard MŠMT, příloha č. 6 | Bezpečnostní analýza včetně vyhodnocení ohroženosti |
 | [`priloha-07-bezpecnostni-plan.md`](02-prevence-a-priprava/priloha-07-bezpecnostni-plan.md) | Minimální standard MŠMT, příloha č. 7 | Bezpečnostní plán |
 | [`priloha-09-vzdelavani.md`](02-prevence-a-priprava/priloha-09-vzdelavani.md) | Minimální standard MŠMT, příloha č. 9 | Vzdělávání |
@@ -151,9 +163,68 @@ Stabilizace, evidence, předání případu dál a návrat do běžného provozu
 | [`amok-05-bezprostredne-po-utoku.md`](04-po-krizi-a-navrat/amok-05-bezprostredne-po-utoku.md) | Krajské ředitelství policie hl. m. Prahy | Bezprostředně po útoku |
 | [`amok-06-zpet-do-bezneho-rezimu.md`](04-po-krizi-a-navrat/amok-06-zpet-do-bezneho-rezimu.md) | Krajské ředitelství policie hl. m. Prahy | Zpět do běžného režimu – obnova provozu a následná péče |
 | [`mpsv-metodicka-prirucka-pro-kuratory.md`](04-po-krizi-a-navrat/mpsv-metodicka-prirucka-pro-kuratory.md) | Ministerstvo práce a sociálních věcí | Metodická příručka pro kurátory pro děti a mládež |
+| [`mv-metodika-koordinace-po-zavaznem-incidentu.md`](04-po-krizi-a-navrat/mv-metodika-koordinace-po-zavaznem-incidentu.md) | Ochrana měkkých cílů (MV) | Metodika koordinace měkkého cíle pro fáze po závažném incidentu aneb jak se vyrovnat s nastalou závažnou situací |
 | [`priloha-05-evidence-bezpecnostnich-incidentu.md`](04-po-krizi-a-navrat/priloha-05-evidence-bezpecnostnich-incidentu.md) | Minimální standard MŠMT, příloha č. 5 | Evidence bezpečnostních incidentů |
 | [`priloha-05-formular-zaznam-o-incidentu.md`](04-po-krizi-a-navrat/priloha-05-formular-zaznam-o-incidentu.md) | Minimální standard MŠMT, příloha č. 5 – formulář | Záznam o bezpečnostním incidentu (formulář) |
 | [`priloha-08-koordinacni-plan.md`](04-po-krizi-a-navrat/priloha-08-koordinacni-plan.md) | Minimální standard MŠMT, příloha č. 8 | Koordinační plán |
+| [`skola-a-nestesti-jsme-pripraveni.md`](04-po-krizi-a-navrat/skola-a-nestesti-jsme-pripraveni.md) | MŠMT ve spolupráci s MV – GŘ HZS ČR | Škola a neštěstí: Jsme připraveni! (metodika pro školy a školská zařízení) |
+
+
+### 05-rizikove-chovani/ — Rizikové chování
+
+Typy rizikového chování žáků a co s nimi — od návykových látek přes šikanu po sebevražedné chování. Jde napříč fázemi: každá příloha má prevenci, intervenci i následnou péči.
+
+| Soubor | Původ | Název |
+| --- | --- | --- |
+| [`00-md-primarni-prevence-uvodni-cast.md`](05-rizikove-chovani/00-md-primarni-prevence-uvodni-cast.md) | MD k primární prevenci, úvodní část | Metodické doporučení k primární prevenci rizikového chování — úvodní část |
+| [`msmt-zaskolactvi.md`](05-rizikove-chovani/msmt-zaskolactvi.md) | Ministerstvo školství | Metodické doporučení k prevenci a postihu záškoláctví a omlouvání žáků z vyučování |
+
+#### priloha-05-sablony/
+
+| Soubor | Původ | Název |
+| --- | --- | --- |
+| [`sablona-oznameni-na-ospod.md`](05-rizikove-chovani/priloha-05-sablony/sablona-oznameni-na-ospod.md) | MD k primární prevenci, příloha č. 5, šablona 1 | Šablona oznámení na OSPOD (žádost o prošetření podle § 10 zákona č. 359/1999 Sb.) |
+| [`sablona-oznameni-na-pcr.md`](05-rizikove-chovani/priloha-05-sablony/sablona-oznameni-na-pcr.md) | MD k primární prevenci, příloha č. 5, šablona 2 | Šablona oznámení na PČR nebo státní zastupitelství (podezření ze spáchání trestného činu) |
+| [`sablona-seznam-regionalnich-odborniku.md`](05-rizikove-chovani/priloha-05-sablony/sablona-seznam-regionalnich-odborniku.md) | MD k primární prevenci, příloha č. 5, šablona 3 | Šablona seznamu regionálních odborníků spolupracujících se školou (syndrom CAN) |
+
+#### priloha-24-karty/
+
+| Soubor | Původ | Název |
+| --- | --- | --- |
+| [`karta-08-bezpecnostni-plan-pro-zaky.md`](05-rizikove-chovani/priloha-24-karty/karta-08-bezpecnostni-plan-pro-zaky.md) | MD k primární prevenci, příloha č. 24, příloha 8 | Bezpečnostní plán pro žáky |
+| [`karta-09-varovne-znaky-sebevrazedneho-jednani.md`](05-rizikove-chovani/priloha-24-karty/karta-09-varovne-znaky-sebevrazedneho-jednani.md) | MD k primární prevenci, příloha č. 24, příloha 9 | Varovné znaky sebevražedného jednání |
+| [`karta-11-podpurny-rozhovor-s-zakem.md`](05-rizikove-chovani/priloha-24-karty/karta-11-podpurny-rozhovor-s-zakem.md) | MD k primární prevenci, příloha č. 24, příloha 11 | Podpůrný rozhovor s žákem |
+| [`karta-12-krizovy-plan-pozustala-trida.md`](05-rizikove-chovani/priloha-24-karty/karta-12-krizovy-plan-pozustala-trida.md) | MD k primární prevenci, příloha č. 24, příloha 12 | Krizový plán pozůstalá třída |
+| [`karta-13-pri-rozhovoru-s-ditetem-nezapomente.md`](05-rizikove-chovani/priloha-24-karty/karta-13-pri-rozhovoru-s-ditetem-nezapomente.md) | MD k primární prevenci, příloha č. 24, příloha 13 | Při rozhovoru s dítětem nezapomeňte |
+| [`karta-14-me-dite-ma-myslenky-na-sebevrazdu.md`](05-rizikove-chovani/priloha-24-karty/karta-14-me-dite-ma-myslenky-na-sebevrazdu.md) | MD k primární prevenci, příloha č. 24, příloha 14 | Mé dítě má myšlenky na sebevraždu |
+
+#### prilohy/
+
+| Soubor | Původ | Název |
+| --- | --- | --- |
+| [`priloha-01-navykove-latky.md`](05-rizikove-chovani/prilohy/priloha-01-navykove-latky.md) | MD k primární prevenci, příloha č. 1 | Návykové látky |
+| [`priloha-02-rizikove-chovani-v-doprave.md`](05-rizikove-chovani/prilohy/priloha-02-rizikove-chovani-v-doprave.md) | MD k primární prevenci, příloha č. 2 | Rizikové chování v dopravě |
+| [`priloha-03-poruchy-prijmu-potravy.md`](05-rizikove-chovani/prilohy/priloha-03-poruchy-prijmu-potravy.md) | MD k primární prevenci, příloha č. 3 | Poruchy příjmu potravy |
+| [`priloha-04-alkohol.md`](05-rizikove-chovani/prilohy/priloha-04-alkohol.md) | MD k primární prevenci, příloha č. 4 | Alkohol |
+| [`priloha-05-tyrane-zneuzivane-zanedbavane-dite.md`](05-rizikove-chovani/prilohy/priloha-05-tyrane-zneuzivane-zanedbavane-dite.md) | MD k primární prevenci, příloha č. 5 | Týrané, zneužívané a zanedbávané dítě |
+| [`priloha-06-skolni-sikana.md`](05-rizikove-chovani/prilohy/priloha-06-skolni-sikana.md) | MD k primární prevenci, příloha č. 6 | Školní šikana |
+| [`priloha-07-kyberneticka-agrese.md`](05-rizikove-chovani/prilohy/priloha-07-kyberneticka-agrese.md) | MD k primární prevenci, příloha č. 7 | Kybernetická agrese |
+| [`priloha-08-homofobie.md`](05-rizikove-chovani/prilohy/priloha-08-homofobie.md) | MD k primární prevenci, příloha č. 8 | Homofobie |
+| [`priloha-09-extremismus-rasismus-xenofobie.md`](05-rizikove-chovani/prilohy/priloha-09-extremismus-rasismus-xenofobie.md) | MD k primární prevenci, příloha č. 9 | Extremismus, rasismus, xenofobie, antisemitismus |
+| [`priloha-10-vandalismus.md`](05-rizikove-chovani/prilohy/priloha-10-vandalismus.md) | MD k primární prevenci, příloha č. 10 | Vandalismus |
+| [`priloha-12-kradeze.md`](05-rizikove-chovani/prilohy/priloha-12-kradeze.md) | MD k primární prevenci, příloha č. 12 | Krádeže |
+| [`priloha-13-tabakove-vyrobky.md`](05-rizikove-chovani/prilohy/priloha-13-tabakove-vyrobky.md) | MD k primární prevenci, příloha č. 13 | Tabákové výrobky |
+| [`priloha-14-krizove-situace-spojene-s-nasilim.md`](05-rizikove-chovani/prilohy/priloha-14-krizove-situace-spojene-s-nasilim.md) | MD k primární prevenci, příloha č. 14 | Krizové situace spojené s násilím |
+| [`priloha-15-netolismus.md`](05-rizikove-chovani/prilohy/priloha-15-netolismus.md) | MD k primární prevenci, příloha č. 15 | Netolismus |
+| [`priloha-16-sebeposkozovani.md`](05-rizikove-chovani/prilohy/priloha-16-sebeposkozovani.md) | MD k primární prevenci, příloha č. 16 | Sebepoškozování |
+| [`priloha-17-nova-nabozenska-hnuti.md`](05-rizikove-chovani/prilohy/priloha-17-nova-nabozenska-hnuti.md) | MD k primární prevenci, příloha č. 17 | Nová náboženská hnutí |
+| [`priloha-18-rizikove-sexualni-chovani.md`](05-rizikove-chovani/prilohy/priloha-18-rizikove-sexualni-chovani.md) | MD k primární prevenci, příloha č. 18 | Rizikové sexuální chování |
+| [`priloha-19-prislusnost-k-subkulturam.md`](05-rizikove-chovani/prilohy/priloha-19-prislusnost-k-subkulturam.md) | MD k primární prevenci, příloha č. 19 | Příslušnost k subkulturám |
+| [`priloha-21-hazardni-hrani.md`](05-rizikove-chovani/prilohy/priloha-21-hazardni-hrani.md) | MD k primární prevenci, příloha č. 21 | Hazardní hraní |
+| [`priloha-22-formular-krizovy-plan-pas.md`](05-rizikove-chovani/prilohy/priloha-22-formular-krizovy-plan-pas.md) | MD k primární prevenci, příloha č. 22 – formulář | Krizový plán pro prevenci vzniku problémových situací týkajících se žáka s PAS (formulář) |
+| [`priloha-22-zaci-s-pas.md`](05-rizikove-chovani/prilohy/priloha-22-zaci-s-pas.md) | MD k primární prevenci, příloha č. 22 | Žáci s PAS |
+| [`priloha-23-psychicka-krize-dusevni-onemocneni.md`](05-rizikove-chovani/prilohy/priloha-23-psychicka-krize-dusevni-onemocneni.md) | MD k primární prevenci, příloha č. 23 | Psychická krize a duševní onemocnění |
+| [`priloha-24-sebevrazedne-chovani.md`](05-rizikove-chovani/prilohy/priloha-24-sebevrazedne-chovani.md) | MD k primární prevenci, příloha č. 24 | Sebevražedné chování |
 
 
 ## Co se při převodu změnilo
@@ -169,8 +240,18 @@ Stabilizace, evidence, předání případu dál a návrat do běžného provozu
 - Razítka opakovaná na více stranách (např. doložka o distribuci v příručce
   KRIT) zůstávají jednou, na titulní straně; další výskyty se vypouštějí.
 - Grafika, loga a barevné pruhy se nepřenášejí; význam pruhů nesou značky výše.
+- Brožury Ministerstva vnitra jsou sázené do dvou až čtyř sloupců, u některých
+  na šířku dvoustrany. Modul `../scripts/pdf_sloupce.py` stránku před převodem
+  rozdělí podle svislých mezer a řádky přerovná do pořadí čtení; nadpisy přes
+  celou šířku zůstávají na svém místě a dělí stránku na pásma.
+- Slova rozdělená na konci řádku úzkého sloupce (`aktua-lizovat`) jsou v přepisu
+  spojená zpět. Složeniny psané s pomlčkou to nepostihuje, ty mají pomlčku bez
+  mezery.
+- Šablony dopisů a formuláře z `.docx` se převádějí i s tabulkami; prázdné buňky
+  zůstávají prázdné, aby bylo vidět, co se vyplňuje.
 
 Kontrolní porovnání slovní zásoby zdroje a přepisu neukázalo u žádného
-dokumentu vypuštěný text; jediným rozdílem jsou výše uvedená opakovaná
-razítka a stránková výplň.
+dokumentu vypuštěný text; rozdílem jsou výše uvedená opakovaná razítka,
+stránková výplň, průběžná záhlaví a zápatí (adresa ministerstva, číslo
+jednací, běžící název) a u brožur MV zpětně spojená dělená slova.
 

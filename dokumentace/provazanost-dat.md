@@ -172,7 +172,10 @@ pravidlo: model nesmí ředitele posílat k nástroji, který není jeho — viz
 | Koho a kdy informovat? | příloha 11, KRIT, AMOK 12 | střední — roztroušené, viz [mapa aktérů](mapa-akteru.md) |
 | Jak incident zaznamenat? | příloha 5 + formulář | **silné** |
 | Jak se vrátit do provozu? | příloha 8, AMOK 6 | střední |
-| Jak se postarat o zasažené? | AMOK 6, MPSV | **slabé** — viz mezery |
+| Jak se postarat o zasažené? | Škola a neštěstí, AMOK 6, MPSV | **silné** — psychosociální pomoc, návodné postupy, právní minimum |
+| Jak poznat a řešit šikanu, návykové látky, sebepoškozování…? | 05-rizikove-chovani, 22 příloh | **silné** — ke každému typu chování prevence i intervence |
+| Co napsat na OSPOD nebo na policii? | 05, šablony k příloze 5 | **silné** — úřední šablony včetně polí |
+| Co s žákem se sebevražednými myšlenkami? | příloha 24 a její karty | **silné** — postup, rozhovor, krizový plán pro pozůstalou třídu |
 | Co a kdy komunikovat ven? | KRIT — FOIPS, holding lines, RKI | **silné** — přibylo s metodikami KRIT |
 | Co dělá OSPOD a za jakých podmínek? | zákon 359/1999, ČÁST TŘETÍ | **silné** — plné znění zákona |
 | Co při jiné mimořádné události než útoku? | KRIT, karty pro starosty | **silné** — 20 typů událostí |
@@ -188,40 +191,59 @@ pravidlo: model nesmí ředitele posílat k nástroji, který není jeho — viz
 Tohle nejsou domněnky. Jsou to dokumenty, které **naše vlastní data jmenují**
 jako zdroj, ale samy v korpusu nejsou.
 
-> **Doplněno:** zákon č. 359/1999 Sb., o sociálně-právní ochraně dětí, na tomto
-> seznamu původně byl. Dnes je v korpusu celý
-> ([`zakon-359-1999/`](../data/01-ramec-a-legislativa/zakon-359-1999/)),
-> stejně jako metodiky KRIT ke krizové komunikaci.
+> **Doplněno v září 2026.** Seznam se skoro celý vyprázdnil. Doplněné dokumenty
+> jsou v tabulce níže odškrtnuté; z původních sedmi zbývá jediný, a ten
+> neexistuje zatím nikde. Přibyly k tomu i věci, které na seznamu nebyly:
+> celé Metodické doporučení k primární prevenci se všemi přílohami
+> ([`05-rizikove-chovani/`](../data/05-rizikove-chovani/)), Základy ochrany
+> měkkých cílů, koordinační plány MV, spolupráce škol s PČR a záškoláctví.
+> Dřív doplněný byl zákon č. 359/1999 Sb. a metodiky KRIT.
 
-| Chybějící dokument | Odkud se na něj odkazuje | Co by doplnil |
+| Dokument | Odkud se na něj odkazuje | Stav |
 | --- | --- | --- |
-| **Škola a neštěstí: Jsme připraveni!** (MŠMT, 2023) | příloha 3, příloha 8 a dalších | Nejcitovanější chybějící zdroj. Práce se zasaženými, následná péče. |
-| **Metodické doporučení k primární prevenci rizikového chování**, zejm. **příloha č. 14** (MŠMT, č.j. 21291/2010-28) | příloha 1 (u pojmů *plán sekundární* a *terciární intervence*) | Terminologie tyto pojmy definuje, ale postup samotný je jinde. |
-| **Vyhodnocení ohroženosti měkkého cíle** (MV) | příloha 6 | Detailní metodika k tomu, co příloha 6 jen rámuje. |
-| **Bezpečnostní plán měkkého cíle** (MV) | příloha 7 | Totéž pro plán. |
-| **Metodika koordinace měkkého cíle pro fázi po bezpečnostním incidentu** (MV) | příloha 8 | Právě ta nejslabší fáze. |
-| **Metodický pokyn k zajištění BOZ** (MŠMT, č.j. 37014/2005) | příloha 3 | Průnik s BOZP. |
-| **Školní obdoba Rodné karty incidentu** | — chybí i ve zdrojích | Nástroj, kterým by ředitel vedl chronologický záznam rozhodnutí. KRIT ji připravuje. |
+| **Škola a neštěstí: Jsme připraveni!** (MŠMT, 2023) | příloha 3, příloha 8 a dalších | ✅ [`04/skola-a-nestesti-jsme-pripraveni.md`](../data/04-po-krizi-a-navrat/skola-a-nestesti-jsme-pripraveni.md) — 84 stran |
+| **Metodické doporučení k primární prevenci**, zejm. **příloha č. 14** | příloha 1 (u pojmů *plán sekundární* a *terciární intervence*) | ✅ [`05-rizikove-chovani/`](../data/05-rizikove-chovani/) — úvodní část a 22 příloh, ne jen čtrnáctá |
+| **Vyhodnocení ohroženosti měkkého cíle** (MV) | příloha 6 | ✅ [`02/mv-vyhodnoceni-ohrozenosti-mekkeho-cile.md`](../data/02-prevence-a-priprava/mv-vyhodnoceni-ohrozenosti-mekkeho-cile.md) — vydání duben 2025 |
+| **Bezpečnostní plán měkkého cíle** (MV) | příloha 7 | ✅ [`02/mv-bezpecnostni-plan-mekkeho-cile.md`](../data/02-prevence-a-priprava/mv-bezpecnostni-plan-mekkeho-cile.md) — 2. upravené vydání, duben 2025 |
+| **Metodika koordinace měkkého cíle pro fázi po bezpečnostním incidentu** (MV) | příloha 8 | ✅ [`04/mv-metodika-koordinace-po-zavaznem-incidentu.md`](../data/04-po-krizi-a-navrat/mv-metodika-koordinace-po-zavaznem-incidentu.md) — vydání duben 2025 |
+| **Metodický pokyn k zajištění BOZ** (MŠMT, č.j. 37014/2005) | příloha 3 | ✅ [`01/msmt-pokyn-bozp-37014-2005.md`](../data/01-ramec-a-legislativa/msmt-pokyn-bozp-37014-2005.md) |
+| **Školní obdoba Rodné karty incidentu** | — chybí i ve zdrojích | ❌ **stále chybí.** Nástroj, kterým by ředitel vedl chronologický záznam rozhodnutí. KRIT ji připravuje. |
+
+> **Pozor na vydání.** Metodika MŠMT odkazuje na verze měkkých cílů z let
+> 2018 a 2019. MV je v dubnu 2025 vydalo znovu a přepracované; v korpusu jsou
+> **nová vydání**. Odkazy v příloze č. 3 tedy míří na starší text, než jaký
+> tu leží.
+
+### Co v korpusu chybí i po doplnění
+
+| Chybí | Proč to víme | Co by doplnilo |
+| --- | --- | --- |
+| **Školní obdoba Rodné karty incidentu** | vlastní analýza komunikační páteře, kapitola 2 | Prostřední článek: čím ředitel v krizi zapisuje rozhodnutí. |
+| **Příloha č. 24-10 — Co dělat kdy: míra rizika sebevraždy a vhodné reakce pedagoga** | příloha č. 24 ji jmenuje ve výčtu svých příloh | Zdrojové PDF je grafika bez textové vrstvy, převod z něj nedostane nic. Chce to OCR nebo text od vydavatele. |
+| **Přílohy č. 11 a 20** Metodického doporučení k primární prevenci | číslování řady 1–24 | Nebyly mezi zdroji; nevíme, zda existují. |
+| **Příručka pro školy — týrané, zneužívané, zanedbávané dítě** | příloha č. 5 na ni navazuje | Nahrané PDF obsahuje jen titulní stranu. Obsah z velké části pokrývá příloha č. 5, ale příručka sama v korpusu není. |
+| **Metodický pokyn k prevenci a řešení šikany** (č.j. MSMT-21149/2016) | příloha č. 6 z něj z větší části vychází | Příloha 6 shrnuje to podstatné, ale samotný pokyn je jinde. |
 
 ### Nejvýraznější nepoměr
 
 ```mermaid
-pie showData title Rozsah korpusu podle fáze (počet slov, bez textu zákona)
-    "03 Krizová reakce" : 41120
-    "02 Prevence a příprava" : 15861
-    "01 Rámec a legislativa" : 14491
-    "04 Po krizi a návrat" : 5345
+pie showData title Rozsah korpusu podle složky (počet slov, bez textu zákona)
+    "05 Rizikové chování" : 142268
+    "04 Po krizi a návrat" : 43228
+    "03 Krizová reakce" : 41703
+    "02 Prevence a příprava" : 33601
+    "01 Rámec a legislativa" : 30960
 ```
 
-**Fáze „po krizi" zůstává nejtenčí** — 5 300 slov proti 41 100 u krizové
-reakce. Přitom trvá nejdéle (měsíce) a škola v ní potřebuje nejvíc podpory.
-Dva z chybějících dokumentů v tabulce výše míří přesně sem.
+**Nepoměr se obrátil.** Fáze „po krizi" byla nejtenčí částí korpusu — 5 300 slov
+proti 41 100 u krizové reakce. Dnes má 43 200 slov a je se zbytkem časové osy
+srovnaná; udělaly to hlavně *Škola a neštěstí* (29 000 slov) a metodika
+koordinace MV. Otázka „jak se postarat o zasažené dítě tři měsíce po incidentu"
+konečně odpověď má.
 
-Doplnění metodik KRIT nepoměr zmenšilo, ale neodstranilo: KRIT přinesl hlavně
-*komunikaci*, ne *následnou péči*. Otázka „jak se postarat o zasažené dítě
-tři měsíce po incidentu" v korpusu odpověď pořád nemá.
-
-Pro návrh aplikace z toho plyne konkrétní důsledek: **režim „po krizi" bude mít
-nejslabší datovou oporu** a musí to přiznat — spíš navigovat k lidem (kurátor,
-krizová intervence, zřizovatel) než předstírat, že má postup. Viz
-[`navrh-aplikace.md`](navrh-aplikace.md), kapitola o mezích.
+Nový nepoměr je jinde: **složka `05` je sama větší než celá časová osa
+dohromady**. To není chyba dat, je to důsledek toho, že MŠMT ke každému typu
+rizikového chování vydalo samostatnou přílohu. Pro aplikaci z toho plyne, že
+`05` se musí zpřístupňovat přes rejstřík a dočítání, ne vkládáním do promptu —
+viz [`navrh-aplikace.md`](navrh-aplikace.md), kapitola 2, jejíž čísla je
+potřeba přepočítat.

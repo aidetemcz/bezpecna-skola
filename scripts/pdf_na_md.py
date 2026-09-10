@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pdfplumber, docx
 from pdf_struktura import parse, to_markdown
 import pdf_obecny
+import pdf_sloupce
 
 DOC = "Minimální standard bezpečnosti v regionálním školství"
 DOC_KRATCE = "Minimální standard MŠMT"
@@ -296,6 +297,11 @@ Jedna fáze = jedna podsložka. Dokumenty od různých vydavatelů se tak potká
 tam, kde se potkávají i v praxi: metodika MŠMT říká, co má škola mít
 zpracované, policejní doporučení AMOK, co má člověk v tu chvíli udělat.
 
+Složka `05-rizikove-chovani/` je výjimka: Metodické doporučení k primární
+prevenci rizikového chování se do fází nevejde, protože každá jeho příloha
+obsahuje prevenci, intervenci i následnou péči k jednomu typu rizikového
+chování. Je to jiná osa třídění, ne pátá fáze.
+
 ## Hlavička souboru
 
 Každý soubor začíná YAML hlavičkou: `title`, `dokument` (celek, do kterého
@@ -334,12 +340,30 @@ README_TAIL = """
 - Razítka opakovaná na více stranách (např. doložka o distribuci v příručce
   KRIT) zůstávají jednou, na titulní straně; další výskyty se vypouštějí.
 - Grafika, loga a barevné pruhy se nepřenášejí; význam pruhů nesou značky výše.
+- Brožury Ministerstva vnitra jsou sázené do dvou až čtyř sloupců, u některých
+  na šířku dvoustrany. Modul `../scripts/pdf_sloupce.py` stránku před převodem
+  rozdělí podle svislých mezer a řádky přerovná do pořadí čtení; nadpisy přes
+  celou šířku zůstávají na svém místě a dělí stránku na pásma.
+- Slova rozdělená na konci řádku úzkého sloupce (`aktua-lizovat`) jsou v přepisu
+  spojená zpět. Složeniny psané s pomlčkou to nepostihuje, ty mají pomlčku bez
+  mezery.
+- Šablony dopisů a formuláře z `.docx` se převádějí i s tabulkami; prázdné buňky
+  zůstávají prázdné, aby bylo vidět, co se vyplňuje.
 
 Kontrolní porovnání slovní zásoby zdroje a přepisu neukázalo u žádného
-dokumentu vypuštěný text; jediným rozdílem jsou výše uvedená opakovaná
-razítka a stránková výplň.
+dokumentu vypuštěný text; rozdílem jsou výše uvedená opakovaná razítka,
+stránková výplň, průběžná záhlaví a zápatí (adresa ministerstva, číslo
+jednací, běžící název) a u brožur MV zpětně spojená dělená slova.
 
 """
+
+
+# zkracene nazvy celku pro sloupec "Puvod" v rejstriku
+DOC_KRATCE_JINE = {
+    "Metodické doporučení k primární prevenci rizikového chování u dětí a mládeže":
+        "MD k primární prevenci",
+    "Ochrana měkkých cílů (MV)": "Ochrana měkkých cílů (MV)",
+}
 
 
 def _meta(path):
@@ -356,10 +380,13 @@ def _meta(path):
         m = re.search(r"^# (.+)$", t, re.M)
         title = m.group(1).strip() if m else os.path.basename(path)[:-3]
     zakon = get("zakon")
+    dokument, cast = get("dokument"), get("cast")
     if zakon:
         puvod = f"Zákon č. {zakon}"
-    elif get("cj"):
-        puvod = f"{DOC_KRATCE}, {get('cast')}"
+    elif dokument == DOC:
+        puvod = f"{DOC_KRATCE}, {cast}" if cast else DOC_KRATCE
+    elif dokument in DOC_KRATCE_JINE:
+        puvod = DOC_KRATCE_JINE[dokument] + (f", {cast}" if cast else "")
     elif "krit" in get("tags"):
         puvod = "KRIT (MV)"
     else:
@@ -392,6 +419,234 @@ def write_readme(outdir):
         README_HEAD + "\n".join(rows) + "\n" + README_TAIL)
 
 
+
+
+# ---------------------------------------------------------------------------
+# Doplnění mezer korpusu (2026-09)
+#
+# Dokumenty, na které stávající korpus odkazoval, ale neobsahoval je, plus
+# celé Metodické doporučení k primární prevenci rizikového chování. To se do
+# čtyřfázové kostry nevejde — jeho přílohy jdou napříč fázemi (každá má
+# prevenci, intervenci i následnou péči), proto mají vlastní složku 05.
+# ---------------------------------------------------------------------------
+
+MV_CTHH = "Ministerstvo vnitra, Centrum proti terorismu a hybridním hrozbám"
+MSMT = "Ministerstvo školství, mládeže a tělovýchovy"
+MD_PREVENCE = "Metodické doporučení k primární prevenci rizikového chování u dětí a mládeže"
+MD_CJ = "21291/2010-28"
+
+# src, out, folder, title, vydal, datum, cj, dokument, cast
+NOVE = [
+ ("MŠMT - Metodický pokyn k zajištění BOZ.pdf", "msmt-pokyn-bozp-37014-2005.md",
+  "01-ramec-a-legislativa",
+  "Metodický pokyn k zajištění bezpečnosti a ochrany zdraví dětí, žáků a studentů "
+  "ve školách a školských zařízeních zřizovaných MŠMT",
+  MSMT, "2005-12", "37 014/2005-25", "Další metodiky", ""),
+ ("MV - Základy ochrany měkkých cílů.pdf", "mv-zaklady-ochrany-mekkych-cilu.md",
+  "01-ramec-a-legislativa",
+  "Základy ochrany měkkých cílů", MV_CTHH, "2016", "", "Ochrana měkkých cílů (MV)", ""),
+
+ ("MV - Vyhodnocení ohroženosti měkkého cíle.pdf",
+  "mv-vyhodnoceni-ohrozenosti-mekkeho-cile.md", "02-prevence-a-priprava",
+  "Vyhodnocení ohroženosti měkkého cíle aneb co, kdy, kde a od koho vám hrozí",
+  MV_CTHH, "2025-04", "", "Ochrana měkkých cílů (MV)", ""),
+ ("MV - Bezpečnostní plán měkkého cíle.pdf", "mv-bezpecnostni-plan-mekkeho-cile.md",
+  "02-prevence-a-priprava",
+  "Bezpečnostní plán měkkého cíle aneb co by nemělo být opomenuto při jeho zpracování",
+  MV_CTHH, "2025-04", "", "Ochrana měkkých cílů (MV)", "2. upravené vydání"),
+ ("MV - Jak se připravit na závažnou situaci.pdf", "mv-koordinacni-plany-pro-mekke-cile.md",
+  "02-prevence-a-priprava",
+  "Jak se připravit na závažnou situaci? Koordinační plány pro měkké cíle",
+  MV_CTHH, "2025-04", "", "Ochrana měkkých cílů (MV)", ""),
+ ("MV - 10 principů zodolnění měkkého cíle.pdf", "mv-10-principu-zodolneni.md",
+  "02-prevence-a-priprava",
+  "10 principů zodolnění měkkého cíle", MV_CTHH, "", "", "Ochrana měkkých cílů (MV)", ""),
+ ("MŠMT - Spolupráce škol s PČR.pdf", "msmt-spoluprace-skol-s-pcr.md",
+  "02-prevence-a-priprava",
+  "Spolupráce škol a školských zařízení s Policií ČR při prevenci a při vyšetřování "
+  "kriminality dětí a mládeže",
+  MSMT, "2025", "MSMT-6167/2025-1", "Další metodiky", ""),
+
+ ("Škola a neštěstí - Jsme připraveni.pdf", "skola-a-nestesti-jsme-pripraveni.md",
+  "04-po-krizi-a-navrat",
+  "Škola a neštěstí: Jsme připraveni! (metodika pro školy a školská zařízení)",
+  "MŠMT ve spolupráci s MV – GŘ HZS ČR", "2023", "", "Další metodiky", ""),
+ ("MV - Metodika koordinace měkkého cíle po závažném incidentu.pdf",
+  "mv-metodika-koordinace-po-zavaznem-incidentu.md", "04-po-krizi-a-navrat",
+  "Metodika koordinace měkkého cíle pro fáze po závažném incidentu aneb jak se "
+  "vyrovnat s nastalou závažnou situací",
+  MV_CTHH, "2025-04", "", "Ochrana měkkých cílů (MV)", ""),
+
+ ("MD prevence - úvodní část.pdf", "00-md-primarni-prevence-uvodni-cast.md",
+  "05-rizikove-chovani",
+  "Metodické doporučení k primární prevenci rizikového chování — úvodní část",
+  MSMT, "2010", MD_CJ, MD_PREVENCE, "úvodní část"),
+ ("MŠMT - Záškoláctví.pdf", "msmt-zaskolactvi.md", "05-rizikove-chovani",
+  "Metodické doporučení k prevenci a postihu záškoláctví a omlouvání žáků z vyučování",
+  MSMT, "2026", "", "Další metodiky", ""),
+]
+
+# prilohy MD k primarni prevenci: cislo, zdrojovy nazev, vystup, nazev, cj, datum
+_PRIL = [
+ ("01", "Návykové látky", "navykove-latky", "", ""),
+ ("02", "Rizikové chování v dopravě", "rizikove-chovani-v-doprave", "", "2026-04"),
+ ("03", "Poruchy příjmu potravy", "poruchy-prijmu-potravy", "MSMT-28152/2022-1", "2023"),
+ ("04", "Alkohol", "alkohol", "MSMT-36941/2018-1", "2018"),
+ ("05", "Týrané, zneužívané a zanedbávané dítě", "tyrane-zneuzivane-zanedbavane-dite",
+  "MSMT-3262/2024-1", "2024"),
+ ("06", "Školní šikana", "skolni-sikana", "", ""),
+ ("07", "Kybernetická agrese", "kyberneticka-agrese", "", ""),
+ ("08", "Homofobie", "homofobie", "", ""),
+ ("09", "Extremismus, rasismus, xenofobie, antisemitismus", "extremismus-rasismus-xenofobie", "", ""),
+ ("10", "Vandalismus", "vandalismus", "MSMT-32549/2017-1", "2017"),
+ ("12", "Krádeže", "kradeze", "", ""),
+ ("13", "Tabákové výrobky", "tabakove-vyrobky", "MSMT-11112/2022-2", "2022"),
+ ("14", "Krizové situace spojené s násilím", "krizove-situace-spojene-s-nasilim",
+  "MSMT-1398/2015-1", "2015"),
+ ("15", "Netolismus", "netolismus", "MSMT-1999/2015", "2015"),
+ ("16", "Sebepoškozování", "sebeposkozovani", "MSMT-1999/2015", "2015"),
+ ("17", "Nová náboženská hnutí", "nova-nabozenska-hnuti", "MSMT-1999/2015", "2015"),
+ ("18", "Rizikové sexuální chování", "rizikove-sexualni-chovani", "", "2025-01"),
+ ("19", "Příslušnost k subkulturám", "prislusnost-k-subkulturam", "MSMT-1999/2015", "2015"),
+ ("21", "Hazardní hraní", "hazardni-hrani", "", ""),
+ ("22", "Žáci s PAS", "zaci-s-pas", "MSMT-5217/2017-1", "2017"),
+ ("23", "Psychická krize a duševní onemocnění", "psychicka-krize-dusevni-onemocneni", "", "2020"),
+ ("24", "Sebevražedné chování", "sebevrazedne-chovani", "", "2023"),
+]
+for _c, _nazev, _slug, _cj, _dat in _PRIL:
+    NOVE.append((f"MD prevence - příloha {_c} - {_nazev}.pdf",
+                 f"priloha-{_c}-{_slug}.md", "05-rizikove-chovani/prilohy",
+                 _nazev, MSMT, _dat, _cj or MD_CJ, MD_PREVENCE, f"příloha č. {int(_c)}"))
+
+# prilohy 8-14 prilohy c. 24: samostatne karty pro skolu a zakonne zastupce
+_K24 = [
+ ("08", "Bezpečnostní plán pro žáky", "bezpecnostni-plan-pro-zaky"),
+ ("09", "Varovné znaky sebevražedného jednání", "varovne-znaky-sebevrazedneho-jednani"),
+ ("11", "Podpůrný rozhovor s žákem", "podpurny-rozhovor-s-zakem"),
+ ("12", "Krizový plán pozůstalá třída", "krizovy-plan-pozustala-trida"),
+ ("13", "Při rozhovoru s dítětem nezapomeňte", "pri-rozhovoru-s-ditetem-nezapomente"),
+ ("14", "Mé dítě má myšlenky na sebevraždu", "me-dite-ma-myslenky-na-sebevrazdu"),
+]
+for _c, _nazev, _slug in _K24:
+    NOVE.append((f"MD prevence - příloha 24-{_c} - {_nazev}.pdf",
+                 f"karta-{_c}-{_slug}.md", "05-rizikove-chovani/priloha-24-karty",
+                 _nazev, MSMT, "2023", "", MD_PREVENCE,
+                 f"příloha č. 24, příloha {int(_c)}"))
+
+# formulare a sablony z .docx
+NOVE_DOCX = [
+ ("MD prevence - příloha 05-1 - šablona oznámení na OSPOD.docx",
+  "sablona-oznameni-na-ospod.md", "05-rizikove-chovani/priloha-05-sablony",
+  "Šablona oznámení na OSPOD (žádost o prošetření podle § 10 zákona č. 359/1999 Sb.)",
+  MSMT, "2024", "MSMT-3262/2024-1", MD_PREVENCE, "příloha č. 5, šablona 1"),
+ ("MD prevence - příloha 05-2 - šablona oznámení na PČR.docx",
+  "sablona-oznameni-na-pcr.md", "05-rizikove-chovani/priloha-05-sablony",
+  "Šablona oznámení na PČR nebo státní zastupitelství (podezření ze spáchání trestného činu)",
+  MSMT, "2024", "MSMT-3262/2024-1", MD_PREVENCE, "příloha č. 5, šablona 2"),
+ ("MD prevence - příloha 05-3 - šablona seznam regionálních odborníků.docx",
+  "sablona-seznam-regionalnich-odborniku.md", "05-rizikove-chovani/priloha-05-sablony",
+  "Šablona seznamu regionálních odborníků spolupracujících se školou (syndrom CAN)",
+  MSMT, "2024", "MSMT-3262/2024-1", MD_PREVENCE, "příloha č. 5, šablona 3"),
+ ("MD prevence - příloha 22 - formulář Krizový plán PAS.docx",
+  "priloha-22-formular-krizovy-plan-pas.md", "05-rizikove-chovani/prilohy",
+  "Krizový plán pro prevenci vzniku problémových situací týkajících se žáka s PAS (formulář)",
+  MSMT, "2017", "MSMT-5217/2017-1", MD_PREVENCE, "příloha č. 22 – formulář"),
+]
+
+FAZE["05-rizikove-chovani"] = (
+    "Rizikové chování",
+    "Typy rizikového chování žáků a co s nimi — od návykových látek přes šikanu "
+    "po sebevražedné chování. Jde napříč fázemi: každá příloha má prevenci, "
+    "intervenci i následnou péči.",
+    [])
+
+SUBDIR.update({e[1]: e[2] for e in NOVE})
+SUBDIR.update({e[1]: e[2] for e in NOVE_DOCX})
+
+
+def _nove_meta(e, pages):
+    src, out, folder, title, vydal, datum, cj, dokument, cast = e
+    m = [f"title: {yaml_str(title)}", f"dokument: {yaml_str(dokument)}"]
+    if cast:
+        m.append(f"cast: {yaml_str(cast)}")
+    m.append(f"vydal: {yaml_str(vydal)}")
+    if cj:
+        m.append(f"cj: {yaml_str(cj)}")
+    if datum:
+        m.append(f"datum: {yaml_str(datum)}")
+    m += [f"zdroj: {yaml_str('../../zdrojova-data/' + src)}" if folder.count("/") == 0
+          else f"zdroj: {yaml_str('../../../zdrojova-data/' + src)}",
+          f"stran: {pages}",
+          f"faze: {yaml_str(folder.split('/')[0])}"]
+    return m
+
+
+class _Prerovnane:
+    """PDF, ve kterem jsou vicesloupcove stranky prerovnane do poradi cteni."""
+
+    def __init__(self, pdf):
+        self.pages, self.sloupcove = [], 0
+        for p in pdf.pages:
+            np = pdf_sloupce.prerovnat(p)
+            self.sloupcove += np is not None
+            self.pages.append(np or p)
+
+
+def build_nove(e, outdir):
+    src, out = e[0], e[1]
+    path = os.path.join("zdrojova-data", src)
+    with pdfplumber.open(path) as pdf:
+        doc = _Prerovnane(pdf)
+        blocks, body = pdf_obecny.parse(doc, skip_extra=SKIP_LINES)
+        pages = len(doc.pages)
+    md = pdf_obecny.to_markdown(blocks, body, _nove_meta(e, pages), e[3])
+    if doc.sloupcove:
+        md = pdf_sloupce.spojit_deleni(md)
+    open(out_path(outdir, out), "w", encoding="utf-8").write(md)
+    return out, e[3]
+
+
+def build_nove_docx(e, outdir):
+    """Šablony dopisů a formuláře: odstavce a tabulky v původním pořadí."""
+    src, out = e[0], e[1]
+    d = docx.Document(os.path.join("zdrojova-data", src))
+    body = d.element.body
+    paras = {p._p: p for p in d.paragraphs}
+    tables = {t._tbl: t for t in d.tables}
+    lines = []
+    for child in body.iterchildren():
+        if child in paras:
+            p = paras[child]
+            txt = re.sub(r"\s+", " ", p.text).strip()
+            if not txt:
+                continue
+            style = (p.style.name or "").lower()
+            bold = all(r.bold for r in p.runs if r.text.strip()) and any(
+                r.text.strip() for r in p.runs)
+            if style.startswith("heading") or (bold and len(txt) < 90):
+                lines += ["", "## " + txt.rstrip(":"), ""]
+            else:
+                lines.append(txt)
+        elif child in tables:
+            t = tables[child]
+            rows = [[re.sub(r"\s+", " ", c.text).strip() for c in r.cells] for r in t.rows]
+            rows = [r for r in rows if any(r)]
+            if not rows:
+                continue
+            width = max(len(r) for r in rows)
+            lines.append("")
+            for i, r in enumerate(rows):
+                r = r + [""] * (width - len(r))
+                lines.append("| " + " | ".join(x.replace("|", "\\|") for x in r) + " |")
+                if i == 0:
+                    lines.append("| " + " | ".join(["---"] * width) + " |")
+            lines.append("")
+    md = ["---"] + _nove_meta(e, 1) + ["---", "", "# " + e[3], ""] + lines
+    text = re.sub(r"\n{3,}", "\n\n", "\n".join(md)).rstrip() + "\n"
+    open(out_path(outdir, out), "w", encoding="utf-8").write(text)
+    return out, e[3]
+
+
 if __name__ == "__main__":
     outdir = "data"
     os.makedirs(outdir, exist_ok=True)
@@ -405,9 +660,16 @@ if __name__ == "__main__":
     for e in MAP2:
         o, t, _ = build_generic(e, outdir)
         titles[o], sources[o] = t, e[5] if e[5] != "Doporučení AMOK" else "Doporučení AMOK (PČR)"
+    for e in NOVE:
+        o, t = build_nove(e, outdir)
+        titles[o], sources[o] = t, e[7]
+    for e in NOVE_DOCX:
+        o, t = build_nove_docx(e, outdir)
+        titles[o], sources[o] = t, e[7]
 
     write_readme(outdir)
     for folder, (nazev, _, files) in FAZE.items():
         print(f"\n== {folder}  ({nazev})")
-        for f in files:
+        for f in sorted(set(files) | {k for k, v in SUBDIR.items()
+                                      if v.split("/")[0] == folder}):
             print(f"   {f:52} {titles[f][:48]}")

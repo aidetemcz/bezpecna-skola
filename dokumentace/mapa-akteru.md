@@ -103,6 +103,8 @@ Nepřipravuje se v krizi, připravuje se předem.
 | --- | --- | --- | --- |
 | **OSPOD** | Ohrožené dítě; **při bagatelizaci či nespolupráci rodičů** | Popis situace, co škola už udělala, co potřebuje | [AMOK 1](../data/02-prevence-a-priprava/amok-01-prevence-a-pripravenost.md), [AMOK 7](../data/03-krizova-reakce/amok-07-podezreni-na-zbran-ve-skole.md) |
 | **OSPOD** | Po incidentu — postoupení záznamu | Formulář *Záznam o bezpečnostním incidentu* | [příloha 5](../data/04-po-krizi-a-navrat/priloha-05-evidence-bezpecnostnich-incidentu.md) |
+| **OSPOD** | Podezření na týrané, zneužívané či zanedbávané dítě | Žádost o prošetření podle § 10 zákona č. 359/1999 Sb. — **hotová šablona** | [šablona MŠMT](../data/05-rizikove-chovani/priloha-05-sablony/sablona-oznameni-na-ospod.md) |
+| **PČR / státní zastupitelství** | Podezření ze spáchání trestného činu | Oznámení — **hotová šablona** | [šablona MŠMT](../data/05-rizikove-chovani/priloha-05-sablony/sablona-oznameni-na-pcr.md) |
 | **Kurátor pro děti a mládež** (pracoviště OSPOD) | Navazující práce s dítětem | Kurátor je **koordinátorem případu**, síťuje služby | [MPSV](../data/04-po-krizi-a-navrat/mpsv-metodicka-prirucka-pro-kuratory.md) |
 | **Státní zastupitelství** | Okolnosti nasvědčují spáchání trestného činu | Oznámení. Korpus: *„je každý povinen učinit oznámení Policii ČR nebo státnímu zastupitelství"* | [příloha 5](../data/04-po-krizi-a-navrat/priloha-05-evidence-bezpecnostnich-incidentu.md) |
 | **Státní zastupitelství** | V odůvodněných případech vedle OSPOD | Korpus odkazuje na § 31 odst. 3 a 5 školského zákona | [AMOK 2](../data/02-prevence-a-priprava/amok-02-skoly-signaly-detekce-hodnoceni-reakce.md) |
@@ -124,9 +126,11 @@ Poctivě: tahle mapa má díry, protože je mají zdrojová data.
   ukázat, co zákon říká, ne rozhodnout, zda povinnost v konkrétním případě
   vznikla. Školský zákon a trestní zákoník jsou v korpusu jen ve výtahu
   v [příloze 2](../data/01-ramec-a-legislativa/priloha-02-legislativa.md).
-- **Krizová intervence a následná péče.** Kdo poskytuje, jak se objednává,
-  kdo platí — nikde. Chybějící dokument *Škola a neštěstí: Jsme připraveni!*
-  míří přesně sem.
+- **Krizová intervence a následná péče.** Doplněno: metodika
+  [*Škola a neštěstí: Jsme připraveni!*](../data/04-po-krizi-a-navrat/skola-a-nestesti-jsme-pripraveni.md)
+  pokrývá psychosociální pomoc, komunikaci se zasaženými i právní minimum.
+  Kdo konkrétně službu poskytuje a kdo ji platí, ale zůstává na místních
+  kontaktech v profilu školy.
 - **ČŠI, MŠMT a kraj** jako adresáti hlášení: korpus je nezmiňuje v roli
   příjemce oznámení o incidentu.
 - **Konkrétní kontakty.** Korpus je celostátní; místní OSPOD, PPP a zřizovatele
